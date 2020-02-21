@@ -1,0 +1,10 @@
+Install the server first: 
+    npm install -g json-server
+
+Add script to run to the package.json
+    "scripts": {
+        "mock:api": "json-server --watch api/db.json --port 4000"
+    }
+
+To run the server on a specific port 
+    npm run mock:api

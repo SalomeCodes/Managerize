@@ -1,0 +1,26 @@
+.container{
+    display: flex;
+    width: 100%;
+    justify-content: flex-start;
+
+}
+.end {
+    justify-content: flex-end;
+}
+
+.five{
+    flex: 5;
+
+}
+.three{
+    flex: 2;
+
+}
+.one{
+    flex: 1;
+
+}
+
+div{
+    margin: 5px;
+}

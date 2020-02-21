@@ -1,0 +1,26 @@
+<mat-toolbar color="primary">
+    <mat-toolbar-row>
+        <button mat-flat-button color="primary" routerLink="/"><span>Factura</span></button>
+        <span class="example-spacer"></span>
+        <button mat-flat-button color="primary" [matMenuTriggerFor]="FacturenMenu">Facturen</button>
+        <mat-menu #FacturenMenu="matMenu">
+            <button mat-menu-item routerLink="facturen">Facturen overzicht</button>
+            <button mat-menu-item routerLink="facturen-toevoegen">Factuur toevoegen</button>
+        </mat-menu>
+        |
+        <button mat-flat-button color="primary" [matMenuTriggerFor]="KlantenMenu">Klanten</button>
+        <mat-menu #KlantenMenu="matMenu">
+            <button mat-menu-item routerLink="klanten">Klanten overzicht</button>
+            <button mat-menu-item routerLink="klanten-toevoegen">Nieuwe klant</button>
+        </mat-menu>
+        |
+        <button mat-flat-button color="primary" [matMenuTriggerFor]="ProductMenu">Producten</button>
+        <mat-menu #ProductMenu="matMenu">
+            <button mat-menu-item routerLink="producten">Producten overzicht</button>
+            <button mat-menu-item routerLink="producten-toevoegen">Nieuw product</button>
+        </mat-menu>
+        |
+        <button mat-flat-button color="primary">Management Dashboard</button>
+    </mat-toolbar-row>
+</mat-toolbar>
+

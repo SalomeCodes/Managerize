@@ -1,0 +1,43 @@
+table {
+    width: 100% !important;
+}
+.mat-column-price{
+    width: 20%;
+}
+.totalpricetag{
+    width: 100%;
+    text-align: right;
+}
+.accordion{
+    bottom: 30%;
+}
+.paginator-outer{
+    position: relative;
+}
+.paginator{
+    position: fixed;
+    bottom: 0%;
+    right: 20%;
+    width: 100%;
+}
+.customer-description-container{
+    width: 80%;
+}
+.payment-check-container{
+    font-size: 20px;
+}
+.payment-result-positive{
+    margin-left: 10px;
+    color: green;
+}
+.payment-result-negative{
+    margin-left: 10px;
+    color: red;
+}
+.mat-expansion-panel-header-description, .mat-expansion-panel-header-title{
+    width: 0;
+}
+
+.mat-table{
+    font-family: 'louis george cafe' !important;
+}

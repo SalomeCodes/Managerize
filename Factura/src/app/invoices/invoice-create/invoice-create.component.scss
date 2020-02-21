@@ -1,0 +1,25 @@
+.alert{
+    width: 100%;
+    height: 10%;
+    border: solid 2px #f5c6cb;
+    border-radius: 10px;
+    background-color: #f8d7da;
+    color: rgb(99, 27, 12);
+    padding-left: 30px;
+}
+
+.invoice-details-customer{
+    font-size: 20px;
+    margin-left: 150px;
+    margin-top: 75px;
+    margin-bottom: 50px;
+}
+.invoice-details-items{
+    margin-bottom: 50px;
+}
+
+.button-container{
+    display: flex;
+    justify-content: space-between;
+}
+

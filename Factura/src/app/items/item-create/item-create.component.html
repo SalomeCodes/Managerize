@@ -1,0 +1,35 @@
+<mat-grid-list cols="10" rowHeight="60px">
+        <mat-grid-tile [colspan]="10" [rowspan]="1">
+            <div style="text-align: left; width: 100%;">
+                <h1>Product toevoegen</h1>
+            </div>
+        </mat-grid-tile>
+</mat-grid-list>
+    
+    <form [formGroup]="itemForm" (ngSubmit)="onSubmit()">
+        <div class="container">
+            <div style="flex: 5;">
+                <mat-form-field style="width:100%;">
+                    <input matInput placeholder="Naam" value="" formControlName="name">
+                </mat-form-field>
+            </div>
+
+            <div style="flex: 3; margin-left: 10px;">
+                <mat-form-field style="width:100%;">
+                        <span matPrefix><fa-icon style="margin-right: 5px;" [icon]="faEuroSign"></fa-icon></span>
+                         <input matInput placeholder="Prijs" value="" formControlName="price">
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="container">
+            <div style="flex: 5;">
+                <mat-form-field style="width:100%;">
+                    <input matInput placeholder="Omschrijving" value="" formControlName="description">
+                </mat-form-field>
+            </div>
+        </div>
+        
+        <div class="container end">
+            <button mat-raised-button color="primary">Toevoegen</button>
+        </div> 
+    </form>

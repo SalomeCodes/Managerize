@@ -1,0 +1,56 @@
+<mat-grid-list cols="10" rowHeight="60px">
+    <mat-grid-tile [colspan]="7" [rowspan]="1">
+        <div style="text-align: left; width: 100%;">
+            <h1>Factuur maken</h1>
+        </div>
+    </mat-grid-tile>
+</mat-grid-list>
+
+<div *ngIf="selectedCustomer == null" class="alert">
+  <p>
+    <b>Er is geen klant geselecteerd</b>
+  </p>
+</div>
+
+<p *ngIf="selectedCustomer != null">
+  {{selectedCustomer.name}} {{selectedCustomer.prefix}} {{selectedCustomer.surname}}
+  <br>
+  {{selectedCustomer.street}} {{selectedCustomer.houseNumber}}
+  <br>
+  {{selectedCustomer.zipcode}} {{selectedCustomer.place}}
+</p>
+
+<mat-horizontal-stepper [linear]="isLinear" #stepper>
+        <mat-step [stepControl]="firstFormGroup">
+          <form [formGroup]="firstFormGroup">
+            <ng-template matStepLabel>Klant selecteren</ng-template>
+              <app-invoice-customer-selector (selectedCustomer)="selectCustomer($event)"></app-invoice-customer-selector>
+            <div class="button-container">
+              <button style="justify-content: flex-end;" mat-stroked-button color="primary" matStepperNext>Volgende</button>
+            </div>
+          </form>
+        </mat-step>
+        <mat-step [stepControl]="secondFormGroup">
+          <form [formGroup]="secondFormGroup">
+            <ng-template matStepLabel>Producten toevoegen</ng-template>
+            <app-invoice-items-selector (invoiceLines)="addItem($event)"></app-invoice-items-selector>
+            <div class="button-container">
+              <button mat-stroked-button color="primary" matStepperPrevious>Terug</button>
+              <button mat-stroked-button color="primary" matStepperNext>Volgende</button>
+            </div>
+          </form>
+        </mat-step>
+        <mat-step [stepControl]="secondFormGroup">
+            <form [formGroup]="secondFormGroup">
+                <ng-template matStepLabel>Factuur controleren</ng-template>
+                
+                  <app-invoice-checkup [invoiceLines]="invoiceLines" [selectedCustomer]="selectedCustomer"></app-invoice-checkup>
+
+                <div class="button-container">
+                  <button mat-stroked-button color="primary" matStepperPrevious>Annuleren</button>
+                  <button mat-stroked-button color="primary" matStepperNext>Opslaan en printen</button>
+                </div>
+            </form>
+        </mat-step>
+      </mat-horizontal-stepper>
+      

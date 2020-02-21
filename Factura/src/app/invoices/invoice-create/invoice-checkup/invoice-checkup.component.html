@@ -1,0 +1,57 @@
+<div class="invoice-details-customer" *ngIf="selectedCustomer != null">
+    {{selectedCustomer.name}} {{selectedCustomer.prefix}} {{selectedCustomer.surname}}
+    <br>
+    {{selectedCustomer.street}} {{selectedCustomer.houseNumber}}
+    <br>
+    {{selectedCustomer.zipcode}} {{selectedCustomer.place}}
+  </div>
+
+  <div style="display: flex; justify-content: space-between; align-items: flex-end;">
+    <div>
+      <h1>Factuur</h1>
+    </div>
+    <div>
+      Factuurdatum: {{date | date:'dd-MM-yyyy'}}
+    </div>
+  </div>
+  
+
+  <table *ngIf="invoiceLines != 0" mat-table [dataSource]="invoiceLines" class="table">
+    
+    <!-- Position Column -->
+    <ng-container matColumnDef="description">
+      <mat-header-cell *matHeaderCellDef> Omschrijving </mat-header-cell>
+      <mat-cell *matCellDef="let item"> {{item.item.description}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="amount">
+      <mat-header-cell *matHeaderCellDef> Aantal </mat-header-cell>
+      <mat-cell *matCellDef="let item"> {{item.amount}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="price">
+      <mat-header-cell *matHeaderCellDef> Stukprijs </mat-header-cell>
+      <mat-cell *matCellDef="let item"> € {{item.item.price}} </mat-cell>
+    </ng-container>
+  
+    <ng-container matColumnDef="totalPrice">
+      <mat-header-cell *matHeaderCellDef> Totaal Excl. </mat-header-cell>
+      <mat-cell *matCellDef="let item"> € {{item.item.price * item.amount}} </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </table>
+
+  <div style="display: flex; justify-content: flex-end; flex-direction: row; align-content: flex-end; margin-bottom: 50px;">
+    <div style="width: 150px;">
+      <b>Subtotaal</b>  <br> 
+      21% BTW           <br><br>
+      <b>Totaal</b>     
+    </div>
+    <div style="width: 100px; text-align: right;">
+      € 30,00           <br>
+      € 10,00           <br><br>
+      <b>€ 40,00</b>    
+    </div>
+  </div>

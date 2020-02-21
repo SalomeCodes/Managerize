@@ -1,0 +1,285 @@
+{
+  "items": [
+    {
+      "id": 1,
+      "name": "Bemesten",
+      "description": "Injecteren",
+      "price": "45.00"
+    },
+    {
+      "id": 2,
+      "name": "Rondebalen",
+      "description": "Rondebalen persen",
+      "price": "13.50"
+    },
+    {
+      "id": 3,
+      "name": "Transport",
+      "description": "Rondebalen vervoeren",
+      "price": "35"
+    },
+    {
+      "name": "Hakselen",
+      "price": "65",
+      "description": "Grashakselen",
+      "id": 4
+    },
+    {
+      "name": "Software development",
+      "price": "70,00",
+      "description": "Development of a web application ",
+      "id": 5
+    }
+  ],
+  "customers": [
+    {
+      "id": 1,
+      "name": "Karel",
+      "prefix": "de",
+      "surname": "Groot",
+      "place": "Mierlo",
+      "street": "Van Abbenstraat",
+      "zipcode": "5709KP",
+      "houseNumber": "11",
+      "email": "karelgroot@hotmail.com",
+      "phoneNumber": "+31653896391"
+    },
+    {
+      "id": 2,
+      "name": "Fabian",
+      "prefix": "",
+      "surname": "Kleijssen",
+      "place": "Lierop",
+      "street": "Willem-Alexanderlaan",
+      "zipcode": "5611WP",
+      "houseNumber": "35",
+      "email": "fabian.k@upc.nl",
+      "phoneNumber": "+3165329107"
+    },
+    {
+      "id": 3,
+      "name": "Caroline",
+      "prefix": "van",
+      "surname": "Velden",
+      "street": "Nieuwendijk",
+      "zipcode": "5712KJ",
+      "place": "Someren-Eind",
+      "housenumber": "23",
+      "email": "carolinevanvelden@kpnplanet.nl",
+      "phoneNumber": "0493-471293"
+    },
+    {
+      "name": "Peter",
+      "prefix": "",
+      "surname": "Kanters",
+      "street": "Belienberkdijk",
+      "zipcode": "5712PL",
+      "place": "Someren-Eind",
+      "housenumber": "55",
+      "id": 4,
+      "email": "p.kanters@chello.nl",
+      "phoneNumber": "+31678038271"
+    },
+    {
+      "name": "Bob",
+      "prefix": "",
+      "surname": "Smith",
+      "street": "Lakepark Avenue",
+      "zipcode": "928370",
+      "place": "New York",
+      "housenumber": "76",
+      "id": 5,
+      "email": "bobsmith@gmail.com",
+      "phoneNumber": "040 678038271"
+    }
+  ],
+  "invoices": [
+    {
+      "id": 1,
+      "title": "27-05-2019 Karel de Groot",
+      "creationDate": "27/05/2019",
+      "dateSent": "28/05/2019",
+      "datePayed": "15/06/2019",
+      "totalPrice": "2500.95",
+      "customer": {
+        "name": "Karel",
+        "prefix": "de",
+        "surname": "Groot",
+        "place": "Mierlo",
+        "street": "Van Abbenstraat",
+        "zipcode": "5709KP",
+        "houseNumber": "11"
+      },
+      "invoiceLines": [
+        {
+          "id": 1,
+          "item": {
+            "name": "Bemesten",
+            "description": "Injecteren",
+            "price": "45.00"
+          },
+          "amount": "5",
+          "unit": "uur"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "09-05-2019 Fabian Kleijssen",
+      "creationDate": "09/06/2019",
+      "dateSent": "09/06/2019",
+      "datePayed": "2020-02-17T17:30:31.061Z",
+      "totalPrice": "2345.00",
+      "payedAmount": "5001845",
+      "customer": {
+        "name": "Fabian",
+        "prefix": "",
+        "surname": "Kleijssen",
+        "place": "Lierop",
+        "street": "Willem-Alexanderlaan",
+        "zipcode": "5611WP",
+        "houseNumber": "35"
+      },
+      "invoiceLines": [
+        {
+          "id": 2,
+          "item": {
+            "name": "Rondebalen",
+            "description": "Rondebalen persen",
+            "price": "13.50"
+          },
+          "amount": "22",
+          "unit": "stuk(s)"
+        },
+        {
+          "id": 3,
+          "item": {
+            "name": "Transport",
+            "description": "Rondebalen vervoeren",
+            "price": "35"
+          },
+          "amount": "3",
+          "unit": "uur"
+        },
+        {
+          "id": 2,
+          "item": {
+            "name": "Rondebalen",
+            "description": "Rondebalen persen",
+            "price": "13.50"
+          },
+          "amount": "22",
+          "unit": "stuk(s)"
+        },
+        {
+          "id": 2,
+          "item": {
+            "name": "Rondebalen",
+            "description": "Rondebalen persen",
+            "price": "13.50"
+          },
+          "amount": "22",
+          "unit": "stuk(s)"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "13-07-2019 Karel de Groot",
+      "creationDate": "13/07/2019",
+      "dateSent": "13/07/2019",
+      "datePayed": "",
+      "totalPrice": "3342.00",
+      "customer": {
+        "name": "Karel",
+        "prefix": "de",
+        "surname": "Groot",
+        "place": "Mierlo",
+        "street": "Van Abbenstraat",
+        "zipcode": "5709KP",
+        "houseNumber": "11"
+      },
+      "invoiceLines": [
+        {
+          "id": 2,
+          "item": {
+            "name": "Rondebalen",
+            "description": "Rondebalen persen",
+            "price": "13.50"
+          },
+          "amount": "22",
+          "unit": "stuk(s)"
+        },
+        {
+          "id": 3,
+          "item": {
+            "name": "Transport",
+            "description": "Rondebalen vervoeren",
+            "price": "35"
+          },
+          "amount": "3",
+          "unit": "uur"
+        }
+      ],
+      "payedAmount": 42
+    },
+    {
+      "id": 4,
+      "title": "23-05-2019 Fabian Kleijssen",
+      "creationDate": "23/07/2019",
+      "dateSent": "01/08/2019",
+      "datePayed": "02/08/2019",
+      "totalPrice": "2200.00",
+      "customer": {
+        "name": "Fabian",
+        "prefix": "",
+        "surname": "Kleijssen",
+        "place": "Lierop",
+        "street": "Willem-Alexanderlaan",
+        "zipcode": "5611WP",
+        "houseNumber": "35"
+      },
+      "invoiceLines": [
+        {
+          "id": 1,
+          "item": {
+            "name": "Bemesten",
+            "description": "Injecteren",
+            "price": "45.00"
+          },
+          "amount": "5",
+          "unit": "uur"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "title": "",
+      "creationDate": "",
+      "dateSent": "",
+      "datePayed": "",
+      "customer": {
+        "name": "",
+        "prefix": "",
+        "surname": "",
+        "place": "",
+        "street": "",
+        "zipcode": "",
+        "houseNumber": ""
+      },
+      "invoiceLines": [
+        {
+          "id": 1,
+          "item": {
+            "name": "",
+            "description": "",
+            "price": ""
+          },
+          "amount": "",
+          "unit": ""
+        }
+      ],
+      "payedAmount": 12
+    }
+  ]
+}
