@@ -14,13 +14,13 @@ Managerize focuses on small organizations to meet their requirements by a set of
 5. [Stakeholders][6]
 6. [Project checks][7] 
 
-[1]: https://github.com/SalomeCodes/Managerize/blob/master/documentation/project-initiation-document.md#project-definition
-[2]: https://github.com/SalomeCodes/Managerize/blob/master/documentation/project-initiation-document.md#project-objectives-and-success-criteria
-[3]: https://github.com/SalomeCodes/Managerize/blob/master/documentation/project-initiation-document.md#project-size
-[4]: https://github.com/SalomeCodes/Managerize/blob/master/documentation/project-initiation-document.md#organization
-[5]: https://github.com/SalomeCodes/Managerize/blob/master/documentation/project-initiation-document.md#limits--tasks
-[6]: https://github.com/SalomeCodes/Managerize/blob/master/documentation/project-initiation-document.md#stakeholders
-[7]: https://github.com/SalomeCodes/Managerize/blob/master/documentation/project-initiation-document.md#project-checks
+[1]: https://github.com/SalomeCodes/Managerize/blob/master/documentation/project-initiation-document.md#1-project-definition
+[2]: https://github.com/SalomeCodes/Managerize/blob/master/documentation/project-initiation-document.md#2-project-objectives-and-success-criteria
+[3]: https://github.com/SalomeCodes/Managerize/blob/master/documentation/project-initiation-document.md#3-project-size
+[4]: https://github.com/SalomeCodes/Managerize/blob/master/documentation/project-initiation-document.md#4-organization
+[5]: https://github.com/SalomeCodes/Managerize/blob/master/documentation/project-initiation-document.md#5-limits--tasks
+[6]: https://github.com/SalomeCodes/Managerize/blob/master/documentation/project-initiation-document.md#6-stakeholders
+[7]: https://github.com/SalomeCodes/Managerize/blob/master/documentation/project-initiation-document.md#7-project-checks
 
 ## 1. Project definition
 Facilitation to track business processes through an integrated software system is the main objective for Managerize. This integrated view of company data should enhance information sharing and collaboration across functional and corporate boundaries. For Managerize there are five main segments that most likely improve the organization; namely efficiency, cost reduction, quality, profitability and decentralization. 
@@ -59,13 +59,13 @@ A set of small services represent Managerize as a whole. Each service, used as b
     * Chure predictions
 
 
-## Project size
+## 3. Project size
 
-## Organization
+## 4. Organization
 
-## Limits & Tasks
+## 5. Limits & Tasks
 
-## Stakeholders
+## 6. Stakeholders
 
-## Project checks
+## 7. Project checks
 
