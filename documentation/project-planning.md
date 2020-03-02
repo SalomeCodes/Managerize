@@ -1,4 +1,4 @@
-# Project initiation document
+# Project planning
 
 ## Foreword
 Nowadays it’s impossible to imagine an organization without an Enterprise Resource Planning system, later written as ERP. As many organizations are modernizing their business, for example due to the automation of processes, adding new techniques to their processes, adding artificial intelligence to predict and many ideas more. The ERP systems as we know them today are likely to become a reliability in such modern organizations, by cause of the rigidity they come with. In fact the system tend to lose functionality and doesn’t meet the business requirements to it's full potential anymore. 
