@@ -16,17 +16,17 @@
       "id": 3,
       "name": "Transport",
       "description": "Rondebalen vervoeren",
-      "price": "35"
+      "price": "35.00"
     },
     {
       "name": "Hakselen",
-      "price": "65",
+      "price": "65.00",
       "description": "Grashakselen",
       "id": 4
     },
     {
       "name": "Software development",
-      "price": "70,00",
+      "price": "70.00",
       "description": "Development of a web application ",
       "id": 5
     }
@@ -188,7 +188,7 @@
       "title": "13-07-2019 Karel de Groot",
       "creationDate": "13/07/2019",
       "dateSent": "13/07/2019",
-      "datePayed": "",
+      "datePayed": "2020-03-02T14:15:53.939Z",
       "totalPrice": "3342.00",
       "customer": {
         "name": "Karel",
@@ -221,7 +221,7 @@
           "unit": "uur"
         }
       ],
-      "payedAmount": 42
+      "payedAmount": 3342
     },
     {
       "id": 4,

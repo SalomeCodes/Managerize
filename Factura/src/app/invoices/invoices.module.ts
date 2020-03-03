@@ -28,6 +28,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { InvoiceItemsSelectorComponent } from './invoice-create/invoice-items-selector/invoice-items-selector.component';
 import { ItemAddedComponent } from './invoice-create/invoice-items-selector/invoice-added-item-snackbar/invoice-added-item';
 import { InvoiceCheckupComponent } from './invoice-create/invoice-checkup/invoice-checkup.component';
+import { InvoiceCreateService } from './invoice-create/invoice-create.service';
 
 @NgModule({
   declarations: [
@@ -68,6 +69,9 @@ import { InvoiceCheckupComponent } from './invoice-create/invoice-checkup/invoic
   entryComponents: [
     PaymentDialogComponent, 
     ItemAddedComponent
+  ],
+  providers: [
+    InvoiceCreateService
   ]
 })
 export class InvoicesModule { }

@@ -5,6 +5,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { ItemAddedComponent } from './invoice-added-item-snackbar/invoice-added-item';
 import { faFilter, faPlusCircle } from '@fortawesome/free-solid-svg-icons';
 import { InvoiceLine } from 'src/app/models/InvoiceLine';
+import { InvoiceCreateService } from '../invoice-create.service';
 
 @Component({
   selector: 'app-invoice-items-selector',
@@ -23,7 +24,8 @@ export class InvoiceItemsSelectorComponent implements OnInit {
 
   constructor(
     private itemService: ItemsService,
-    private _snackbar: MatSnackBar
+    private _snackbar: MatSnackBar,
+    private invoiceService: InvoiceCreateService
     ) { }
 
   ngOnInit() {
@@ -39,6 +41,8 @@ export class InvoiceItemsSelectorComponent implements OnInit {
     invoiceLine.item = item;
     invoiceLine.amount = amount;
 
+    this.invoiceService.addInvoiceLine(invoiceLine);
+    
     this.invoiceLines.emit(invoiceLine);
 
     this._snackbar.openFromComponent(ItemAddedComponent, {

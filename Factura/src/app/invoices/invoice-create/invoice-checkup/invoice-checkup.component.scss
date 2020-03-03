@@ -27,3 +27,14 @@ mat-header-cell {
 div{
     font-family: 'louis george cafe' !important;
 }
+
+.align-right{
+    display: flex;
+    padding: 21px 0;
+    justify-content: flex-end;
+}
+
+.invoice-checkup-details-customer{
+    display: flex;
+    justify-content: flex-end;
+}

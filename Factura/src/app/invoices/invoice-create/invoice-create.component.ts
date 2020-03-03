@@ -3,8 +3,8 @@ import {  FormGroup,
           FormBuilder,
           Validators } from '@angular/forms';
 import { Customer } from 'src/app/models/Customer';
-import { Item } from 'src/app/models/Item';
 import { InvoiceLine } from 'src/app/models/InvoiceLine';
+import { InvoiceCreateService } from './invoice-create.service';
 
 @Component({
   selector: 'app-invoice-create',
@@ -19,7 +19,10 @@ export class InvoiceCreateComponent implements OnInit {
   selectedCustomer: Customer;
   invoiceLines: InvoiceLine[] = [];
 
-  constructor(private _formBuilder: FormBuilder) {}
+  constructor(
+      private _formBuilder: FormBuilder,
+      private invoiceService: InvoiceCreateService
+    ) {}
 
   ngOnInit() {
     this.firstFormGroup = this._formBuilder.group({
