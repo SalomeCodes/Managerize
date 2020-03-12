@@ -3,7 +3,7 @@
 ## Foreword
 Nowadays it’s impossible to imagine an organization without an Enterprise Resource Planning system, later written as ERP. As many organizations are modernizing their business, for example due to the automation of processes, adding new techniques to their processes, adding artificial intelligence to predict and many ideas more. The ERP systems as we know them today are likely to become a reliability in such modern organizations, by cause of the rigidity they come with. In fact the system tend to lose functionality and doesn’t meet the business requirements to it's full potential anymore. 
 
-Managerize focuses on small organizations to meet their requirements by a set of predefined settings, including the ability to add new features quickly as a service in any possible programming language. Also Managerize is a package consistent of separate small autonomous services, thus capable to be modified to any particular organization.
+Managerize focuses on small organizations to meet their requirements by a set of predefined settings, including the ability to add new features quickly as a service in any possible programming language. Also Managerize is a package consistent of separate small autonomous services, thus capable to be modificated/extented to any particular organization.
 
 ## Contents
 1. [Definition][1]
@@ -57,7 +57,6 @@ A set of small services represent Managerize as a whole. Each service, used as b
 * Business predictions 
     * Financial predictions
     * Chure predictions
-
 
 ## 3. Project size
 
