@@ -38,7 +38,7 @@ namespace InvoiceService
             app.UseRouting();
 
             app.UseAuthorization();
-            app.UseCors(b => b.AllowAnyOrigin());
+            app.UseCors(b => b.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
 
             app.UseEndpoints(endpoints =>
             {
