@@ -15,5 +15,6 @@ namespace Managerize.InvoiceService.Models
 
         public List<InvoiceLine> InvoiceLines { get; set; }
         public Customer Customer { get; set; }
+        public Payment PaymentHistory { get; set; }
     }
 }

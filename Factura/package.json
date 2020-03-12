@@ -8,7 +8,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "mock:api": "json-server --watch invoice-data.json --port 3000"
+    "mock:api": "json-server --watch invoice-data.json --port 57304"
   },
   "private": true,
   "dependencies": {

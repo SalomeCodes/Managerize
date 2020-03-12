@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiUrl: 'prodserver-ip:3000'
+  apiUrl: 'http://173.212.252.62:4001/invoice'
 };

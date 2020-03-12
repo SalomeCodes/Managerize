@@ -12,13 +12,13 @@ const httpOptions = AppSettings.API_HEADER;
 export class InvoicesService {
 
   private baseUrl:string = AppSettings.API_ENDPOINT;
-  private invoicesUrl:string = '/invoices';
+  private invoicesUrl:string = '/invoice';
   private standarUrl: string = this.baseUrl + this.invoicesUrl;
 
   constructor(private httpClient: HttpClient) { }
 
   getInvoices():Observable<Invoice[]>{
-   return this.httpClient.get<Invoice[]>('http://173.212.252.62:4001/invoice', httpOptions);
+   return this.httpClient.get<Invoice[]>(this.standarUrl, httpOptions);
   }
 
   addPayment(invoice: Invoice):Observable<boolean>{

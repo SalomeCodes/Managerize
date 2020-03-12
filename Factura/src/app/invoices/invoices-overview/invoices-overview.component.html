@@ -42,10 +42,10 @@
                     </div>
                     <div class="payment-check-container">
                         <fa-icon [icon]="faEuroSign"></fa-icon>
-                        <span class="payment-result-negative" *ngIf="inv.datePayed == ''">
+                        <span class="payment-result-negative" *ngIf="!inv.datePayed">
                             <fa-icon [icon]="faTimes"></fa-icon>
                         </span>
-                        <span class="payment-result-positive" *ngIf="inv.datePayed != ''">
+                        <span class="payment-result-positive" *ngIf="inv.datePayed">
                             <fa-icon [icon]="faCheck"></fa-icon>
                         </span>
                     </div>
@@ -67,7 +67,7 @@
                 <mat-grid-tile
                     [colspan]="2"
                     [rowspan]="1">
-                    Datum: {{inv.creationDate}}
+                    Datum: {{inv.creationDate | date :'dd-MM-yyyy' }}
                 </mat-grid-tile> 
                           
             </mat-grid-list>
@@ -100,7 +100,7 @@
                 </mat-grid-tile>
             </mat-grid-list>
 
-            <mat-grid-list *ngIf="inv.datePayed == ''" cols="4" rowHeight="50px">
+            <mat-grid-list *ngIf="!inv.datePayed" cols="4" rowHeight="50px">
                 <mat-grid-tile [colspan]="3" [rowspan]="1">
                     <u class="totalpricetag">Nog te betalen:</u> 
                 </mat-grid-tile>
@@ -115,7 +115,7 @@
 
             <mat-grid-list cols="4" rowHeight="50px">
                 <mat-grid-tile [colspan]="3" [rowspan]="1"></mat-grid-tile>
-                <mat-grid-tile [colspan]="1" [rowspan]="1" *ngIf="inv.datePayed == ''">
+                <mat-grid-tile [colspan]="1" [rowspan]="1" *ngIf="!inv.datePayed">
                         <button mat-raised-button color="primary" (click)="openDialog(inv)">Betaling toevoegen</button>
                 </mat-grid-tile> 
             </mat-grid-list>

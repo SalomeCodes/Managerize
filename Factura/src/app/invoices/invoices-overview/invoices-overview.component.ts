@@ -50,12 +50,10 @@ export class InvoicesOverviewComponent implements OnInit {
     this.invoicesService.getInvoices().subscribe(invoices => {
       this.invoices = invoices;
 
-      this.invoicesPerPage = [
-        invoices[0],
-        invoices[1],
-        invoices[2],
-        invoices[3]
-      ];
+      for (var i = 0; i < invoices.length && i < 4; i++) {
+        console.log('invoice')
+        this.invoicesPerPage.push(invoices[i])
+      }
 
       this.pageEvent.length = invoices.length;
     });
