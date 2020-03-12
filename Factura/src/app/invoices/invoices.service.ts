@@ -18,7 +18,7 @@ export class InvoicesService {
   constructor(private httpClient: HttpClient) { }
 
   getInvoices():Observable<Invoice[]>{
-   return this.httpClient.get<Invoice[]>(this.standarUrl, httpOptions);
+   return this.httpClient.get<Invoice[]>('http://173.212.252.62:4001/invoice', httpOptions);
   }
 
   addPayment(invoice: Invoice):Observable<boolean>{
