@@ -1,7 +1,11 @@
 ### STAGE 1: Build ###
 FROM node:12.7-alpine AS build
 WORKDIR /usr/src/app
-RUN npm start --prefix Factura
+CMD ls
+CMD list
+CMD cd Factura
+CMD ls
+CMD list
 COPY package.json ./
 RUN npm install
 COPY . .
