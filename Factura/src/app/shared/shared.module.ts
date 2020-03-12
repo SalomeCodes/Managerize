@@ -20,15 +20,16 @@ import { MatStepperModule } from '@angular/material/stepper';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 import { NavigationComponent } from './navigation/navigation.component';
-import { CustomersOverviewComponent } from '../customers/customers-overview/customers-overview.component';
 
 import { SharedRoutingModule } from './shared-routing.module';
-import { PaymentDialogComponent } from '../invoices/invoices-overview/payment-dialog/payment-dialog.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AutocompleterComponent } from './autocompleter/autocompleter/autocompleter.component';
-import { CustomerCreateComponent } from '../customers/customer-create/customer-create.component';
-import { ItemsOverviewComponent } from '../items/items-overview/items-overview.component';
-import { ItemCreateComponent } from '../items/item-create/item-create.component';
+import { CustomersOverviewComponent } from '../components/customers/customers-overview/customers-overview.component';
+import { CustomerCreateComponent } from '../components/customers/customer-create/customer-create.component';
+import { ItemsOverviewComponent } from '../components/items/items-overview/items-overview.component';
+import { ItemCreateComponent } from '../components/items/item-create/item-create.component';
+
+
 
 @NgModule({
   declarations: [
