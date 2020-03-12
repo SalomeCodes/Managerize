@@ -1,11 +1,11 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { ItemsService } from 'src/app/items/items.service';
 import { Item } from 'src/app/models/Item';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ItemAddedComponent } from './invoice-added-item-snackbar/invoice-added-item';
 import { faFilter, faPlusCircle } from '@fortawesome/free-solid-svg-icons';
 import { InvoiceLine } from 'src/app/models/InvoiceLine';
 import { InvoiceCreateService } from '../invoice-create.service';
+import { ItemsService } from 'src/app/services/items.service';
 
 @Component({
   selector: 'app-invoice-items-selector',

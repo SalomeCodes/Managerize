@@ -28,7 +28,7 @@ import { CustomersOverviewComponent } from '../components/customers/customers-ov
 import { CustomerCreateComponent } from '../components/customers/customer-create/customer-create.component';
 import { ItemsOverviewComponent } from '../components/items/items-overview/items-overview.component';
 import { ItemCreateComponent } from '../components/items/item-create/item-create.component';
-
+import { PaymentDialogComponent } from '../components/invoices/invoices-overview/payment-dialog/payment-dialog.component';
 
 
 @NgModule({

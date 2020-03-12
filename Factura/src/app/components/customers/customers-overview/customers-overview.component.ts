@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Customer } from 'src/app/models/Customer';
 import { faFilter, faSearch } from '@fortawesome/free-solid-svg-icons';
-import { CustomerService } from '../customer.service';
+import { CustomerService } from 'src/app/services/customer.service';
 
 @Component({
   selector: 'app-customers-overview',

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { faFilter, faSearch, faEuroSign } from '@fortawesome/free-solid-svg-icons';
-import { ItemsService } from '../items.service';
 import { Item } from 'src/app/models/Item';
+import { ItemsService } from 'src/app/services/items.service';
 
 @Component({
   selector: 'app-items-overview',

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { faEuroSign } from '@fortawesome/free-solid-svg-icons';
-import { ItemsService } from '../items.service';
+import { ItemsService } from 'src/app/services/items.service';
 import { Router } from '@angular/router';
 
 @Component({

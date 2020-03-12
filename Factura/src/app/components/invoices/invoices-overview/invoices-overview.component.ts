@@ -1,10 +1,10 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { InvoicesService } from '../invoices.service';
 import { Invoice } from 'src/app/models/Invoice';
 import { PageEvent } from '@angular/material/paginator';
 import { faEuroSign, faTimes, faCheck, faFilter, faSearch } from '@fortawesome/free-solid-svg-icons';
 import { MatDialog } from '@angular/material/dialog';
 import { PaymentDialogComponent } from './payment-dialog/payment-dialog.component';
+import { InvoicesService } from 'src/app/services/invoices.service';
 
 @Component({
   selector: 'app-invoices-overview',

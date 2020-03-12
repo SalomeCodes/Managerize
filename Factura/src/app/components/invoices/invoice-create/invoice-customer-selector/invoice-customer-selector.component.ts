@@ -1,6 +1,6 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
-import { CustomerService } from 'src/app/customers/customer.service';
 import { Customer } from 'src/app/models/Customer';
+import { CustomerService } from 'src/app/services/customer.service';
 
 @Component({
   selector: 'app-invoice-customer-selector',

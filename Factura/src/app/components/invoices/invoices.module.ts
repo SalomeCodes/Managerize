@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { InvoicesOverviewComponent } from './invoices-overview/invoices-overview.component';
-import { SharedModule } from '../shared/shared.module';
 import { RouterModule } from '@angular/router';
 import { InvoicesRoutingModule } from './invoices-routing.module';
 import { PaymentDialogComponent } from './invoices-overview/payment-dialog/payment-dialog.component';
@@ -29,6 +28,7 @@ import { InvoiceItemsSelectorComponent } from './invoice-create/invoice-items-se
 import { ItemAddedComponent } from './invoice-create/invoice-items-selector/invoice-added-item-snackbar/invoice-added-item';
 import { InvoiceCheckupComponent } from './invoice-create/invoice-checkup/invoice-checkup.component';
 import { InvoiceCreateService } from './invoice-create/invoice-create.service';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 @NgModule({
   declarations: [

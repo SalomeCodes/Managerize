@@ -1,7 +1,7 @@
 import { Component, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { Invoice } from 'src/app/models/Invoice';
-import { InvoicesService } from '../../invoices.service';
+import { InvoicesService } from 'src/app/services/invoices.service';
 
 @Component({
   selector: 'app-payment-dialog',
