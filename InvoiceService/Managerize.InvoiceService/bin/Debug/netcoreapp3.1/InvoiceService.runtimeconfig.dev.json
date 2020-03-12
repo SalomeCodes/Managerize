@@ -1,8 +1,0 @@
-{
-  "runtimeOptions": {
-    "additionalProbingPaths": [
-      "C:\\Users\\Daphne\\.dotnet\\store\\|arch|\\|tfm|",
-      "C:\\Users\\Daphne\\.nuget\\packages"
-    ]
-  }
-}
