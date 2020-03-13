@@ -3,3 +3,5 @@ This application focuses on small companies to ease their businessprocesses, lik
 
 To read about the project initiation see [Project Planning Document](https://github.com/SalomeCodes/Managerize/blob/master/documentation/project-planning.md)
 
+Project tasks are to be found here [Trello]
+(https://trello.com/b/4aW267gl/managerize#)
