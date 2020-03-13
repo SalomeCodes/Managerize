@@ -96,190 +96,311 @@
   "invoice": [
     {
       "id": 1,
-      "title": "27-05-2019 Karel de Groot",
-      "creationDate": "2020-03-13T21:24:01.8704951+00:00",
-      "dateSent": "2020-03-13T21:24:01.8704951+00:00",
-      "datePayed": "2020-03-13T21:24:01.8704951+00:00",
-      "totalPrice": "2500.95",
-      "customer": {
-        "name": "Karel",
-        "prefix": "de",
-        "surname": "Groot",
-        "place": "Mierlo",
-        "street": "Van Abbenstraat",
-        "zipcode": "5709KP",
-        "houseNumber": "11"
-      },
+      "creationDate": "2020-03-13T21:40:47.678573+00:00",
+      "dateSent": null,
+      "datePayed": "2020-03-13T21:48:40.211Z",
+      "totalPrice": 3900,
+      "payedAmount": 5000,
+      "isPayed": false,
       "invoiceLines": [
         {
           "id": 1,
           "item": {
-            "name": "Bemesten",
-            "description": "Injecteren",
-            "price": "45.00"
+            "id": 1,
+            "name": "Worcester System Filter",
+            "description": "Worcester greenstar magnetic system filter",
+            "price": 190
           },
-          "amount": "5",
-          "unit": "uur"
-        }
-      ]
-    },
-    {
-      "id": 2,
-      "title": "09-05-2019 Fabian Kleijssen",
-      "creationDate": "2020-03-13T21:24:01.8704951+00:00",
-      "dateSent": "2020-03-13T21:24:01.8704951+00:00",
-      "datePayed": "2020-02-17T17:30:31.061Z",
-      "totalPrice": "2345.00",
-      "payedAmount": "5001845",
-      "customer": {
-        "name": "Fabian",
-        "prefix": "",
-        "surname": "Kleijssen",
-        "place": "Lierop",
-        "street": "Willem-Alexanderlaan",
-        "zipcode": "5611WP",
-        "houseNumber": "35"
-      },
-      "invoiceLines": [
-        {
-          "id": 2,
-          "item": {
-            "name": "Rondebalen",
-            "description": "Rondebalen persen",
-            "price": "13.50"
-          },
-          "amount": "22",
-          "unit": "stuk(s)"
-        },
-        {
-          "id": 3,
-          "item": {
-            "name": "Transport",
-            "description": "Rondebalen vervoeren",
-            "price": "35"
-          },
-          "amount": "3",
-          "unit": "uur"
+          "amount": 10
         },
         {
           "id": 2,
           "item": {
-            "name": "Rondebalen",
-            "description": "Rondebalen persen",
-            "price": "13.50"
+            "id": 2,
+            "name": "Sink",
+            "description": "Toto sink",
+            "price": 500
           },
-          "amount": "22",
-          "unit": "stuk(s)"
-        },
-        {
-          "id": 2,
-          "item": {
-            "name": "Rondebalen",
-            "description": "Rondebalen persen",
-            "price": "13.50"
-          },
-          "amount": "22",
-          "unit": "stuk(s)"
-        }
-      ]
-    },
-    {
-      "id": 3,
-      "title": "13-07-2019 Karel de Groot",
-      "creationDate": "2020-03-13T21:24:01.8704951+00:00",
-      "dateSent": "2020-03-13T21:24:01.8704951+00:00",
-      "datePayed": "2020-03-02T14:15:53.939Z",
-      "totalPrice": "3342.00",
-      "customer": {
-        "name": "Karel",
-        "prefix": "de",
-        "surname": "Groot",
-        "place": "Mierlo",
-        "street": "Van Abbenstraat",
-        "zipcode": "5709KP",
-        "houseNumber": "11"
-      },
-      "invoiceLines": [
-        {
-          "id": 2,
-          "item": {
-            "name": "Rondebalen",
-            "description": "Rondebalen persen",
-            "price": "13.50"
-          },
-          "amount": "22",
-          "unit": "stuk(s)"
-        },
-        {
-          "id": 3,
-          "item": {
-            "name": "Transport",
-            "description": "Rondebalen vervoeren",
-            "price": "35"
-          },
-          "amount": "3",
-          "unit": "uur"
+          "amount": 2
         }
       ],
-      "payedAmount": 3342
+      "customer": {
+        "id": "12456b8f-e22d-41a4-8570-f41821805c5e",
+        "name": "Fielip",
+        "prefix": null,
+        "surname": "Smith",
+        "place": "Newark",
+        "street": "Mead St",
+        "zipCode": "NJ 07106",
+        "houseNumber": "42",
+        "email": "Bob.Smith@email.com",
+        "phoneNumber": "+57-893751824"
+      },
+      "paymentHistory": null
     },
     {
-      "id": 4,
-      "title": "23-05-2019 Fabian Kleijssen",
-      "creationDate": "2020-03-13T21:24:01.8704951+00:00",
-      "dateSent": "2020-03-13T21:24:01.8704951+00:00",
-      "datePayed": "2020-03-13T21:24:01.8704951+00:00",
-      "totalPrice": "2200.00",
-      "customer": {
-        "name": "Fabian",
-        "prefix": "",
-        "surname": "Kleijssen",
-        "place": "Lierop",
-        "street": "Willem-Alexanderlaan",
-        "zipcode": "5611WP",
-        "houseNumber": "35"
-      },
+      "id": 1,
+      "creationDate": "2020-03-13T21:40:47.7233971+00:00",
+      "dateSent": null,
+      "datePayed": null,
+      "totalPrice": 3900,
+      "payedAmount": 0,
+      "isPayed": false,
       "invoiceLines": [
         {
           "id": 1,
           "item": {
-            "name": "Bemesten",
-            "description": "Injecteren",
-            "price": "45.00"
+            "id": 1,
+            "name": "Worcester System Filter",
+            "description": "Worcester greenstar magnetic system filter",
+            "price": 190
           },
-          "amount": "5",
-          "unit": "uur"
-        }
-      ]
-    },
-    {
-      "id": 5,
-      "title": "",
-      "creationDate": "2020-03-13T21:24:01.8704951+00:00",
-      "dateSent": "2020-03-13T21:24:01.8704951+00:00",
-      "datePayed": "2020-03-13T21:24:01.8704951+00:00",
-      "customer": {
-        "name": "",
-        "prefix": "",
-        "surname": "",
-        "place": "",
-        "street": "",
-        "zipcode": "",
-        "houseNumber": ""
-      },
-      "invoiceLines": [
+          "amount": 10
+        },
         {
-          "id": 1,
+          "id": 2,
           "item": {
-            "name": "",
-            "description": "",
-            "price": ""
+            "id": 2,
+            "name": "Sink",
+            "description": "Toto sink",
+            "price": 500
           },
-          "amount": "",
-          "unit": ""
+          "amount": 2
         }
       ],
-      "payedAmount": 12
+      "customer": {
+        "id": "e741b88f-6e15-4844-b8e8-bc5636ccfc55",
+        "name": "Bob",
+        "prefix": null,
+        "surname": "Smith",
+        "place": "Newark",
+        "street": "Mead St",
+        "zipCode": "NJ 07106",
+        "houseNumber": "42",
+        "email": "Bob.Smith@email.com",
+        "phoneNumber": "+57-893751824"
+      },
+      "paymentHistory": null
+    },
+    {
+      "id": 1,
+      "creationDate": "2020-03-13T21:40:47.7234078+00:00",
+      "dateSent": null,
+      "datePayed": null,
+      "totalPrice": 3900,
+      "payedAmount": 0,
+      "isPayed": false,
+      "invoiceLines": [
+        {
+          "id": 1,
+          "item": {
+            "id": 1,
+            "name": "Worcester System Filter",
+            "description": "Worcester greenstar magnetic system filter",
+            "price": 190
+          },
+          "amount": 10
+        },
+        {
+          "id": 2,
+          "item": {
+            "id": 2,
+            "name": "Sink",
+            "description": "Toto sink",
+            "price": 500
+          },
+          "amount": 2
+        }
+      ],
+      "customer": {
+        "id": "b48fca50-a314-486c-9696-d9919d9b607b",
+        "name": "Bob",
+        "prefix": null,
+        "surname": "Smith",
+        "place": "Newark",
+        "street": "Mead St",
+        "zipCode": "NJ 07106",
+        "houseNumber": "42",
+        "email": "Bob.Smith@email.com",
+        "phoneNumber": "+57-893751824"
+      },
+      "paymentHistory": null
+    },
+    {
+      "id": 1,
+      "creationDate": "2020-03-13T21:40:47.723411+00:00",
+      "dateSent": null,
+      "datePayed": null,
+      "totalPrice": 3900,
+      "payedAmount": 0,
+      "isPayed": false,
+      "invoiceLines": [
+        {
+          "id": 1,
+          "item": {
+            "id": 1,
+            "name": "Worcester System Filter",
+            "description": "Worcester greenstar magnetic system filter",
+            "price": 190
+          },
+          "amount": 10
+        },
+        {
+          "id": 2,
+          "item": {
+            "id": 2,
+            "name": "Sink",
+            "description": "Toto sink",
+            "price": 500
+          },
+          "amount": 2
+        }
+      ],
+      "customer": {
+        "id": "840d26ef-8a3c-428f-91c0-0be110913655",
+        "name": "Bob",
+        "prefix": null,
+        "surname": "Smith",
+        "place": "Newark",
+        "street": "Mead St",
+        "zipCode": "NJ 07106",
+        "houseNumber": "42",
+        "email": "Bob.Smith@email.com",
+        "phoneNumber": "+57-893751824"
+      },
+      "paymentHistory": null
+    },
+    {
+      "id": 1,
+      "creationDate": "2020-03-13T21:40:47.7234135+00:00",
+      "dateSent": null,
+      "datePayed": null,
+      "totalPrice": 3900,
+      "payedAmount": 0,
+      "isPayed": false,
+      "invoiceLines": [
+        {
+          "id": 1,
+          "item": {
+            "id": 1,
+            "name": "Worcester System Filter",
+            "description": "Worcester greenstar magnetic system filter",
+            "price": 190
+          },
+          "amount": 10
+        },
+        {
+          "id": 2,
+          "item": {
+            "id": 2,
+            "name": "Sink",
+            "description": "Toto sink",
+            "price": 500
+          },
+          "amount": 2
+        }
+      ],
+      "customer": {
+        "id": "a338ee6c-7a88-403d-8624-90ece3cdfcad",
+        "name": "Bob",
+        "prefix": null,
+        "surname": "Smith",
+        "place": "Newark",
+        "street": "Mead St",
+        "zipCode": "NJ 07106",
+        "houseNumber": "42",
+        "email": "Bob.Smith@email.com",
+        "phoneNumber": "+57-893751824"
+      },
+      "paymentHistory": null
+    },
+    {
+      "id": 1,
+      "creationDate": "2020-03-13T21:40:47.7234169+00:00",
+      "dateSent": null,
+      "datePayed": null,
+      "totalPrice": 3900,
+      "payedAmount": 0,
+      "isPayed": false,
+      "invoiceLines": [
+        {
+          "id": 1,
+          "item": {
+            "id": 1,
+            "name": "Worcester System Filter",
+            "description": "Worcester greenstar magnetic system filter",
+            "price": 190
+          },
+          "amount": 10
+        },
+        {
+          "id": 2,
+          "item": {
+            "id": 2,
+            "name": "Sink",
+            "description": "Toto sink",
+            "price": 500
+          },
+          "amount": 2
+        }
+      ],
+      "customer": {
+        "id": "734e14d8-da3d-488a-94a4-8d81b6756fc7",
+        "name": "Bob",
+        "prefix": null,
+        "surname": "Smith",
+        "place": "Newark",
+        "street": "Mead St",
+        "zipCode": "NJ 07106",
+        "houseNumber": "42",
+        "email": "Bob.Smith@email.com",
+        "phoneNumber": "+57-893751824"
+      },
+      "paymentHistory": null
+    },
+    {
+      "id": 1,
+      "creationDate": "2020-03-13T21:40:47.7234195+00:00",
+      "dateSent": null,
+      "datePayed": null,
+      "totalPrice": 3900,
+      "payedAmount": 0,
+      "isPayed": false,
+      "invoiceLines": [
+        {
+          "id": 1,
+          "item": {
+            "id": 1,
+            "name": "Worcester System Filter",
+            "description": "Worcester greenstar magnetic system filter",
+            "price": 190
+          },
+          "amount": 10
+        },
+        {
+          "id": 2,
+          "item": {
+            "id": 2,
+            "name": "Sink",
+            "description": "Toto sink",
+            "price": 500
+          },
+          "amount": 2
+        }
+      ],
+      "customer": {
+        "id": "07de25c3-3c28-457b-b2db-db3fe07c5bea",
+        "name": "Bob",
+        "prefix": null,
+        "surname": "Smith",
+        "place": "Newark",
+        "street": "Mead St",
+        "zipCode": "NJ 07106",
+        "houseNumber": "42",
+        "email": "Bob.Smith@email.com",
+        "phoneNumber": "+57-893751824"
+      },
+      "paymentHistory": null
     }
   ]
 }
