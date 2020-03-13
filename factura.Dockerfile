@@ -3,10 +3,8 @@
 #################
 FROM node:12-alpine as build
 WORKDIR /app
-COPY Factura/package.json ./
+COPY Factura ./
 RUN npm install
-COPY Factura .
-WORKDIR Factura
 RUN $(npm bin)/ng build --prod --configuration production --output-path=/dist
 RUN npm run build
 
