@@ -3,10 +3,10 @@
 #################
 FROM node:12-alpine as build
 WORKDIR /app
-COPY Factura/package.json Factura/package-lock.json ./
+COPY Factura/package.json ./
 RUN npm install
-COPY . .
-WORKDIR /Factura
+COPY Factura .
+WORKDIR Factura
 RUN npm install -g @angular/cli
 RUN ng build --configuration production --output-path=/dist
 
