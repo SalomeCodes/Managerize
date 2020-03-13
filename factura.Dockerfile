@@ -7,7 +7,7 @@ COPY Factura/package.json ./
 RUN npm install
 COPY Factura .
 WORKDIR Factura
-RUN ng build --configuration production --prod --output-path=/dist
+RUN $(npm bin)/ng build --prod --configuration production --output-path=/dist
 
 ################
 # Run in NGINX #
