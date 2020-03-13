@@ -6,6 +6,7 @@ WORKDIR /app
 COPY Factura/package.json Factura/package-lock.json ./
 RUN npm install
 COPY . .
+WORKDIR /Factura
 RUN npm install -g @angular/cli
 RUN ng build --configuration production --output-path=/dist
 
