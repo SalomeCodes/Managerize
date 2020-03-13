@@ -11,15 +11,14 @@ import { MatButtonModule } from '@angular/material/button';
 import { InvoicesModule } from './components/invoices/invoices.module';
 import { SharedModule } from './shared/shared.module';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { HomeComponent } from './components/home/home.component';
-import { HomeInvoiceComponent } from './components/home/home-invoice/home-invoice.component';
+import { HomeModule } from './components/home/home.module';
+import { CustomersModule } from './components/customers/customers.module';
+import { ItemsModule } from './components/items/items.module';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
-    HomeInvoiceComponent
   ],
   imports: [
     BrowserModule,
@@ -31,7 +30,10 @@ import { HomeInvoiceComponent } from './components/home/home-invoice/home-invoic
     InvoicesModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HomeModule,
+    CustomersModule,
+    ItemsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

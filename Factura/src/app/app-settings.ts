@@ -2,9 +2,9 @@ import { HttpHeaders } from "@angular/common/http";
 import { environment } from 'src/environments/environment';
 
 export class AppSettings {
-    public static API_ENDPOINT = environment.apiUrl;
+    public static INVOICE_SERVICE_ENDPOINT = environment.INVOICE_SERVICE_ENDPOINT;
 
-    public static API_HEADER = { headers: new HttpHeaders({
+    public static INVOICE_SERVICE_HEADER = { headers: new HttpHeaders({
         'Content-Type': 'application/json'
       } 
     )};

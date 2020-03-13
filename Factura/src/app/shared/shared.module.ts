@@ -21,13 +21,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 import { NavigationComponent } from './navigation/navigation.component';
 
-import { SharedRoutingModule } from './shared-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AutocompleterComponent } from './autocompleter/autocompleter/autocompleter.component';
-import { CustomersOverviewComponent } from '../components/customers/customers-overview/customers-overview.component';
-import { CustomerCreateComponent } from '../components/customers/customer-create/customer-create.component';
-import { ItemsOverviewComponent } from '../components/items/items-overview/items-overview.component';
-import { ItemCreateComponent } from '../components/items/item-create/item-create.component';
 import { PaymentDialogComponent } from '../components/invoices/invoices-overview/payment-dialog/payment-dialog.component';
 
 
@@ -35,10 +30,6 @@ import { PaymentDialogComponent } from '../components/invoices/invoices-overview
   declarations: [
     NavigationComponent,
     AutocompleterComponent,
-    CustomersOverviewComponent,
-    CustomerCreateComponent,
-    ItemsOverviewComponent,
-    ItemCreateComponent
   ],
   imports: [
     CommonModule,
@@ -62,10 +53,8 @@ import { PaymentDialogComponent } from '../components/invoices/invoices-overview
     MatStepperModule,
 
     FontAwesomeModule,
-
-    SharedRoutingModule,
-
   ],
+  
   exports: [
     NavigationComponent,
     AutocompleterComponent

@@ -8,7 +8,7 @@
   </div>
 
 
-  <table *ngIf="invoiceLines != 0" mat-table [dataSource]="invoiceLines" class="table">
+  <table *ngIf="invoiceLines" mat-table [dataSource]="invoiceLines" class="table">
 
     <!-- Position Column -->
     <ng-container matColumnDef="description">

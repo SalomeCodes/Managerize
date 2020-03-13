@@ -1,13 +1,14 @@
 .home-content{
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-content: center;
+    flex-wrap: wrap;
     height: 70vh;
 }
 .module-button{
     padding-top: 20px;
     font-size: 20px;
     margin: 20px;
-    min-width: 150px;
+    min-width: 200px;
     height: 130px;
 }

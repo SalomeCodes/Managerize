@@ -4,15 +4,15 @@ import { AppSettings } from '../app-settings';
 import { Item } from '../models/Item';
 import { Observable } from 'rxjs';
 
-const httpOptions = AppSettings.API_HEADER;
+const httpOptions = AppSettings.INVOICE_SERVICE_HEADER;
 
 @Injectable({
   providedIn: 'root'
 })
 export class ItemsService {
 
-  private baseUrl:string = AppSettings.API_ENDPOINT;
-  private invoicesUrl:string = '/items';
+  private baseUrl:string = AppSettings.INVOICE_SERVICE_ENDPOINT;
+  private invoicesUrl:string = '/item';
   private standarUrl: string = this.baseUrl + this.invoicesUrl;
 
   constructor( private httpClient: HttpClient ) { }

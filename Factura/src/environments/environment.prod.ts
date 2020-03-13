@@ -1,4 +1,5 @@
 export const environment = {
-  production: true,
-  apiUrl: 'http://173.212.252.62:4001/invoice'
+  production: false,
+  INVOICE_SERVICE_ENDPOINT: window["env"]["INVOICE_SERVICE_ENDPOINT"] || "default",
+  debug: window["env"]["debug"] || false
 };

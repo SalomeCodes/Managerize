@@ -10,12 +10,13 @@ import { InvoicesService } from 'src/app/services/invoices.service';
 })
 export class PaymentDialogComponent{
 
+  paymentAmount: any;
 
   constructor(
-    public dialogRef: MatDialogRef<PaymentDialogComponent>,
-    private invoiceService: InvoicesService,
-    @Inject(MAT_DIALOG_DATA) public data: Invoice) 
-  {  }
+      public dialogRef: MatDialogRef<PaymentDialogComponent>,
+      private invoiceService: InvoicesService,
+      @Inject(MAT_DIALOG_DATA) public data: Invoice
+    ) { }
 
   onCancel(): void {
     this.dialogRef.close();

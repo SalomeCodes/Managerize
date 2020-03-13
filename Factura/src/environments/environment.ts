@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'http://localhost:57304'
+  INVOICE_SERVICE_ENDPOINT: window["env"]["INVOICE_SERVICE_ENDPOINT"] || "default",
+  debug: window["env"]["debug"] || false
 };
 
 // https://iskec.visualstudio.com/ DEVOPS

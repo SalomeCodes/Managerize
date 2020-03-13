@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 
 import { InvoicesOverviewComponent } from './invoices-overview/invoices-overview.component';
 import { RouterModule } from '@angular/router';
-import { InvoicesRoutingModule } from './invoices-routing.module';
 import { PaymentDialogComponent } from './invoices-overview/payment-dialog/payment-dialog.component';
 import { InvoiceCreateComponent } from './invoice-create/invoice-create.component';
 import { InvoiceCustomerSelectorComponent } from './invoice-create/invoice-customer-selector/invoice-customer-selector.component';
@@ -43,7 +42,6 @@ import { SharedModule } from 'src/app/shared/shared.module';
   ],
   imports: [
     CommonModule,
-    InvoicesRoutingModule,
     SharedModule,
     RouterModule,
     FormsModule,

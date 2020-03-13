@@ -4,14 +4,14 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Invoice } from '../models/Invoice';
 
-const httpOptions = AppSettings.API_HEADER;
+const httpOptions = AppSettings.INVOICE_SERVICE_HEADER;
 
 @Injectable({
   providedIn: 'root'
 })
 export class InvoicesService {
 
-  private baseUrl:string = AppSettings.API_ENDPOINT;
+  private baseUrl:string = AppSettings.INVOICE_SERVICE_ENDPOINT;
   private invoicesUrl:string = '/invoice';
   private standarUrl: string = this.baseUrl + this.invoicesUrl;
 
