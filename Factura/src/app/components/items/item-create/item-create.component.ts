@@ -29,7 +29,7 @@ export class ItemCreateComponent implements OnInit {
   onSubmit(){
     this.itemService.addItem(this.itemForm.value).subscribe(data => {
       if(data.name != ""){
-        this.router.navigateByUrl("/producten");
+        this.router.navigateByUrl("/items");
       }});
   }
 }
