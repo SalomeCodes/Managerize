@@ -6,10 +6,13 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="3.1.0" />
-    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.0" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.0.0" />
+    <!--<PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.0" />-->
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Managerize.InvoiceService.CompositionRoot\Managerize.InvoiceService.CompositionRoot.csproj" />
+    <ProjectReference Include="..\Managerize.InvoiceService.DAL\Managerize.InvoiceService.DAL.csproj" />
     <ProjectReference Include="..\Managerize.InvoiceService.Models\Managerize.InvoiceService.Models.csproj" />
   </ItemGroup>
 

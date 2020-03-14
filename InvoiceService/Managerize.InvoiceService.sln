@@ -5,7 +5,11 @@ VisualStudioVersion = 16.0.29709.97
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Managerize.InvoiceService", "Managerize.InvoiceService\Managerize.InvoiceService.csproj", "{C82A4A13-451B-4154-A6A5-BDCD3B8808FD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Managerize.InvoiceService.Models", "Managerize.InvoiceService.Models\Managerize.InvoiceService.Models.csproj", "{D9A25063-9ED7-4731-A442-F6634050F4B2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Managerize.InvoiceService.Models", "Managerize.InvoiceService.Models\Managerize.InvoiceService.Models.csproj", "{D9A25063-9ED7-4731-A442-F6634050F4B2}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Managerize.InvoiceService.DAL", "Managerize.InvoiceService.DAL\Managerize.InvoiceService.DAL.csproj", "{03E8164A-7029-48CD-869C-D846942CC350}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Managerize.InvoiceService.CompositionRoot", "Managerize.InvoiceService.CompositionRoot\Managerize.InvoiceService.CompositionRoot.csproj", "{7AD750AF-4CD2-4FD4-A287-A76121899002}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +25,14 @@ Global
 		{D9A25063-9ED7-4731-A442-F6634050F4B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D9A25063-9ED7-4731-A442-F6634050F4B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D9A25063-9ED7-4731-A442-F6634050F4B2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{03E8164A-7029-48CD-869C-D846942CC350}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{03E8164A-7029-48CD-869C-D846942CC350}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{03E8164A-7029-48CD-869C-D846942CC350}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{03E8164A-7029-48CD-869C-D846942CC350}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7AD750AF-4CD2-4FD4-A287-A76121899002}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7AD750AF-4CD2-4FD4-A287-A76121899002}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7AD750AF-4CD2-4FD4-A287-A76121899002}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7AD750AF-4CD2-4FD4-A287-A76121899002}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
