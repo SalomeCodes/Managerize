@@ -15,7 +15,8 @@ pipeline {
         stage('Build image') {
             steps {
                 script {
-                    dockerImage = docker.build(registry + ":$BUILD_NUMBER", "-f invoiceservice.Dockerfile .")
+                    // --build-arg MAGAZIJN_BASE_ADDR_ARG=$(magazijnBaseAddr)
+                    dockerImage = docker.build(registry + ":$BUILD_NUMBER", "--build-arg MANAGERIZE_INVOICE_SERVICE_DB=$(MANAGERIZE_INVOICE_SERVICE_DB) -f invoiceservice.Dockerfile .")
                 }
             }
         }
