@@ -14,7 +14,10 @@ namespace Managerize.InvoiceService.DAL
 
         public List<Invoice> ReadInvoices()
         {
-            return _invoiceContext.Invoices.Include(invoice => invoice.Customer).Include(invoice => invoice.InvoiceLines).ToList();
+            return _invoiceContext.Invoices
+                .Include(invoice => invoice.Customer)
+                .Include("InvoiceLines.Item")
+                .ToList();
         }
         public void AddInvoice(Invoice invoice)
         {
