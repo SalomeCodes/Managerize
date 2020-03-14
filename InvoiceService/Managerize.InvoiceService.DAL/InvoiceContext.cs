@@ -8,6 +8,7 @@ namespace Managerize.InvoiceService.DAL
     {
         public InvoiceContext(DbContextOptions<InvoiceContext> options)
             :base(options) {
+            Console.WriteLine(Environment.GetEnvironmentVariable("MANAGERIZE_INVOICE_SERVICE_DB"));
             Database.EnsureCreated();
         }
 

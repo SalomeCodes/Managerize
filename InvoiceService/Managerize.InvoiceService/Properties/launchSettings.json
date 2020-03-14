@@ -14,7 +14,8 @@
       "launchBrowser": true,
       "launchUrl": "invoice",
       "environmentVariables": {
-        "MANAGERIZE_INVOICE_SERVICE_DB": "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=InvoiceServiceDb;Integrated Security=True",
+        "Key": "Data Source=(localdb)\\MSSQLLocalDb;Initial Catalog=InvoiceServiceDb;Integrated Security=True",
+        "MANAGERIZE_INVOICE_SERVICE_DB": "Data Source=173.212.252.62;Initial Catalog=InvoiceServiceDb;User ID=sa;Password=Managerize94!",
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },

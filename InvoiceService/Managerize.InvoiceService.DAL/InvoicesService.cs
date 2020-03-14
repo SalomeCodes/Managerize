@@ -1,4 +1,5 @@
 ﻿using Managerize.InvoiceService.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,7 +14,7 @@ namespace Managerize.InvoiceService.DAL
 
         public List<Invoice> ReadInvoices()
         {
-            return _invoiceContext.Invoices.ToList();
+            return _invoiceContext.Invoices.Include(invoice => invoice.Customer).ToList();
         }
         public void AddInvoice(Invoice invoice)
         {

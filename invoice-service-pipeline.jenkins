@@ -16,7 +16,7 @@ pipeline {
             steps {
                 script {
                     // --build-arg MAGAZIJN_BASE_ADDR_ARG=$(magazijnBaseAddr)
-                    dockerImage = docker.build(registry + ":$BUILD_NUMBER", "--build-arg MANAGERIZE_INVOICE_SERVICE_DB=$(MANAGERIZE_INVOICE_SERVICE_DB) -f invoiceservice.Dockerfile .")
+                    dockerImage = docker.build(registry + ":$BUILD_NUMBER", " -f invoiceservice.Dockerfile .")
                 }
             }
         }
@@ -36,7 +36,7 @@ pipeline {
         }
         stage('Release'){
             steps{
-                sh 'docker stop managerize-invoiceservice && docker rm managerize-invoiceservice && docker run -p ${INVOICE_SERVICE_PORT}:80 --name managerize-invoiceservice -d \$registry:\$BUILD_NUMBER || docker run -p ${INVOICE_SERVICE_PORT}:80 --name managerize-invoiceservice -d \$registry:\$BUILD_NUMBER'
+                sh 'docker stop managerize-invoiceservice && docker rm managerize-invoiceservice && docker run -e MANAGERIZE_INVOICE_SERVICE_DB=${MANAGERIZE_INVOICE_SERVICE_DB} -p ${INVOICE_SERVICE_PORT}:80 --name managerize-invoiceservice -d \$registry:\$BUILD_NUMBER || docker run -e MANAGERIZE_INVOICE_SERVICE_DB=${MANAGERIZE_INVOICE_SERVICE_DB} -p ${INVOICE_SERVICE_PORT}:80 --name managerize-invoiceservice -d \$registry:\$BUILD_NUMBER'
             }
         }
     }
