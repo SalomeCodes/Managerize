@@ -6,6 +6,7 @@ pipeline {
             steps {
                 withCredentials([usernamePassword(
                     credentialsId: 'invoiceservice-mssql',
+                    usernameVariable: 'dbuser',
                     passwordVariable: 'dbpassword'
                     )]){
                         sh 'docker run -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=${dbpassword}" -p ${INVOICE_SERVICE_DATABASE_PORT}:1433 -d mcr.microsoft.com/mssql/server:2017-latest'
