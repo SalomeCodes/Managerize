@@ -5,7 +5,7 @@
             </div>
         </mat-grid-tile>
         <mat-grid-tile [colspan]="3" [rowspan]="1">
-            <button routerLink="../producten-toevoegen" mat-raised-button color="primary">Nieuw product</button>
+            <button routerLink="../items/create" mat-raised-button color="primary">Nieuw product</button>
         </mat-grid-tile>
         <mat-grid-tile [colspan]="3" [rowspan]="1">
             <app-autocompleter entitytype="product" [data]="items" (filterEntityList)="search($event)"></app-autocompleter>

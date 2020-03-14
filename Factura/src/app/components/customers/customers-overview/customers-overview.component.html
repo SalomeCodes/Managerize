@@ -5,7 +5,7 @@
         </div>
     </mat-grid-tile>
     <mat-grid-tile [colspan]="3" [rowspan]="1">
-        <button routerLink="../klanten-toevoegen" mat-raised-button color="primary">Nieuwe klant</button>
+        <button routerLink="../customers/create" mat-raised-button color="primary">Nieuwe klant</button>
     </mat-grid-tile>
     <mat-grid-tile [colspan]="3" [rowspan]="1">
         <app-autocompleter entitytype="klant" [data]="customers" (filterEntityList)="search($event)"></app-autocompleter>
@@ -41,7 +41,7 @@
             <th mat-header-cell *matHeaderCellDef> Adresgegevens </th>
             <td mat-cell *matCellDef="let customer">
                 {{customer.street}} {{customer.houseNumber}}
-                <br>
+                <br><br>
                 {{customer.zipcode}} {{customer.place}}
             </td>
         </ng-container>

@@ -28,9 +28,10 @@ export class CustomerCreateComponent implements OnInit {
   }
 
   onSubmit(){
+    console.log(this.customerForm.value)
     this.customerService.addCustomer(this.customerForm.value).subscribe(data => {
-      if(data.name != ""){
-        this.router.navigateByUrl("/klanten");
+      if(data){
+        this.router.navigateByUrl("/customers");
       }
     });
   }
