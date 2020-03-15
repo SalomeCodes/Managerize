@@ -1,0 +1,22 @@
+version: '2'
+services: 
+  invoiceservice-db:
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    container_name: managerize-invoice-service-db
+    restart: always
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=Your(!)Strongpassword
+    ports:
+      - "1433:1433"
+
+  invoiceservice:
+    image: managerize-invoiceservice-i
+    container_name: managerize-invoiceservice
+    build:
+      context: InvoiceService
+      dockerfile: Dockerfile
+    ports:
+      - "57304:80"
+    environment: 
+      MANAGERIZE_INVOICE_SERVICE_DB: 'Server=invoiceservice-db;Initial Catalog=InvoiceServiceDb;User ID=sa;Password=Your(!)Strongpassword'

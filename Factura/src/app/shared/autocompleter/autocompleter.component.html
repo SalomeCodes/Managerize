@@ -1,0 +1,16 @@
+<div class="searchbar">
+    <mat-form-field>
+        <input
+            id="query" 
+            [formControl]="query"
+            type="search" 
+            matInput 
+            placeholder="Zoek naar {{entitytype}}"
+            (keyup)="autocomplete()"
+        >
+    </mat-form-field>
+    <button mat-icon-button color="primary"
+        matTooltip="Zoek op alle {{entitytype}} gerelateerde gegevens">
+        <fa-icon style="font-size: 20px;" [icon]="faSearch"></fa-icon>
+    </button>
+</div>

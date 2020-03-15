@@ -4,7 +4,8 @@ import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-autocompleter',
-  templateUrl: './autocompleter.component.html'
+  templateUrl: './autocompleter.component.html',
+  styleUrls: ['./autocompleter.component.scss']
 })
 export class AutocompleterComponent   {
 
