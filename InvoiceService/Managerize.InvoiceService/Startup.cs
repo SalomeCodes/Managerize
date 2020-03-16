@@ -19,6 +19,7 @@ namespace InvoiceService
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors();
             services.AddControllers();
             CompositionRoot.ConfigureServices(services);
         }
@@ -34,7 +35,7 @@ namespace InvoiceService
             app.UseRouting();
 
             app.UseAuthorization();
-            app.UseCors(b => b.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader().WithOrigins("http://www.daphneprojects.nl", "http://173.212.252.62"));
+            app.UseCors(b => b.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
 
             app.UseEndpoints(endpoints =>
             {
