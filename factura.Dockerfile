@@ -13,7 +13,7 @@ RUN npm run build
 ################
 FROM nginx:alpine
 COPY --from=build app/dist/factura /usr/share/nginx/html
-# COPY nginx/nginx.conf /etc/nginx/nginx.conf
+COPY factura/nginx/nginx.conf /etc/nginx/nginx.conf
 EXPOSE 80
 
 # When the container starts, replace the env.js with values from environment variables
