@@ -34,7 +34,7 @@ namespace InvoiceService
             app.UseRouting();
 
             app.UseAuthorization();
-            app.UseCors(b => b.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
+            app.UseCors(b => b.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader().WithOrigins("http://www.daphneprojects.nl", "http://173.212.252.62"));
 
             app.UseEndpoints(endpoints =>
             {
