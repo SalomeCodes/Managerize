@@ -14,3 +14,25 @@ div{
     color: white !important;
     font-size: 18px;
 }
+
+.overview-header{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    // flex-wrap: wrap;
+}
+.overview-header-content{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.overview-searchbar{
+    flex-grow: 2;
+}
+.overview-filter{
+    display: flex;
+    justify-content: flex-end;
+    flex-grow: 1;
+}

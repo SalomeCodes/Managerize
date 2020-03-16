@@ -29,7 +29,6 @@
 
 body{
     font-family: 'louis george cafe' !important;
-    // overflow: hidden;
 }
 .logo{
     font-family: 'coolvetica';
@@ -42,6 +41,26 @@ body{
 .end{
   justify-content: flex-end;
 }
+
+@media only screen and (max-width: 800px) {
+  body h1{
+    font-size: 20px;
+  }
+  mat-grid-list, 
+  mat-expansion-panel, 
+  mat-accordion, 
+  mat-panel-title, 
+  mat-panel-description,
+  table,
+  .mat-header-row th,
+  .mat-row td{
+    font-size: 10px !important;
+  }
+  .payment-check-container{
+    font-size: 13px !important;
+  }
+}
+
 @import '~@angular/material/theming';
 
 @include mat-core();

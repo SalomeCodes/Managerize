@@ -5,7 +5,8 @@ namespace Managerize.InvoiceService.Models
 {
     public class Invoice
     {
-        public int Id { get; set; }
+        public Guid Id { get; set; }
+        public int InvoiceNumber { get; set; }
         public DateTime CreationDate { get; set; }
         public DateTime? DateSent { get; set; }
         public DateTime? DatePayed { get; set; }

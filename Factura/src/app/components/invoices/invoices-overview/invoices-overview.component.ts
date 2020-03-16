@@ -51,7 +51,7 @@ export class InvoicesOverviewComponent implements OnInit {
       this.invoices = invoices;
 
       for (var i = 0; i < invoices.length && i < 4; i++) {
-        console.log('invoice')
+        console.log(invoices[1])
         this.invoicesPerPage.push(invoices[i])
       }
 
