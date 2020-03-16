@@ -6,7 +6,9 @@ import { CustomerService } from 'src/app/services/customer.service';
 @Component({
   selector: 'app-customers-overview',
   templateUrl: './customers-overview.component.html',
-  styleUrls: ['./customers-overview.component.scss']
+  styleUrls: [
+    './customers-overview.component.scss', 
+    '../../../shared/table.component.scss']
 })
 export class CustomersOverviewComponent implements OnInit {
 

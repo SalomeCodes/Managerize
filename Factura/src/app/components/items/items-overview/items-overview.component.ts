@@ -6,7 +6,10 @@ import { ItemsService } from 'src/app/services/items.service';
 @Component({
   selector: 'app-items-overview',
   templateUrl: './items-overview.component.html',
-  styleUrls: ['./items-overview.component.scss']
+  styleUrls: [
+    './items-overview.component.scss',
+    '../../../shared/table.component.scss'
+  ]
 })
 export class ItemsOverviewComponent implements OnInit {
   faEuroSign = faEuroSign;
@@ -14,7 +17,7 @@ export class ItemsOverviewComponent implements OnInit {
   faSearch = faSearch;
 
   items: Item[] = [];
-  displayedColumns: string[] = ['name', 'description', 'price'];
+  itemsPerPage: Item[] = []; 
 
   constructor(
     private itemService: ItemsService
@@ -23,11 +26,16 @@ export class ItemsOverviewComponent implements OnInit {
   ngOnInit() {
     this.itemService.getItems().subscribe(items => {
       this.items = items;
+      this.itemsPerPage = items;
     })
   }
 
   search(item) {
-    // this.items = item;
+    if(item.length < 1){
+      this.itemsPerPage = this.items;
+    }
+    else{
+      this.itemsPerPage = item;
+    }
   }
-
 }

@@ -24,6 +24,11 @@ import { NavigationComponent } from './navigation/navigation.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AutocompleterComponent } from './autocompleter/autocompleter.component';
 import { PaymentDialogComponent } from '../components/invoices/invoices-overview/payment-dialog/payment-dialog.component';
+import { NavbarComponent } from '../layout/navbar/navbar.component';
+import { LayoutModule } from '@angular/cdk/layout';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatIconModule } from '@angular/material/icon';
+import { MatListModule } from '@angular/material/list';
 
 
 @NgModule({
@@ -53,11 +58,20 @@ import { PaymentDialogComponent } from '../components/invoices/invoices-overview
     MatStepperModule,
 
     FontAwesomeModule,
+
+    LayoutModule,
+
+    MatSidenavModule,
+
+    MatIconModule,
+
+    MatListModule,
   ],
   
   exports: [
     NavigationComponent,
-    AutocompleterComponent
+    AutocompleterComponent,
+  
   ],
   entryComponents: [
     PaymentDialogComponent

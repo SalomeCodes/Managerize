@@ -7,15 +7,21 @@ import { CustomersOverviewComponent } from './components/customers/customers-ove
 import { ItemCreateComponent } from './components/items/item-create/item-create.component';
 import { ItemsOverviewComponent } from './components/items/items-overview/items-overview.component';
 import { HomeComponent } from './components/home/home.component';
+import { ContentLayoutComponent } from './layout/content-layout/content-layout.component';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent },
-  { path: 'invoices', component: InvoicesOverviewComponent },
-  { path: 'invoices/create', component: InvoiceCreateComponent },
-  { path: 'customers', component: CustomersOverviewComponent },
-  { path: 'customers/create', component: CustomerCreateComponent },
-  { path: 'items', component: ItemsOverviewComponent },
-  { path: 'items/create', component: ItemCreateComponent },
+  { 
+    path: '', 
+    component: ContentLayoutComponent,
+    children: [
+      { path: 'invoices', component: InvoicesOverviewComponent },
+      { path: 'invoices/create', component: InvoiceCreateComponent },
+      { path: 'customers', component: CustomersOverviewComponent },
+      { path: 'customers/create', component: CustomerCreateComponent },
+      { path: 'items', component: ItemsOverviewComponent },
+      { path: 'items/create', component: ItemCreateComponent }
+    ]
+  },
 ];
 
 @NgModule({

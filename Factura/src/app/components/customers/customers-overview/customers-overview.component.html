@@ -31,7 +31,7 @@
     </div>
 </div>
 
-<div class="table">
+<!-- <div class="table">
     <table mat-table [dataSource]="customersPerPage" class="mat-elevation-z8">
 
         <ng-container matColumnDef="naam">
@@ -63,4 +63,43 @@
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
     </table>
+</div> -->
+
+<div class="table-wrapper">
+    <div class="table-container">
+        <div class="table-head">
+            <table>
+                <thead>
+                    <tr>
+                        <th class="small-text-12">Id</th>
+                        <th class="small-text-12">Naam</th>
+                        <th class="small-text-12">Adresgegevens</th>
+                        <th class="small-text-12">Contactgegevens</th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+        <div class="table-body" id="table-body-scroll">
+            <table>
+                <tbody>
+                    <tr *ngFor="let customer of customersPerPage">
+                        <td>{{customer.customerNumber}}</td>
+                        <td class="small-text-12">
+                            {{customer.name}} {{customer.prefix}} {{customer.surname}}
+                        </td>
+                        <td class="small-text-10">
+                            {{customer.street}} {{customer.houseNumber}}
+                            <br>
+                            {{customer.zipCode}} {{customer.place}}
+                        </td>
+                        <td class="small-text-10">
+                            {{customer.email}}
+                            <br>
+                            {{customer.phoneNumber}}
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
 </div>

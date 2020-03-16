@@ -1,4 +1,32 @@
 
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@import '~@angular/material/theming';
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat-core();
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$factura-primary: mat-palette($mat-indigo);
+$factura-accent: mat-palette($mat-pink, A200, A100, A400);
+
+// The warn palette is optional (defaults to red).
+$factura-warn: mat-palette($mat-red);
+
+// Create the theme object (a Sass map containing all of the palettes).
+$factura-theme: mat-light-theme($factura-primary, $factura-accent, $factura-warn);
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include angular-material-theme($factura-theme);
+
+
 @font-face {
     font-family: 'louis george cafe';
     src:    url('assets/fonts/LouisGeorgeCafe.woff') format('woff'),
@@ -44,7 +72,7 @@ body{
 
 @media only screen and (max-width: 800px) {
   body h1{
-    font-size: 20px;
+    font-size: 18px;
   }
   mat-grid-list, 
   mat-expansion-panel, 
@@ -59,6 +87,12 @@ body{
   .payment-check-container{
     font-size: 13px !important;
   }
+  button{
+    font-size: 8px !important;
+  }
+  .overview-header-content{
+    height: 50px;
+  }
 }
 
 @import '~@angular/material/theming';
@@ -71,7 +105,7 @@ $facure-primary-color: (
   200 : #b6aef3,
   300 : #988dee,
   400 : #8274eb,
-  500 : #80cbc4,
+  500 : #49cfc6,
   600 : #6454e4,
   700 : #594ae0,
   800 : #4f41dd,
@@ -104,7 +138,7 @@ $facure-accent-color: (
   200 : #eb9898,
   300 : #e26e6f,
   400 : #dc4f50,
-  500 : #abff5c,
+  500 : #60d087,
   600 : #d12b2c,
   700 : #cc2425,
   800 : #c61e1f,
@@ -146,3 +180,5 @@ $facure-typography: mat-typography-config(
 );
 
 @include angular-material-typography($facure-typography);
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
