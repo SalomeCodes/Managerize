@@ -22,17 +22,15 @@ export class CustomerCreateComponent implements OnInit {
   constructor(
     private customerService: CustomerService,
     private router: Router
-    ) { }
+  ) { }
 
   ngOnInit() {
   }
 
-  onSubmit(){
+  onSubmit() {
     console.log(this.customerForm.value)
     this.customerService.addCustomer(this.customerForm.value).subscribe(data => {
-      if(data){
-        this.router.navigateByUrl("/customers");
-      }
+      this.router.navigateByUrl("/customers");
     });
   }
 }

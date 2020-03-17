@@ -3,15 +3,6 @@ table{
     margin-bottom: 20px;
 }
 
-mat-header-cell {
-    // color: white !important;
-    font-size: 18px;
-}
-
-.mat-table{
-    font-family: 'louis george cafe' !important;
-}
-
 .invoice-details-customer{
     font-size: 18px;
     margin-left: 100px;
@@ -19,15 +10,27 @@ mat-header-cell {
     margin-bottom: 50px;
 }
 
-.mat-header-cell {
-    color: black !important;
-    font-family: 'louis george cafe bold' !important;
-    font-size: 18px;
+.invoice-header{
+    display: flex;
+    flex-direction: column;
+}
+
+.customer-content-invoice-header{
+    margin: 30px;
+}
+.invoice-date-invoice-header{
+    align-self: flex-end;
+    margin-bottom: 20px;
+}
+
+@media only screen and (max-width: 800px){
+    div{
+        font-size: 10px;
+    }
 }
 div{
     font-family: 'louis george cafe' !important;
 }
-
 .align-right{
     display: flex;
     padding: 21px 0;
@@ -37,4 +40,18 @@ div{
 .invoice-checkup-details-customer{
     display: flex;
     justify-content: flex-end;
+}
+
+.right-column {
+    text-align: right;
+}
+.left-column {
+    text-align: left;
+}
+.size-5{
+    width: 50%;
+}
+.size-1{
+    width: 30px;
+    max-width: 35;
 }

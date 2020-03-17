@@ -1,38 +1,48 @@
 <div class="customer-selector-container">
-        <app-autocompleter entitytype="klant" [data]="customers" (filterEntityList)="search($event)"></app-autocompleter>
-        <button mat-raised-button color="primary" style="height: 100%;">Nieuwe klant</button>
+    <app-autocompleter entitytype="klant" [data]="customers" (filterEntityList)="search($event)"></app-autocompleter>
+    <div class="button-container">
+        <a routerLink="../../customers/create" class="btn">
+            <i class="fa fa-user-plus"></i>
+        </a>
+    </div>
 </div>
 
-<div class="table">
-
-    <table mat-table [dataSource]="customersPerPage" class="mat-elevation-z8">
-        
-        <ng-container matColumnDef="naam">
-            <th mat-header-cell *matHeaderCellDef> Naam </th>
-            <td mat-cell *matCellDef="let customer"> 
-                Klantnummer: {{customer.id}}
-                <br>
-                {{customer.name}} {{customer.prefix}} {{customer.surname}} 
-            </td>
-        </ng-container>
-        <ng-container matColumnDef="adres">
-            <th mat-header-cell *matHeaderCellDef> Adresgegevens </th>
-            <td mat-cell *matCellDef="let customer">
-                {{customer.street}} {{customer.houseNumber}}
-                <br>
-                {{customer.zipcode}} {{customer.place}}
-            </td>
-        </ng-container>
-        <ng-container matColumnDef="contact">
-            <th mat-header-cell *matHeaderCellDef> Contactgegevens </th>
-            <td mat-cell *matCellDef="let customer">
-                Tel: {{customer.phoneNumber}} 
-                <br>
-                {{customer.email}}
-            </td>
-        </ng-container>
-    
-        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-        <tr mat-row *matRowDef="let row; columns: displayedColumns;" class="tablerow" (click)="selectCustomer(row)"></tr>
-    </table>
+<div class="table-wrapper">
+    <div class="table-container">
+        <div class="table-head">
+            <table>
+                <thead>
+                    <tr>
+                        <th class="small-text-12">Id</th>
+                        <th class="small-text-12">Naam</th>
+                        <th class="small-text-12">Adresgegevens</th>
+                        <th class="small-text-12">Contactgegevens</th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+        <div class="table-body" id="table-body-scroll">
+            <table>
+                <tbody>
+                    <tr matStepperNext style="cursor: pointer;" *ngFor="let customer of customersPerPage"
+                        (click)="callParent(stepper)" (click)="selectCustomer(customer)" matStepperNext>
+                        <td>{{customer.customerNumber}}</td>
+                        <td class="small-text-12">
+                            {{customer.name}} {{customer.prefix}} {{customer.surname}}
+                        </td>
+                        <td class="small-text-10">
+                            {{customer.street}} {{customer.houseNumber}}
+                            <br>
+                            {{customer.zipCode}} {{customer.place}}
+                        </td>
+                        <td class="small-text-10">
+                            {{customer.email}}
+                            <br>
+                            {{customer.phoneNumber}}
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
 </div>

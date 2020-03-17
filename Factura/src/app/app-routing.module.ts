@@ -14,6 +14,7 @@ const routes: Routes = [
     path: '', 
     component: ContentLayoutComponent,
     children: [
+      { path: '', component: HomeComponent },
       { path: 'invoices', component: InvoicesOverviewComponent },
       { path: 'invoices/create', component: InvoiceCreateComponent },
       { path: 'customers', component: CustomersOverviewComponent },

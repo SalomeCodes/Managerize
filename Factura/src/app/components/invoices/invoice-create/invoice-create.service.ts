@@ -7,11 +7,10 @@ export class InvoiceCreateService {
 
   private messageSource = new BehaviorSubject(new InvoiceLine());
   currentMessage = this.messageSource.asObservable();
-  
-  constructor() { }
-  
-  addInvoiceLine(item: InvoiceLine) {
-    this.messageSource.next(item)
-  }
 
+  constructor() { }
+
+  addInvoiceLine(item: InvoiceLine) {
+    this.messageSource.next(item);
+  }
 }

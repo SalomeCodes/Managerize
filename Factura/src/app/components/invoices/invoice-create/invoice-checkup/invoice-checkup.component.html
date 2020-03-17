@@ -1,51 +1,64 @@
-  <div style="display: flex; justify-content: space-between; align-items: flex-end;">
-    <div>
-      <h1>Factuur</h1>
-    </div>
-    <div>
-      Factuurdatum: {{date | date:'dd-MM-yyyy'}}
+<div class="invoice-header">
+  <div>
+    <h1>Factuur</h1>
+  </div>
+  <div *ngIf="selectedCustomer" class="customer-content-invoice-header">
+    {{selectedCustomer.name}} {{selectedCustomer.prefix}} {{selectedCustomer.surname}}
+    <br>
+    {{selectedCustomer.street}} {{selectedCustomer.houseNumber}}
+    <br>
+    {{selectedCustomer.zipCode}} {{selectedCustomer.place}}
+  </div>
+  <div class="invoice-date-invoice-header">
+    Factuurdatum: {{date | date:'dd-MM-yyyy'}}
+  </div>
+</div>
+
+<div class="table-wrapper">
+  <div class="table-container">
+    <div class="table-head">
+      <table>
+        <thead>
+          <tr>
+            <th class="left-column size-5">Omschrijving</th>
+            <th class="right-column size-1">Aantal</th>
+            <th class="right-column size-2">Stukprijs</th>
+            <th class="right-column size-2">Totaal Excl.</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr matStepperNext style="cursor: pointer;" *ngFor="let invoiceLine of invoiceLines">
+            <td class="size-5">
+              {{invoiceLine.item.description}}
+            </td>
+            <td class="right-column">
+              {{invoiceLine.amount}}
+            </td>
+            <td class="right-column">
+              {{invoiceLine.item.price | currency : 'EUR'}}
+            </td>
+            <td class="right-column">
+              {{invoiceLine.item.price * invoiceLine.amount | currency : 'EUR'}}
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
+</div>
 
-
-  <table *ngIf="invoiceLines" mat-table [dataSource]="invoiceLines" class="table">
-
-    <!-- Position Column -->
-    <ng-container matColumnDef="description">
-      <mat-header-cell *matHeaderCellDef> Omschrijving </mat-header-cell>
-      <mat-cell *matCellDef="let item"> {{item.item.description}} </mat-cell>
-    </ng-container>
-
-    <ng-container matColumnDef="amount">
-      <mat-header-cell *matHeaderCellDef> Aantal </mat-header-cell>
-      <mat-cell *matCellDef="let item"> {{item.amount}} </mat-cell>
-    </ng-container>
-
-    <ng-container matColumnDef="price">
-      <mat-header-cell *matHeaderCellDef> Stukprijs </mat-header-cell>
-      <mat-cell *matCellDef="let item"> {{item.item.price | currency:"EUR"}} </mat-cell>
-    </ng-container>
-
-    <ng-container matColumnDef="totalPrice">
-      <mat-header-cell *matHeaderCellDef class="align-right"> Totaal Excl. </mat-header-cell>
-      <mat-cell *matCellDef="let item" class="align-right"> {{item.item.price * item.amount | currency:"EUR"}} </mat-cell>
-    </ng-container>
-
-    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
-  </table>
-
-  <div style="display: flex; justify-content: flex-end; flex-direction: row; align-content: flex-end; margin-bottom: 50px;">
-    <div style="width: 150px;">
-      <b>Subtotaal</b>  <br>
-      21% BTW           <br><br>
-      <b>Totaal</b>
-    </div>
-    <div style="width: 100px; text-align: right;">
-      {{subTotalPrice | currency:"EUR"}}           <br>
-      {{btwPrice | currency:"EUR"}}            <br><br>
-      <b>
-        {{totalPrice | currency:"EUR"}}
-      </b>
-    </div>
+<div
+  style="display: flex; justify-content: flex-end; flex-direction: row; align-content: flex-end; margin-bottom: 50px;">
+  <div style="width: 150px;">
+    <b>Subtotaal</b> <br>
+    21% BTW <br><br>
+    <b>Totaal</b>
   </div>
+  <div style="width: 100px; text-align: right;" class="bold">
+    {{subTotalPrice | currency:"EUR"}} <br>
+    {{btwPrice | currency:"EUR"}} <br><br>
+    <b>
+      {{totalPrice | currency:"EUR"}}
+    </b>
+  </div>
+</div>

@@ -1,7 +1,6 @@
-
 // Custom Theming for Angular Material
 // For more information: https://material.angular.io/guide/theming
-@import '~@angular/material/theming';
+@import "~@angular/material/theming";
 // Plus imports for other components in your app.
 
 // Include the common styles for Angular Material. We include this here so that you only
@@ -26,159 +25,202 @@ $factura-theme: mat-light-theme($factura-primary, $factura-accent, $factura-warn
 // that you are using.
 @include angular-material-theme($factura-theme);
 
-
 @font-face {
-    font-family: 'louis george cafe';
-    src:    url('assets/fonts/LouisGeorgeCafe.woff') format('woff'),
-            url('assets/fonts/LouisGeorgeCafe.ttf') format('truetype');
-     
-} 
+  font-family: "louis george cafe";
+  src: url("assets/fonts/LouisGeorgeCafe.woff") format("woff"),
+    url("assets/fonts/LouisGeorgeCafe.ttf") format("truetype");
+}
 @font-face {
-    font-family: 'louis george cafe bold';
-    src:  url('assets/fonts/LouisGeorgeCafeBold.woff') format('woff'),
-          url('assets/fonts/LouisGeorgeCafeBold.ttf') format('truetype');
-} 
+  font-family: "louis george cafe bold";
+  src: url("assets/fonts/LouisGeorgeCafeBold.woff") format("woff"),
+    url("assets/fonts/LouisGeorgeCafeBold.ttf") format("truetype");
+}
 @font-face {
-    font-family: 'coolvetica';
-    src:    url('assets/fonts/coolveticarg.woff') format('woff'),
-            url('assets/fonts/coolveticarg.ttf') format('truetype'); 
+  font-family: "coolvetica";
+  src: url("assets/fonts/coolveticarg.woff") format("woff"), url("assets/fonts/coolveticarg.ttf") format("truetype");
 }
 
-.bold{
-  font-family: 'louis george cafe bold' !important;
+.bold {
+  font-family: "louis george cafe bold" !important;
 }
 
-#color-orange{
-    color: #f29800;
+#color-orange {
+  color: #f29800;
 }
-#color-green{
-    color: #abff5c;
-}
-
-body{
-    font-family: 'louis george cafe' !important;
-}
-.logo{
-    font-family: 'coolvetica';
-}
-.container{
-    margin: 25px;
-    display: flex;
+#color-green {
+  color: #abff5c;
 }
 
-.end{
+body {
+  font-family: "louis george cafe" !important;
+}
+.logo {
+  font-family: "coolvetica";
+}
+.container {
+  margin: 25px;
+  display: flex;
+}
+
+.end {
   justify-content: flex-end;
+}
+.mat-form-field-infix {
+  font-size: 13px;
+}
+.mat-stepper-horizontal,
+.mat-stepper-vertical {
+  background-color: #fafafa !important;
 }
 
 @media only screen and (max-width: 800px) {
-  body h1{
+  body h1 {
     font-size: 18px;
   }
-  mat-grid-list, 
-  mat-expansion-panel, 
-  mat-accordion, 
-  mat-panel-title, 
+  mat-grid-list,
+  mat-expansion-panel,
+  mat-accordion,
+  mat-panel-title,
   mat-panel-description,
   table,
   .mat-header-row th,
-  .mat-row td{
+  .mat-row td {
     font-size: 10px !important;
   }
-  .payment-check-container{
+  .payment-check-container {
     font-size: 13px !important;
   }
-  button{
-    font-size: 8px !important;
+  button {
+    font-size: 10px !important;
   }
-  .overview-header-content{
+  .overview-header-content {
     height: 50px;
+  }
+  .module-button {
+    font-size: 15px !important;
+  }
+  .mat-step-label {
+    font-size: 10px !important;
+  }
+  .mat-step-icon {
+    width: 20px;
+    height: 20px;
+    font-size: 10px;
+  }
+  p {
+    font-size: 12px;
+  }
+  div {
+    font-size: 12px;
+  }
+}
+@media only screen and (max-width: 500px) {
+  .mat-horizontal-stepper-header-container {
+    height: 80px !important;
+  }
+  .mat-step-label {
+    font-size: 7px !important;
+  }
+  .mat-step-icon {
+    width: 20px;
+    height: 20px;
+    font-size: 10px;
+  }
+  p {
+    font-size: 10px;
   }
 }
 
-@import '~@angular/material/theming';
+@import "~@angular/material/theming";
 
 @include mat-core();
 // ff8303
 $facure-primary-color: (
-  50 : #c33d00,
-  100 : #d3cef8,
-  200 : #b6aef3,
-  300 : #988dee,
-  400 : #8274eb,
-  500 : #49cfc6,
-  600 : #6454e4,
-  700 : #594ae0,
-  800 : #4f41dd,
-  900 : #00457d,
-  A100 : #ffffff,
-  A200 : #e9e7ff,
-  A400 : #b9b4ff,
-  A700 : #ffb445,
+  50: #c33d00,
+  100: #d3cef8,
+  200: #b6aef3,
+  300: #988dee,
+  400: #8274eb,
+  500: #49cfc6,
+  600: #6454e4,
+  700: #594ae0,
+  800: #4f41dd,
+  900: #00457d,
+  A100: #ffffff,
+  A200: #e9e7ff,
+  A400: #b9b4ff,
+  A700: #ffb445,
   contrast: (
-    50 : #000000,
-    100 : #000000,
-    200 : #000000,
-    300 : #000000,
-    400 : #000000,
-    500 : #ffffff,
-    600 : #ffffff,
-    700 : #ffffff,
-    800 : #ffffff,
-    900 : #ffffff,
-    A100 : #000000,
-    A200 : #000000,
-    A400 : #000000,
-    A700 : #000000,
+    50: #000000,
+    100: #000000,
+    200: #000000,
+    300: #000000,
+    400: #000000,
+    500: #ffffff,
+    600: #ffffff,
+    700: #ffffff,
+    800: #ffffff,
+    900: #ffffff,
+    A100: #000000,
+    A200: #000000,
+    A400: #000000,
+    A700: #000000
   )
 );
 
 $facure-accent-color: (
-  50 : #77cb25,
-  100 : #f3c1c1,
-  200 : #eb9898,
-  300 : #e26e6f,
-  400 : #dc4f50,
-  500 : #60d087,
-  600 : #d12b2c,
-  700 : #cc2425,
-  800 : #c61e1f,
-  900 : #0083a9,
-  A100 : #ffecec,
-  A200 : #ffb9b9,
-  A400 : #ff8686,
-  A700 : #e0ff8f,
+  50: #77cb25,
+  100: #f3c1c1,
+  200: #eb9898,
+  300: #e26e6f,
+  400: #dc4f50,
+  500: #60d087,
+  600: #d12b2c,
+  700: #cc2425,
+  800: #c61e1f,
+  900: #0083a9,
+  A100: #ffecec,
+  A200: #ffb9b9,
+  A400: #ff8686,
+  A700: #e0ff8f,
   contrast: (
-    50 : #000000,
-    100 : #000000,
-    200 : #000000,
-    300 : #000000,
-    400 : #ffffff,
-    500 : #ffffff,
-    600 : #ffffff,
-    700 : #ffffff,
-    800 : #ffffff,
-    900 : #ffffff,
-    A100 : #000000,
-    A200 : #000000,
-    A400 : #000000,
-    A700 : #000000,
+    50: #000000,
+    100: #000000,
+    200: #000000,
+    300: #000000,
+    400: #ffffff,
+    500: #ffffff,
+    600: #ffffff,
+    700: #ffffff,
+    800: #ffffff,
+    900: #ffffff,
+    A100: #000000,
+    A200: #000000,
+    A400: #000000,
+    A700: #000000
   )
 );
 
 $facure-primary: mat-palette($facure-primary-color);
-$facure-accent:  mat-palette($facure-accent-color);
-$facure-warn:    mat-palette($mat-deep-orange);
+$facure-accent: mat-palette($facure-accent-color);
+$facure-warn: mat-palette($mat-deep-orange);
 
 $facure-theme: mat-light-theme($facure-primary, $facure-accent, $facure-warn);
 
 @include angular-material-theme($facure-theme);
 
 $facure-typography: mat-typography-config(
-  $font-family: 'louis george cafe bold',
+  $font-family: "louis george cafe bold",
   $headline: mat-typography-level(32px, 48px, 700),
   $body-1: mat-typography-level(16px, 24px, 500)
 );
 
 @include angular-material-typography($facure-typography);
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}

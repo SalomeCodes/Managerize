@@ -21,6 +21,10 @@ namespace Managerize.InvoiceService.DAL
         }
         public void AddInvoice(Invoice invoice)
         {
+            _invoiceContext.Customers.Attach(invoice.Customer);
+            invoice.InvoiceLines.ForEach(line =>
+                _invoiceContext.Items.Attach(line.Item));
+
             _invoiceContext.Add(invoice);
             _invoiceContext.SaveChanges();
         }

@@ -1,29 +1,35 @@
-.table table{
-    width: 100%;
-    margin-bottom: 20px;
-    border-collapse: separate !important;
-    border-radius: 1em;
-    border-style: hidden
+.table table {
+  width: 100%;
+  margin-bottom: 20px;
+  border-collapse: separate !important;
+  border-radius: 1em;
+  border-style: hidden;
 }
 
 table tr {
-    width: 100%;
+  width: 100%;
 }
 
-.mat-header-row{
-    background-color: #80cbc4 !important;
+.mat-header-row {
+  background-color: #80cbc4 !important;
 }
 .mat-header-row th {
-    color: white !important;
-    font-family: 'louis george cafe bold' !important;
-    font-size: 18px;
+  color: white !important;
+  font-family: "louis george cafe bold" !important;
+  font-size: 18px;
 }
 
-tr:hover td { 
-    opacity: 1;
-    background-color: #eaf8f6 !important;
- }
+tr:hover td {
+  opacity: 1;
+  background-color: #eaf8f6 !important;
+}
 
- .mat-table{
-    font-family: 'louis george cafe' !important;
+.amount-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.moneyspan {
+  font-family: "louis george cafe" !important;
+  float: left;
 }

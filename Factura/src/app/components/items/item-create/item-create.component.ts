@@ -3,6 +3,7 @@ import { FormGroup, FormControl } from '@angular/forms';
 import { faEuroSign } from '@fortawesome/free-solid-svg-icons';
 import { ItemsService } from 'src/app/services/items.service';
 import { Router } from '@angular/router';
+import { Item } from 'src/app/models/Item';
 
 @Component({
   selector: 'app-item-create',
@@ -21,15 +22,14 @@ export class ItemCreateComponent implements OnInit {
   constructor(
     public itemService: ItemsService,
     public router: Router
-    ) { }
+  ) { }
 
   ngOnInit() {
   }
 
-  onSubmit(){
+  onSubmit() {
     this.itemService.addItem(this.itemForm.value).subscribe(data => {
-      if(data.name != ""){
-        this.router.navigateByUrl("/items");
-      }});
+      this.router.navigateByUrl("/items");
+    });
   }
 }
