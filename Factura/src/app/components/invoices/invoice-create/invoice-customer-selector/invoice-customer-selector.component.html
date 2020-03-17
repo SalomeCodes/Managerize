@@ -24,8 +24,8 @@
         <div class="table-body" id="table-body-scroll">
             <table>
                 <tbody>
-                    <tr matStepperNext style="cursor: pointer;" *ngFor="let customer of customersPerPage"
-                        (click)="callParent(stepper)" (click)="selectCustomer(customer)" matStepperNext>
+                    <tr style="cursor: pointer;" *ngFor="let customer of customersPerPage"
+                        (click)="callParent(customer)" (click)="selectCustomer(customer)">
                         <td>{{customer.customerNumber}}</td>
                         <td class="small-text-12">
                             {{customer.name}} {{customer.prefix}} {{customer.surname}}
