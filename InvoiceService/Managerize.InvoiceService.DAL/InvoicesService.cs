@@ -19,6 +19,32 @@ namespace Managerize.InvoiceService.DAL
                 .Include("InvoiceLines.Item")
                 .ToList();
         }
+
+        public List<Invoice> ReadInvoicesPerMonthSent(DateTime dateSent)
+        {
+            return _invoiceContext.Invoices.Where(i => i.DateSent == dateSent)
+                .Include(invoice => invoice.Customer)
+                .Include("InvoiceLines.Item")
+                .ToList();
+        }
+
+        public List<Invoice> ReadInvoicesPerMonthSent(DateTime dateSent, bool isPayed)
+        {
+            return _invoiceContext.Invoices.Where(i => i.DateSent == dateSent && i.IsPayed == isPayed)
+                .Include(invoice => invoice.Customer)
+                .Include("InvoiceLines.Item")
+                .ToList();
+        }
+
+        public List<Invoice> ReadInvoicesOnPaymentStatus(bool isPayed)
+        {
+            return _invoiceContext.Invoices.Where(i => i.IsPayed == isPayed)
+                .Include(invoice => invoice.Customer)
+                .Include("InvoiceLines.Item")
+                .OrderBy(i => i.CreationDate)
+                .ToList();
+        }
+
         public void AddInvoice(Invoice invoice)
         {
             _invoiceContext.Customers.Attach(invoice.Customer);

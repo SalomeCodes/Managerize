@@ -21,12 +21,13 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { CustomerDetailsComponent } from './customer-details/customer-details.component';
 
 
 @NgModule({
   declarations: [
     CustomersOverviewComponent, 
-    CustomerCreateComponent
+    CustomerCreateComponent, CustomerDetailsComponent
   ],
   imports: [
     CommonModule,

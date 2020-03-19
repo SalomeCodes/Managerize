@@ -12,7 +12,7 @@ const httpOptions = AppSettings.INVOICE_SERVICE_HEADER;
 })
 export class CustomerService {
   private baseUrl:string = AppSettings.INVOICE_SERVICE_ENDPOINT;
-  private invoicesUrl:string = '/customer';
+  private invoicesUrl:string = '/customers';
   private standarUrl: string = this.baseUrl + this.invoicesUrl;
 
   constructor(private httpClient: HttpClient) { }

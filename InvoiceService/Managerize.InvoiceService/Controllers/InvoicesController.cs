@@ -8,11 +8,11 @@ namespace InvoiceService.Controllers
 {
     [Route("[controller]")]
     [ApiController]
-    public class InvoiceController : ControllerBase
+    public class InvoicesController : ControllerBase
     {
         private readonly InvoicesService _managerizeInvoiceService;
 
-        public InvoiceController(InvoicesService service) => _managerizeInvoiceService = service;
+        public InvoicesController(InvoicesService service) => _managerizeInvoiceService = service;
 
 
         [HttpGet]
@@ -26,5 +26,13 @@ namespace InvoiceService.Controllers
         {
             _managerizeInvoiceService.AddInvoice(invoice);
         }
+
+        [HttpGet]
+        [Route("payment")]
+        public IEnumerable<Invoice> GetInvoicesOnPayment([FromQuery(Name = "isPayed")] bool isPayed)
+        {
+            return _managerizeInvoiceService.ReadInvoicesOnPaymentStatus(isPayed);
+        }
+
     }
 }

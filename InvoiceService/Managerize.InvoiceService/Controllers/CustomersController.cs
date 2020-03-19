@@ -11,22 +11,21 @@ namespace Managerize.InvoiceService.Controllers
 {
     [Route("[controller]")]
     [ApiController]
-    public class ItemController : ControllerBase
+    public class CustomersController : ControllerBase
     {
-        private readonly ItemsService _itemsService;
-
-        public ItemController(ItemsService service) => _itemsService = service;
+        private readonly CustomersService _customersService;
+        public CustomersController(CustomersService service) => _customersService = service; 
 
         [HttpGet]
-        public IEnumerable<Item> Get()
+        public IEnumerable<Customer> Get()
         {
-            return _itemsService.ReadItems();
+            return _customersService.ReadCustomers();
         }
-
+        
         [HttpPost]
-        public void Post(Item item)
+        public void Post(Customer customer)
         {
-            _itemsService.AddItem(item);
+            _customersService.AddCustomer(customer);
         }
     }
 }

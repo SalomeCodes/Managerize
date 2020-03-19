@@ -11,15 +11,6 @@ table {
 .accordion{
     bottom: 30%;
 }
-.paginator-outer{
-    position: relative;
-}
-.paginator{
-    position: fixed;
-    bottom: 0%;
-    right: 20%;
-    width: 100%;
-}
 .customer-description-container{
     width: 80%;
 }
@@ -63,4 +54,19 @@ table {
     display: flex;
     justify-content: flex-end;
     flex-grow: 1;
+}
+.invoice-overview-container{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    height: 90vh;
+}
+mat-paginator{
+    width: 500px;
+    background-color: #fafafa;
+} 
+.paginator-outer{
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
 }

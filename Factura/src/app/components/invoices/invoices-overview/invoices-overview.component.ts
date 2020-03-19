@@ -17,30 +17,33 @@ export class InvoicesOverviewComponent implements OnInit {
   faCheck = faCheck;
   faFilter = faFilter;
   faSearch = faSearch;
-  
+
   invoices: Invoice[] = [];
   invoicesPerPage: Invoice[] = [];
 
   displayedColumns: string[] = ['description', 'amount', 'price'];
-  pageSizeOptions: number[] = [4, 8, 16, 32];
+
+  pageSizeOptions: number[] = [5, 8, 16, 32];
+
   oldPageIndex: Number = 0;
+
   pageEvent: PageEvent = {
     length: 0,
     pageIndex: 0,
-    pageSize: 4
+    pageSize: 5
   };
 
   constructor(
     private invoicesService: InvoicesService,
     public dialog: MatDialog
-    ) { }
+  ) { }
 
-    openDialog(inv: Invoice): void {
-      this.dialog.open(PaymentDialogComponent, {
-        width: '255px',
-        data: inv
-      });
-    }
+  openDialog(inv: Invoice): void {
+    this.dialog.open(PaymentDialogComponent, {
+      width: '255px',
+      data: inv
+    });
+  }
 
   setPageSizeOptions(setPageSizeOptionsInput: string) {
     this.pageSizeOptions = setPageSizeOptionsInput.split(',').map(str => +str);
@@ -50,32 +53,35 @@ export class InvoicesOverviewComponent implements OnInit {
     this.invoicesService.getInvoices().subscribe(invoices => {
       this.invoices = invoices;
 
-      for (var i = 0; i < invoices.length && i < 4; i++) {
-        this.invoicesPerPage.push(invoices[i])
-      }
+      this.invoicesPerPage = invoices.slice(0, 5);
 
-      this.pageEvent.length = invoices.length;
+      this.pageEvent.length = this.invoices.length;
     });
   }
 
-  onPaginateChange(event){
+  onPaginateChange(event) {
     this.invoicesPerPage = [];
-        
+
     this.changeDataSourceInvoices(event);
 
     this.oldPageIndex = event.pageIndex;
   }
 
-  changeDataSourceInvoices(event){
-    for (var _i = 0; _i <= event.pageSize - 1; _i++) {
-      var position = event.pageIndex * 4;
-      var invoiceIndex = position + _i;
-      if(invoiceIndex < this.invoices.length)
-        this.invoicesPerPage.push(this.invoices[invoiceIndex]);
-    }
+  changeDataSourceInvoices(event) {
+    var startIndex = event.pageSize * event.pageIndex;
+
+    this.invoicesPerPage = this.invoices.slice(startIndex, startIndex + event.pageSize)
   }
 
   search(item) {
     this.invoicesPerPage = item;
-	}
+  }
+
+  changeStatus(event) {
+    this.invoicesService.getInvoicesOnPayment(event.value).subscribe(i => {
+      this.invoices = i;
+      this.pageEvent.length = i.length;
+      this.invoicesPerPage = i.slice(0, this.pageEvent.pageSize)
+    });
+  }
 }

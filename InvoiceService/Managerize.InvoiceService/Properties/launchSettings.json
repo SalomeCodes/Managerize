@@ -12,7 +12,7 @@
     "IIS Express": {
       "commandName": "IISExpress",
       "launchBrowser": true,
-      "launchUrl": "invoice",
+      "launchUrl": "invoices",
       "environmentVariables": {
         "key": "Data Source=173.212.252.62;Initial Catalog=InvoiceServiceDb;User ID=sa;Password=Managerize94!",
         "MANAGERIZE_INVOICE_SERVICE_DB": "Data Source=(localdb)\\MSSQLLocalDb;Initial Catalog=InvoiceServiceDb;Integrated Security=True",

@@ -12,7 +12,7 @@ const httpOptions = AppSettings.INVOICE_SERVICE_HEADER;
 export class ItemsService {
 
   private baseUrl:string = AppSettings.INVOICE_SERVICE_ENDPOINT;
-  private invoicesUrl:string = '/item';
+  private invoicesUrl:string = '/items';
   private standarUrl: string = this.baseUrl + this.invoicesUrl;
 
   constructor( private httpClient: HttpClient ) { }

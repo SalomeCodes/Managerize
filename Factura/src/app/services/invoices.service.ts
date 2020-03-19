@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AppSettings } from '../app-settings';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Invoice } from '../models/Invoice';
 
@@ -12,7 +12,7 @@ const httpOptions = AppSettings.INVOICE_SERVICE_HEADER;
 export class InvoicesService {
 
   private baseUrl: string = AppSettings.INVOICE_SERVICE_ENDPOINT;
-  private invoicesUrl: string = '/invoice';
+  private invoicesUrl: string = '/invoices';
   private standarUrl: string = this.baseUrl + this.invoicesUrl;
 
   constructor(private httpClient: HttpClient) { }
@@ -27,5 +27,10 @@ export class InvoicesService {
 
   saveInvoice(invoice: Invoice) {
     return this.httpClient.post<boolean>(this.standarUrl, invoice, httpOptions);
+  }
+  getInvoicesOnPayment(isPayed: boolean): Observable<Invoice[]> {
+    let params = new HttpParams().set('isPayed', isPayed.toString());
+
+    return this.httpClient.get<Invoice[]>(`${this.standarUrl}/payment`, { params: params });
   }
 }
