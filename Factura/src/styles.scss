@@ -50,7 +50,9 @@ $factura-theme: mat-light-theme($factura-primary, $factura-accent, $factura-warn
 #color-green {
   color: #abff5c;
 }
-
+.small {
+  font-family: "louis george cafe" !important;
+}
 body {
   font-family: "louis george cafe" !important;
 }
@@ -72,7 +74,12 @@ body {
 .mat-stepper-vertical {
   background-color: #fafafa !important;
 }
-
+.mat-raised-button {
+  font-size: 10px !important;
+}
+.mat-expansion-panel-content{
+  font-family: "louis george cafe" !important;
+}
 @media only screen and (max-width: 800px) {
   body h1 {
     font-size: 18px;
@@ -112,6 +119,7 @@ body {
   }
   div {
     font-size: 12px;
+    font-family: "louis george cafe" !important;
   }
 }
 @media only screen and (max-width: 500px) {

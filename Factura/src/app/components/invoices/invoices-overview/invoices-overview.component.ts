@@ -23,15 +23,11 @@ export class InvoicesOverviewComponent implements OnInit {
 
   displayedColumns: string[] = ['description', 'amount', 'price'];
 
-  pageSizeOptions: number[] = [5, 8, 16, 32];
-
+  pageSizeOptions: number[] = [];
+  amountOfInvoiceItemsThatFitScreen = 5;
   oldPageIndex: Number = 0;
 
-  pageEvent: PageEvent = {
-    length: 0,
-    pageIndex: 0,
-    pageSize: 5
-  };
+  pageEvent: PageEvent;
 
   constructor(
     private invoicesService: InvoicesService,
@@ -50,10 +46,18 @@ export class InvoicesOverviewComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.amountOfInvoiceItemsThatFitScreen = Math.round((window.innerHeight - 225)/ 50) - 2;
+    this.pageEvent = {
+      length: 0,
+      pageIndex: 0,
+      pageSize: this.amountOfInvoiceItemsThatFitScreen
+    }
+    this.pageSizeOptions = [this.amountOfInvoiceItemsThatFitScreen, this.amountOfInvoiceItemsThatFitScreen *2, this.amountOfInvoiceItemsThatFitScreen*3]
+
     this.invoicesService.getInvoices().subscribe(invoices => {
       this.invoices = invoices;
 
-      this.invoicesPerPage = invoices.slice(0, 5);
+      this.invoicesPerPage = invoices.slice(0, this.amountOfInvoiceItemsThatFitScreen);
 
       this.pageEvent.length = this.invoices.length;
     });

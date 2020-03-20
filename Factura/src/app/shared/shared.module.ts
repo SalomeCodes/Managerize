@@ -19,8 +19,6 @@ import { MatStepperModule } from '@angular/material/stepper';
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
-import { NavigationComponent } from './navigation/navigation.component';
-
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AutocompleterComponent } from './autocompleter/autocompleter.component';
 import { PaymentDialogComponent } from '../components/invoices/invoices-overview/payment-dialog/payment-dialog.component';
@@ -33,7 +31,6 @@ import { MatListModule } from '@angular/material/list';
 
 @NgModule({
   declarations: [
-    NavigationComponent,
     AutocompleterComponent,
   ],
   imports: [
@@ -69,9 +66,7 @@ import { MatListModule } from '@angular/material/list';
   ],
   
   exports: [
-    NavigationComponent,
     AutocompleterComponent,
-  
   ],
   entryComponents: [
     PaymentDialogComponent

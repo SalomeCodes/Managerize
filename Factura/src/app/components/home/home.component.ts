@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
                 <div>
                     <i style="font-size: 50px" class="{{d.iconDefinition}}" aria-hidden="true"></i>
                 </div>
-                <div>
+                <div style="font-size: 20px">
                     {{d.title}}
                 </div>
             </button>

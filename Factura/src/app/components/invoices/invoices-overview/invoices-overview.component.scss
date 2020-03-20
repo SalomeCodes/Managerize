@@ -1,72 +1,139 @@
 table {
-    width: 100% !important;
+  width: 100% !important;
 }
-.mat-column-price{
-    width: 20%;
+.mat-column-price {
+  width: 20%;
 }
-.totalpricetag{
-    width: 100%;
-    text-align: right;
+.totalpricetag {
+  width: 100%;
+  text-align: right;
 }
-.accordion{
-    bottom: 30%;
+.accordion {
+  bottom: 30%;
 }
-.customer-description-container{
-    width: 80%;
+.customer-description-container {
+  width: 80%;
 }
-.payment-check-container{
-    font-size: 20px;
-    display: flex;
+.payment-check-container {
+  font-size: 20px;
+  display: flex;
 }
-.payment-result-positive{
-    margin-left: 10px;
-    color: green;
+.payment-result-positive {
+  margin-left: 2px;
+  font-size: 10px;
+  color: green;
 }
-.payment-result-negative{
-    margin-left: 10px;
-    color: red;
+.payment-result-negative {
+  margin-left: 2px;
+  font-size: 12px;
+  color: red;
 }
-.mat-expansion-panel-header-description, .mat-expansion-panel-header-title{
-    width: 0;
+.mat-expansion-panel-header-description,
+.mat-expansion-panel-header-title {
+  width: 0;
 }
 
-.mat-table{
-    font-family: 'louis george cafe' !important;
+.mat-table {
+  font-family: "louis george cafe" !important;
 }
 
-.overview-header{
-    display: flex;
-    justify-content: space-between;
-    flex-direction: column;
-    // flex-wrap: wrap;
+.overview-header {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  // flex-wrap: wrap;
 }
-.overview-header-content{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
+.overview-header-content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
 }
-.overview-searchbar{
-    flex-grow: 2;
+.overview-searchbar {
+  flex-grow: 2;
 }
-.overview-filter{
+.overview-filter {
+  display: flex;
+  justify-content: flex-end;
+  flex-grow: 1;
+}
+.invoice-overview-container {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  height: 90vh;
+}
+mat-paginator {
+  width: 500px;
+  background-color: #fafafa;
+}
+.paginator-outer {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+}
+.invoice-details {
+  display: flex;
+  flex-direction: column;
+}
+.invoice-customer-details {
+  margin-left: 100px;
+  margin-bottom: 50px;
+}
+.invoice-creation-date {
+  margin-right: 10px;
+  align-self: flex-end;
+}
+.customer-details-row {
+  height: 18px;
+}
+.invoice-price-details {
+  margin-top: 50px;
+  width: auto;
+  display: flex;
+  align-self: flex-end;
+  flex-direction: row;
+  flex-wrap: nowrap;
+}
+.invoice-price-title-container {
+  display: flex;
+  align-items: flex-end;
+  flex-direction: column;
+}
+.invoice-price-amount-container {
+  width: 150px;
+  display: flex;
+  align-items: flex-end;
+  flex-direction: column;
+}
+.invoice-payment-button-container{
     display: flex;
     justify-content: flex-end;
-    flex-grow: 1;
+    margin-top: 30px;
 }
-.invoice-overview-container{
-    display: flex;
-    justify-content: space-between;
-    flex-direction: column;
-    height: 90vh;
+.price-to-pay{
+    margin-top: 20px;
 }
-mat-paginator{
-    width: 500px;
-    background-color: #fafafa;
-} 
-.paginator-outer{
-    display: flex;
-    justify-content: flex-end;
-    width: 100%;
+.total-subprice{
+    font-size: 10px;
+}
+
+.invoice-description{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+.invoice-price{
+  width: 65px;
+  margin-right: 2px;
+  display: flex;
+  justify-content: space-between;
+}
+.customer-name{
+  width: 150px;
+}
+.payment-details{
+  width: 35px;
+  display: flex;
 }

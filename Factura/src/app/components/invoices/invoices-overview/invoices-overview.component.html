@@ -42,94 +42,106 @@
                         </b>
                     </mat-panel-title>
                     <mat-panel-description>
-                        <div class="customer-description-container">
-                            {{inv.customer.name}} {{inv.customer.prefix}} {{inv.customer.surname}}
-                        </div>
-                        <div class="payment-check-container">
-                            <fa-icon [icon]="faEuroSign"></fa-icon>
-                            <span class="payment-result-negative" *ngIf="!inv.datePayed">
-                                <fa-icon [icon]="faTimes"></fa-icon>
-                            </span>
-                            <span class="payment-result-positive" *ngIf="inv.datePayed">
-                                <fa-icon [icon]="faCheck"></fa-icon>
-                            </span>
+                        <div class="invoice-description">
+                            <div class="customer-name">
+                                {{inv.customer.name}} {{inv.customer.prefix}} {{inv.customer.surname}}
+                            </div>
+                            
+                            <div class="invoice-price">
+                                <div style="font-size: 10px;">
+                                    €
+                                </div>
+                                <div style="font-size: 10px;">
+                                    {{inv.totalPrice + (inv.totalPrice * 0.21) | currency :' '}}
+                                </div>
+                            </div>
+                            <div class="payment-details">
+                                <span class="payment-result-negative" *ngIf="!inv.datePayed">
+                                    <fa-icon [icon]="faTimes"></fa-icon>
+                                </span>
+                                <span class="payment-result-positive" *ngIf="inv.datePayed">
+                                    <fa-icon [icon]="faCheck"></fa-icon>
+                                </span>
+                            </div>
                         </div>
                     </mat-panel-description>
                 </mat-expansion-panel-header>
-
-                <mat-grid-list cols="4" rowHeight="55px">
-                    <mat-grid-tile [colspan]="2" [rowspan]="2">
-                        {{inv.customer.name}} {{inv.customer.prefix}} {{inv.customer.surname}}
-                        <br>
-                        {{inv.customer.street}} {{inv.customer.houseNumber}}
-                        <br>
-                        {{inv.customer.zipCode}} {{inv.customer.place}}
-
-                    </mat-grid-tile>
-                    <mat-grid-tile [colspan]="2" [rowspan]="2"></mat-grid-tile>
-                    <mat-grid-tile [colspan]="2" [rowspan]="1"></mat-grid-tile>
-                    <mat-grid-tile [colspan]="2" [rowspan]="1">
+                <div class="invoice-details">
+                    <div class="invoice-customer-details">
+                        <div class="customer-details-row">
+                            {{inv.customer.name}} {{inv.customer.prefix}} {{inv.customer.surname}}
+                        </div>
+                        <div class="customer-details-row">
+                            {{inv.customer.street}} {{inv.customer.houseNumber}}
+                        </div>
+                        <div class="customer-details-row">
+                            {{inv.customer.zipCode}} {{inv.customer.place}}
+                        </div>
+                    </div>
+                    <div class="invoice-creation-date">
                         Datum: {{inv.creationDate | date :'dd-MM-yyyy' }}
-                    </mat-grid-tile>
+                    </div>
 
-                </mat-grid-list>
 
-                <table mat-table [dataSource]="inv.invoiceLines">
-                    <ng-container matColumnDef="description">
-                        <th mat-header-cell *matHeaderCellDef> Titel </th>
-                        <td mat-cell *matCellDef="let invoiceLine"> {{invoiceLine.item.description}} </td>
-                    </ng-container>
-                    <ng-container matColumnDef="amount">
-                        <th mat-header-cell *matHeaderCellDef> Aantal </th>
-                        <td mat-cell *matCellDef="let invoiceLine"> {{invoiceLine.amount}} {{invoiceLine.unit}}</td>
-                    </ng-container>
-                    <ng-container matColumnDef="price">
-                        <th mat-header-cell *matHeaderCellDef> Prijs </th>
-                        <td mat-cell *matCellDef="let invoiceLine">{{invoiceLine.item.price | currency :'EUR'}} </td>
-                    </ng-container>
+                    <table mat-table [dataSource]="inv.invoiceLines">
+                        <ng-container matColumnDef="description">
+                            <th mat-header-cell *matHeaderCellDef> Titel </th>
+                            <td mat-cell *matCellDef="let invoiceLine"> {{invoiceLine.item.description}} </td>
+                        </ng-container>
+                        <ng-container matColumnDef="amount">
+                            <th mat-header-cell *matHeaderCellDef> Aantal </th>
+                            <td mat-cell *matCellDef="let invoiceLine"> {{invoiceLine.amount}} {{invoiceLine.unit}}</td>
+                        </ng-container>
+                        <ng-container matColumnDef="price">
+                            <th mat-header-cell *matHeaderCellDef> Prijs Excl. </th>
+                            <td mat-cell *matCellDef="let invoiceLine">{{invoiceLine.item.price | currency :'EUR'}}
+                            </td>
+                        </ng-container>
 
-                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-                </table>
+                        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                    </table>
 
-                <mat-grid-list cols="4" rowHeight="50px">
-                    <mat-grid-tile [colspan]="4" [rowspan]="1"></mat-grid-tile>
-                    <mat-grid-tile [colspan]="3" [rowspan]="1">
-                        <u class="totalpricetag">Totaal prijs:</u>
-                    </mat-grid-tile>
-                    <mat-grid-tile [colspan]="1" [rowspan]="1">
-                        <u class="totalpricetag">{{inv.totalPrice | currency :'EUR'}}</u>
-                    </mat-grid-tile>
-                </mat-grid-list>
-
-                <mat-grid-list *ngIf="!inv.datePayed" cols="4" rowHeight="50px">
-                    <mat-grid-tile [colspan]="3" [rowspan]="1">
-                        <u class="totalpricetag">Nog te betalen:</u>
-                    </mat-grid-tile>
-                    <mat-grid-tile [colspan]="1" [rowspan]="1">
-                        <u class="totalpricetag">{{inv.totalPrice - inv?.payedAmount | currency :'EUR'}} </u>
-                    </mat-grid-tile>
-                </mat-grid-list>
-
-                <mat-grid-list cols="4" rowHeight="25px">
-                    <mat-grid-tile [colspan]="4" [rowspan]="1"></mat-grid-tile>
-                </mat-grid-list>
-
-                <mat-grid-list cols="4" rowHeight="50px">
-                    <mat-grid-tile [colspan]="3" [rowspan]="1"></mat-grid-tile>
-                    <mat-grid-tile [colspan]="1" [rowspan]="1" *ngIf="!inv.datePayed">
+                    <div class="invoice-price-details">
+                        <div class="invoice-price-title-container">
+                            <div class="total-subprice">
+                                Totaal prijs Excl.
+                            </div>
+                            <div class="total-subprice">
+                                BTW bedrag 21%
+                            </div>
+                            <div class="total-price bold">
+                                Totaal Incl. BTW
+                            </div>
+                            <div class="price-to-pay" *ngIf="!inv.datePayed">
+                                <u class="totalpricetag">Totaal openstaand</u>
+                            </div>
+                        </div>
+                        <div class="invoice-price-amount-container">
+                            <div class="total-subprice">
+                                {{inv.totalPrice | currency :'EUR'}}
+                            </div>
+                            <div class="total-subprice">
+                                {{inv.totalPrice * 0.21 | currency :'EUR'}}
+                            </div>
+                            <div class="total-price bold">
+                                <b>{{inv.totalPrice + (inv.totalPrice * 0.21) | currency :'EUR'}}</b>
+                            </div>
+                            <div class="price-to-pay" *ngIf="!inv.datePayed">
+                                <u class="totalpricetag">{{inv.totalPrice - inv?.payedAmount | currency :'EUR'}}</u>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="invoice-payment-button-container" *ngIf="!inv.datePayed">
                         <button mat-raised-button color="primary" (click)="openDialog(inv)">Betaling toevoegen</button>
-                    </mat-grid-tile>
-                </mat-grid-list>
+                    </div>
+                </div>
             </mat-expansion-panel>
         </mat-accordion>
     </div>
 
     <div class="paginator-outer">
-        <mat-paginator 
-            [length]="pageEvent.length" 
-            [pageSize]="pageEvent.pageSize" 
-            [pageSizeOptions]="pageSizeOptions"
+        <mat-paginator [length]="pageEvent.length" [pageSize]="pageEvent.pageSize" [pageSizeOptions]="pageSizeOptions"
             (page)="onPaginateChange($event)">
         </mat-paginator>
     </div>
