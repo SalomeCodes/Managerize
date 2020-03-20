@@ -34,7 +34,6 @@ export class HomeComponent implements OnInit {
     }
 
     onClick(module: any){
-        console.log(module);
         this.modules = this.homeService.getSpecificModule(module.module);
         this.router.navigateByUrl(module.routerLink);
     }

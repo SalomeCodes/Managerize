@@ -21,12 +21,12 @@ table {
 .payment-result-positive {
   margin-left: 2px;
   font-size: 10px;
-  color: green;
+  color: #a6ca8a;
 }
 .payment-result-negative {
   margin-left: 2px;
   font-size: 12px;
-  color: red;
+  color: #f5aca6;
 }
 .mat-expansion-panel-header-description,
 .mat-expansion-panel-header-title {
@@ -41,7 +41,6 @@ table {
   display: flex;
   justify-content: space-between;
   flex-direction: column;
-  // flex-wrap: wrap;
 }
 .overview-header-content {
   display: flex;
@@ -109,7 +108,7 @@ mat-paginator {
 }
 .invoice-payment-button-container{
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     margin-top: 30px;
 }
 .price-to-pay{
@@ -133,7 +132,25 @@ mat-paginator {
 .customer-name{
   width: 150px;
 }
-.payment-details{
-  width: 35px;
+
+.invoice-header-payment-details{
+  font-size: 8px;
+  border: 1px solid;
+  border-radius: 5px;
+  padding: 2px;
+}
+.red {
+  border-color: #f5aca6;
+  background:#ffecec;
+}
+.green{
+  border-color: #a6ca8a;
+  background: #e9ffd9;
+}
+
+.invoice-header-payment{
+  width: 150px;
   display: flex;
+  flex-direction: column;
+  align-items: flex-end;
 }

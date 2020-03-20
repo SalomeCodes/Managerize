@@ -34,34 +34,49 @@
 
     <div class="accordion">
         <mat-accordion>
-            <mat-expansion-panel *ngFor="let inv of invoicesPerPage">
+            <mat-expansion-panel *ngFor="let inv of invoicesPerPage" >
                 <mat-expansion-panel-header>
                     <mat-panel-title>
-                        <b>
-                            Factuur {{inv.invoiceNumber}}
-                        </b>
+                        <div class="invoice-title-description">
+                            <div>
+                                {{inv.creationDate | date :'dd-MM-yyyy'}}
+                            </div>
+                            <div style="font-size: 10px;">
+                                Factuur {{inv.invoiceNumber}}
+                            </div>
+                        </div>
                     </mat-panel-title>
                     <mat-panel-description>
                         <div class="invoice-description">
                             <div class="customer-name">
                                 {{inv.customer.name}} {{inv.customer.prefix}} {{inv.customer.surname}}
                             </div>
-                            
-                            <div class="invoice-price">
-                                <div style="font-size: 10px;">
-                                    €
+
+                            <div class="invoice-header-payment">                                
+                                <div style="display: flex;">
+                                    <div class="invoice-price">
+                                        <div style="font-size: 10px;">
+                                            €
+                                        </div>
+                                        <div style="font-size: 10px;">
+                                            {{inv.totalPrice + (inv.totalPrice * 0.21) | currency :' '}}
+                                        </div>
+                                    </div>
+                                    <div class="payment-details">
+                                        <span class="payment-result-negative" *ngIf="!inv.datePayed">
+                                            <fa-icon [icon]="faTimes"></fa-icon>
+                                        </span>
+                                        <span class="payment-result-positive" *ngIf="inv.datePayed">
+                                            <fa-icon [icon]="faCheck"></fa-icon>
+                                        </span>
+                                    </div>
                                 </div>
-                                <div style="font-size: 10px;">
-                                    {{inv.totalPrice + (inv.totalPrice * 0.21) | currency :' '}}
+                                <div *ngIf="!inv.datePayed" class="invoice-header-payment-details red">
+                                    Nog te betalen: {{inv.totalPrice - inv?.payedAmount | currency :'EUR'}}
                                 </div>
-                            </div>
-                            <div class="payment-details">
-                                <span class="payment-result-negative" *ngIf="!inv.datePayed">
-                                    <fa-icon [icon]="faTimes"></fa-icon>
-                                </span>
-                                <span class="payment-result-positive" *ngIf="inv.datePayed">
-                                    <fa-icon [icon]="faCheck"></fa-icon>
-                                </span>
+                                <div *ngIf="inv.datePayed" class="invoice-header-payment-details green">
+                                    Betaald op: {{inv.datePayed | date :'dd-MM-yyyy'}}
+                                </div>
                             </div>
                         </div>
                     </mat-panel-description>
@@ -125,7 +140,7 @@
                                 {{inv.totalPrice * 0.21 | currency :'EUR'}}
                             </div>
                             <div class="total-price bold">
-                                <b>{{inv.totalPrice + (inv.totalPrice * 0.21) | currency :'EUR'}}</b>
+                                {{inv.totalPrice + (inv.totalPrice * 0.21) | currency :'EUR'}}
                             </div>
                             <div class="price-to-pay" *ngIf="!inv.datePayed">
                                 <u class="totalpricetag">{{inv.totalPrice - inv?.payedAmount | currency :'EUR'}}</u>
@@ -133,6 +148,11 @@
                         </div>
                     </div>
                     <div class="invoice-payment-button-container" *ngIf="!inv.datePayed">
+                        <!-- <button mat-raised-button color="primary" (click)="createPdf()">
+                            pdf 
+                            <fa-icon style="font-size: 13px; margin-left: 5px;" [icon]="faFilePdf"></fa-icon>
+                        </button> -->
+
                         <button mat-raised-button color="primary" (click)="openDialog(inv)">Betaling toevoegen</button>
                     </div>
                 </div>
