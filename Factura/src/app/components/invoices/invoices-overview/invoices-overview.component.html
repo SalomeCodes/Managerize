@@ -15,7 +15,7 @@
             </div> -->
             <div class="overview-filter">
                 <mat-menu #appMenu="matMenu" xPosition="before">
-                    <mat-radio-group [(ngModel)]="isPayed" (change)="changeStatus($event)">
+                    <mat-radio-group (change)="changeStatus($event)">
                         <button mat-menu-item (click)="$event.stopPropagation()">
                             <mat-radio-button value="true">Betaald</mat-radio-button>
                         </button>
