@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, CurrencyPipe } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -27,11 +27,16 @@ import { LayoutModule } from '@angular/cdk/layout';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
+import { PdfmakerComponent } from './pdfmaker/pdfmaker.component';
 
 
 @NgModule({
   declarations: [
     AutocompleterComponent,
+    PdfmakerComponent,
+  ],
+  providers: [
+    CurrencyPipe
   ],
   imports: [
     CommonModule,
@@ -39,7 +44,6 @@ import { MatListModule } from '@angular/material/list';
     RouterModule,
     FormsModule,
     ReactiveFormsModule,
-
     MatButtonModule,
     MatToolbarModule,
     MatMenuModule,
@@ -67,6 +71,7 @@ import { MatListModule } from '@angular/material/list';
   
   exports: [
     AutocompleterComponent,
+    PdfmakerComponent
   ],
   entryComponents: [
     PaymentDialogComponent
