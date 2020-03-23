@@ -160,7 +160,6 @@ export class PdfmakerComponent {
 
         ]
       };
-      console.log('open doc')
       pdfMake.createPdf(documentDefinition).open();
     }
   }

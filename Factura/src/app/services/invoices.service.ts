@@ -26,7 +26,7 @@ export class InvoicesService {
   }
 
   saveInvoice(invoice: Invoice): Observable<number>{
-    return this.httpClient.post<number>(this.standarUrl, invoice, httpOptions);
+    return this.httpClient.post<number>(this.standarUrl, invoice);
   }
   getInvoicesOnPayment(isPayed: boolean): Observable<Invoice[]> {
     let params = new HttpParams().set('isPayed', isPayed.toString());
