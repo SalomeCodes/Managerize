@@ -5,7 +5,7 @@ export class Customer{
     surname: string;
     place: string;
     street: string;
-    zipcode: string;
+    zipCode: string;
     houseNumber: string;
     email: string;
     phoneNumber: string;

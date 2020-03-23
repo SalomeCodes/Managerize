@@ -25,7 +25,7 @@ export class InvoiceCustomerSelectorComponent implements OnInit {
   ngOnInit() {
     this.customerService.getCustomers().subscribe(c => {
       this.customers = c;
-      this.customersPerPage = c.slice(1, 100);
+      this.customersPerPage = c.slice(0, 100);
     });
   }
 

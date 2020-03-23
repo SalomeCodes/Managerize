@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import {
   FormGroup,
   FormBuilder,
@@ -10,6 +10,7 @@ import { MatStepper } from '@angular/material/stepper';
 import { Invoice } from 'src/app/models/Invoice';
 import { InvoicesService } from 'src/app/services/invoices.service';
 import { Router } from '@angular/router';
+import { PdfmakerComponent } from 'src/app/shared/pdfmaker/pdfmaker.component';
 
 
 @Component({
@@ -24,6 +25,9 @@ export class InvoiceCreateComponent implements OnInit {
   secondFormGroup: FormGroup;
   selectedCustomer: Customer;
   invoiceLines: InvoiceLine[] = [];
+  invoice: Invoice;
+
+  @ViewChild(PdfmakerComponent, {static: false}) private pdfMaker:PdfmakerComponent;
 
   constructor(
     private _formBuilder: FormBuilder,
@@ -60,13 +64,14 @@ export class InvoiceCreateComponent implements OnInit {
   }
 
   createInvoice() {
-    var invoice = new Invoice();
-    invoice.creationDate = new Date();
-    invoice.customer = this.selectedCustomer;
-    invoice.dateSent = new Date();
-    invoice.invoiceLines = this.invoiceLines;
-    this.invoiceService.saveInvoice(invoice).subscribe(resp => 
-        this.router.navigateByUrl("/invoices")
-      );
+    this.invoiceService.saveInvoice(this.invoice).subscribe(resp => {
+      this.invoice.invoiceNumber = resp;
+      this.pdfMaker.generateInvoicePdf();
+      this.router.navigateByUrl("/invoices");
+    });
+  }
+
+  onCreated(invoice: Invoice) {
+    this.invoice = invoice;
   }
 }

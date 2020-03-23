@@ -36,7 +36,7 @@ export class InvoiceItemsSelectorComponent implements OnInit {
     this.itemService.getItems().subscribe(i => 
       {
         this.items = i;
-        this.itemsPerPage = this.items.slice(1, 100);
+        this.itemsPerPage = this.items.slice(0, 100);
       });
   }
 

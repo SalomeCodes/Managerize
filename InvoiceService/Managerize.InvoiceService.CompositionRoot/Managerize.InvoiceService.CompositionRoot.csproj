@@ -11,6 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Managerize.InvoiceService.BLL\Managerize.InvoiceService.BLL.csproj" />
     <ProjectReference Include="..\Managerize.InvoiceService.DAL\Managerize.InvoiceService.DAL.csproj" />
     <ProjectReference Include="..\Managerize.InvoiceService.Models\Managerize.InvoiceService.Models.csproj" />
   </ItemGroup>

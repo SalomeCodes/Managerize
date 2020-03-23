@@ -55,3 +55,11 @@ div{
     width: 30px;
     max-width: 35;
 }
+.remove-item-icon{
+    color: #49cfc6;
+    cursor: pointer;
+}
+
+.remove-item-icon:hover{
+    color: red;
+}

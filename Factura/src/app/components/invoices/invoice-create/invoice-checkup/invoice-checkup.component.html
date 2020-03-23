@@ -7,7 +7,7 @@
     <br>
     {{selectedCustomer.street}} {{selectedCustomer.houseNumber}}
     <br>
-    {{selectedCustomer.zipcode}} {{selectedCustomer.place}}
+    {{selectedCustomer.zipCode}} {{selectedCustomer.place}}
   </div>
   <div class="invoice-date-invoice-header">
     Factuurdatum: {{date | date:'dd-MM-yyyy'}}
@@ -20,6 +20,7 @@
       <table>
         <thead>
           <tr>
+            <th></th>
             <th class="left-column size-5">Omschrijving</th>
             <th class="right-column size-1">Aantal</th>
             <th class="right-column size-2">Stukprijs</th>
@@ -27,7 +28,10 @@
           </tr>
         </thead>
         <tbody>
-          <tr matStepperNext style="cursor: pointer;" *ngFor="let invoiceLine of invoiceLines">
+          <tr matStepperNext  *ngFor="let invoiceLine of invoiceLines">
+            <td>
+              <fa-icon class="remove-item-icon" [icon]="faMinusSquare" (click)="removeItemFromInvoice(invoiceLine)"></fa-icon>
+            </td>
             <td class="size-5">
               {{invoiceLine.item.name}}
             </td>

@@ -1,4 +1,5 @@
-﻿using Managerize.InvoiceService.DAL;
+﻿using Managerize.InvoiceService.BLL;
+using Managerize.InvoiceService.DAL;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using System;
@@ -17,6 +18,7 @@ namespace Managerize.InvoiceService.CompositionRoot
             services.AddTransient<InvoicesService>();
             services.AddTransient<CustomersService>();
             services.AddTransient<ItemsService>();
+            services.AddTransient<IInvoiceLogic, InvoiceLogic>();
 
         }
     }

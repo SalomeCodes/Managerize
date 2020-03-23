@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import pdfMake from 'pdfmake/build/pdfmake';
 import pdfFonts from 'pdfmake/build/vfs_fonts';
 import { faFilePdf } from '@fortawesome/free-solid-svg-icons';
@@ -13,21 +13,156 @@ pdfMake.vfs = pdfFonts.pdfMake.vfs;
   templateUrl: './pdfmaker.component.html',
   styleUrls: ['./pdfmaker.component.scss']
 })
-export class PdfmakerComponent implements OnInit {
+export class PdfmakerComponent {
   faFilePdf = faFilePdf;
 
   @Input() invoice: Invoice;
-
-  private adresGenerated = false;
-  private factuurGenerated = false;
+  @Input() buttonText: string;
 
   constructor(private readonly currencyPipe: CurrencyPipe) { }
+  
+  generateInvoicePdf() {
+    if (this.invoice.invoiceNumber) {
 
-  ngOnInit() {  }
+      const invoice = this.invoice;
+      const totalePrijsExcl = this.calculateTotalPriceExcl(
+        invoice.invoiceLines
+      );
+      const totalePrijsIncl = this.calculateTotalPriceIncl(
+        invoice.invoiceLines
+      );
 
-  generatePdf(){
-    const documentDefinition = { content: this.invoice.invoiceNumber };
-    pdfMake.createPdf(documentDefinition).open();
+      const documentDefinition = {
+        footer: [
+          {
+            alignment: 'center',
+            text: `U wordt verzocht binnen 30 dagen ${this.currencyPipe.transform(totalePrijsIncl, 'EUR')} ` +
+              `over te maken naar rekeningnummer: NL75 ABNA 00058 54051 onder vermelding van factuurnummer: ${invoice.invoiceNumber}`,
+            margin: [30, 0]
+          }
+        ],
+        content: [
+          {
+            columns: this.generateBedrijfsgegevens()
+          },
+          [this.generateAfleverAdres(invoice.customer)],
+          {
+            text: 'Factuur',
+            margin: [0, 40, 0, 0],
+            fontSize: 22,
+            bold: true
+          },
+          {
+            columns: [
+              {
+                width: 100,
+                text: 'Factuurdatum : '
+              },
+              {
+                text: new Date(invoice.creationDate).toLocaleDateString('nl-NL')
+              }
+            ]
+          },
+          {
+            columns: [
+              {
+                width: 100,
+                text: 'Factuurnummer : '
+              },
+              {
+                text: invoice.invoiceNumber
+              }
+            ]
+          },
+
+          [
+            {
+              margin: [0, 40, 0, 0],
+              layout: 'noBorders',
+              table: {
+                headerRows: 1,
+                widths: [250, 50, 100, 80],
+
+                body: this.generateFactuurRegels(invoice.invoiceLines)
+              }
+            }
+          ],
+          {
+            columns: [
+              { text: ' ' },
+              {
+                fontSize: 10,
+                width: 100,
+                margin: [0, 10, 0, 0],
+                text: 'Subtotaal'
+              },
+              {
+                fontSize: 10,
+                width: 50,
+                margin: [0, 10, 0, 0],
+                text: ': €'
+              },
+              {
+                fontSize: 10,
+                width: 100,
+                margin: [0, 10, 10, 0],
+                alignment: 'right',
+                text: `${this.currencyPipe.transform(totalePrijsExcl, ' ')}`
+              }
+            ]
+          },
+          {
+            columns: [
+              { text: ' ' },
+              {
+                fontSize: 10,
+                width: 100,
+                margin: [0, 0, 0, 0],
+                text: 'BTW 21%'
+              },
+              {
+                fontSize: 10,
+                width: 50,
+                margin: [0, 0, 0, 0],
+                text: ': €'
+              },
+              {
+                fontSize: 10,
+                width: 100,
+                margin: [0, 0, 10, 0],
+                alignment: 'right',
+                text: `${this.currencyPipe.transform(totalePrijsExcl * 0.21, ' ')}`
+              }
+            ]
+          },
+          {
+            columns: [
+              { text: ' ' },
+              {
+                width: 100,
+                margin: [0, 30, 0, 0],
+                text: 'Totaal te voldoen',
+                bold: true
+              },
+              {
+                width: 50,
+                margin: [0, 30, 0, 0],
+                text: ': €'
+              },
+              {
+                width: 100,
+                margin: [0, 30, 10, 0],
+                text: `${this.currencyPipe.transform(totalePrijsIncl, ' ')}`,
+                alignment: 'right'
+              }
+            ]
+          },
+
+        ]
+      };
+      console.log('open doc')
+      pdfMake.createPdf(documentDefinition).open();
+    }
   }
 
   generateBedrijfsgegevens(): any {
@@ -90,9 +225,9 @@ export class PdfmakerComponent implements OnInit {
 
   generateAfleverAdres(customer: Customer): any {
     return [
-      { text: customer.name, margin: [90, 20, 0, 0] },
-      { text: customer.street + ' ' + customer.houseNumber, margin: [90, 0, 0, 0] },
-      { text: `${customer.zipcode} ${customer.place}`, margin: [90, 0, 0, 50] }
+      { text: `${customer.name}${customer.prefix == ' ' ? ' ' : ` ${customer.prefix} `}${customer.surname}`, margin: [90, 20, 0, 0] },
+      { text: `${customer.street} ${customer.houseNumber}`, margin: [90, 0, 0, 0] },
+      { text: `${customer.zipCode} ${customer.place}`, margin: [90, 0, 0, 50] }
     ];
   }
 
@@ -103,13 +238,13 @@ export class PdfmakerComponent implements OnInit {
       { text: 'Omschrijving', bold: true, margin: [0, 0, 0, 0] },
       { text: 'Aantal', bold: true, alignment: 'right', margin: [0, 0, 0, 0] },
       {
-        text: 'Stuksprijs',
+        text: 'Stukprijs',
         bold: true,
         alignment: 'right',
         margin: [0, 0, 0, 0]
       },
       {
-        text: 'Bedrag in EUR',
+        text: 'Totaal',
         bold: true,
         alignment: 'right',
         margin: [0, 0, 0, 0]
@@ -121,23 +256,11 @@ export class PdfmakerComponent implements OnInit {
     for (const line of invoiceLines) {
       const invoiceLine = [];
 
-      const stuksprijs = this.calculateStuksPriceIncl(line.item.price);
-      const stuksprijsString: string = this.currencyPipe.transform(
-        stuksprijs,
-        ' ',
-        ' '
-      );
-      const subtotaal = this.currencyPipe.transform(
-        stuksprijs * line.amount,
-        ' ',
-        ' '
-      );
-
       invoiceLine.push(
         { text: line.item.name },
         { text: line.amount, alignment: 'right' },
-        { text: stuksprijsString, alignment: 'right' },
-        { text: subtotaal, alignment: 'right' }
+        { text: this.currencyPipe.transform(line.item.price, 'EUR'), alignment: 'right' },
+        { text: this.currencyPipe.transform(line.item.price * line.amount, 'EUR'), alignment: 'right' }
       );
 
       mainArray.push(invoiceLine);
@@ -176,138 +299,8 @@ export class PdfmakerComponent implements OnInit {
     return parseFloat(prijsInclBtw);
   }
 
-  generateInvoicePdf() {
-    const invoice = this.invoice;
-    const totalePrijsExcl = this.calculateTotalPriceExcl(
-      invoice.invoiceLines
-    );
-    const totalePrijsIncl = this.calculateTotalPriceIncl(
-      invoice.invoiceLines
-    );
-
-    const totalePrijsExclString = this.currencyPipe.transform(
-      totalePrijsExcl,
-      ' ',
-      ' '
-    );
-    const totalePrijsInclString = this.currencyPipe.transform(
-      totalePrijsIncl,
-      ' ',
-      ' '
-    );
-
-    this.factuurGenerated = true;
-
-    const documentDefinition = {
-      footer: [
-        {
-          alignment: 'center',
-          text: `U wordt verzocht binnen 30 dagen EUR${totalePrijsInclString} ` +
-          `over te maken naar rekeningnummer: NL75 ABNA 00058 54051 onder vermelding van factuurnummer: ${invoice.invoiceNumber}`,
-          margin: [30, 0]
-        }
-      ],
-      content: [
-        {
-          columns: this.generateBedrijfsgegevens()
-        },
-        [this.generateAfleverAdres(invoice.customer)],
-        {
-          text: 'Factuur',
-          margin: [0, 40, 0, 0],
-          fontSize: 22,
-          bold: true
-        },
-        {
-          columns: [
-            {
-              width: 100,
-              text: 'Factuurdatum : '
-            },
-            {
-              text: new Date(invoice.creationDate).toLocaleDateString('nl-NL')
-            }
-          ]
-        },
-        {
-          columns: [
-            {
-              width: 100,
-              text: 'Bestelnummer : '
-            },
-            {
-              text: invoice.invoiceNumber
-            }
-          ]
-        },
-
-        [
-          {
-            margin: [0, 40, 0, 0],
-            layout: 'noBorders',
-            table: {
-              headerRows: 1,
-              widths: [250, 50, 100, 80],
-
-              body: this.generateFactuurRegels(invoice.invoiceLines)
-            }
-          }
-        ],
-        {
-          columns: [
-            { text: ' ' },
-            {
-              width: 100,
-              margin: [0, 30, 0, 0],
-              text: 'Totaal te voldoen',
-              bold: true
-            },
-            {
-              width: 50,
-              margin: [0, 30, 0, 0],
-              text: ': EUR'
-            },
-            {
-              width: 100,
-              margin: [0, 30, 10, 0],
-              text: `${totalePrijsInclString}`,
-              alignment: 'right'
-            }
-          ]
-        },
-        {
-          columns: [
-            { text: ' ' },
-            {
-              fontSize: 10,
-              width: 100,
-              margin: [0, 10, 0, 0],
-              text: 'Totaal excl. BTW 21%'
-            },
-            {
-              fontSize: 10,
-              width: 50,
-              margin: [0, 10, 0, 0],
-              text: ': EUR'
-            },
-            {
-              fontSize: 10,
-              width: 100,
-              margin: [0, 10, 10, 0],
-              alignment: 'right',
-              text: `${totalePrijsExclString}`
-            }
-          ]
-        }
-      ]
-    };
-    pdfMake.createPdf(documentDefinition).open();
-  }
-
   generateAdres() {
     const customer = this.invoice.customer;
-
-    this.adresGenerated = true;
 
     const documentDefinition = {
       content: [
@@ -332,7 +325,7 @@ export class PdfmakerComponent implements OnInit {
               ],
               [
                 {
-                  text: `${customer.zipcode} ${customer.place}`,
+                  text: `${customer.zipCode} ${customer.place}`,
                   fontSize: 16,
                   border: [true, false, true, false]
                 }
@@ -352,5 +345,4 @@ export class PdfmakerComponent implements OnInit {
 
     pdfMake.createPdf(documentDefinition).open();
   }
-
 }

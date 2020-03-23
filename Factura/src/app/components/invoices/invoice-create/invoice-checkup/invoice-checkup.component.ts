@@ -1,9 +1,10 @@
-import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, Input, OnChanges, SimpleChanges, Output, EventEmitter } from '@angular/core';
 import { Customer } from 'src/app/models/Customer';
 import { InvoiceLine } from 'src/app/models/InvoiceLine';
-import { faEuroSign } from '@fortawesome/free-solid-svg-icons';
+import { faEuroSign, faMinusSquare } from '@fortawesome/free-solid-svg-icons';
 import { Observable } from 'rxjs/internal/Observable';
 import { InvoiceCreateService } from '../invoice-create.service';
+import { Invoice } from 'src/app/models/Invoice';
 
 @Component({
   selector: 'app-invoice-checkup',
@@ -12,6 +13,8 @@ import { InvoiceCreateService } from '../invoice-create.service';
 })
 export class InvoiceCheckupComponent implements OnChanges{
   priceAdded: boolean = false;
+
+  @Output() invoiceCreated = new EventEmitter<Invoice>();
 
   ngOnChanges() {
     this.invoiceService.currentMessage.subscribe( item => 
@@ -25,13 +28,25 @@ export class InvoiceCheckupComponent implements OnChanges{
         }
       })
       this.priceAdded = false;
+      this.invoiceCreated.emit(this.createInvoice());
+  }
+
+  createInvoice() : Invoice{
+    var invoice = new Invoice();
+    invoice.creationDate = new Date();
+    invoice.customer = this.selectedCustomer;
+    invoice.dateSent = new Date();
+    invoice.invoiceLines = this.invoiceLines;
+
+      return invoice;
   }
 
   faEuroSign = faEuroSign;
+  faMinusSquare = faMinusSquare; 
 
   displayedColumns: string[] = ['description', 'amount', 'price', 'totalPrice'];
   @Input() selectedCustomer: Customer;
-  @Input() invoiceLines: Observable<InvoiceLine[]>;
+  @Input() invoiceLines: InvoiceLine[];
   date = new Date();
   subTotalPrice: number = 0; 
   btwPrice: number = 0; 
@@ -43,4 +58,7 @@ export class InvoiceCheckupComponent implements OnChanges{
     this.subTotalPrice = 0;
   }
 
+  removeItemFromInvoice(invoiceLine: InvoiceLine){
+    this.invoiceLines.splice(this.invoiceLines.indexOf(invoiceLine), 1)
+  }
 }

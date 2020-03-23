@@ -29,6 +29,7 @@ import { ItemAddedComponent } from './invoice-create/invoice-items-selector/invo
 import { InvoiceCheckupComponent } from './invoice-create/invoice-checkup/invoice-checkup.component';
 import { InvoiceCreateService } from './invoice-create/invoice-create.service';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { SearchInvoiceComponent } from './invoices-overview/search-invoice/search-invoice.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { SharedModule } from 'src/app/shared/shared.module';
     InvoiceCustomerSelectorComponent,
     InvoiceItemsSelectorComponent,
     ItemAddedComponent,
-    InvoiceCheckupComponent
+    InvoiceCheckupComponent,
+    SearchInvoiceComponent
   ],
   imports: [
     CommonModule,

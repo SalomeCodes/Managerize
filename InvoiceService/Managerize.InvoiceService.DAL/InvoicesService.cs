@@ -45,7 +45,7 @@ namespace Managerize.InvoiceService.DAL
                 .ToList();
         }
 
-        public void AddInvoice(Invoice invoice)
+        public int CreateInvoice(Invoice invoice)
         {
             _invoiceContext.Customers.Attach(invoice.Customer);
             invoice.InvoiceLines.ForEach(line =>
@@ -53,6 +53,7 @@ namespace Managerize.InvoiceService.DAL
 
             _invoiceContext.Add(invoice);
             _invoiceContext.SaveChanges();
+            return invoice.InvoiceNumber;
         }
     }
 }

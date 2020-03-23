@@ -18,10 +18,12 @@ namespace Managerize.InvoiceService.DAL
             modelBuilder.Entity<Customer>(c =>
             {
                 c.HasIndex(n => n.CustomerNumber).IsUnique();
+                c.Property(c => c.CustomerNumber).UseIdentityColumn(1000, 1);
             });
             modelBuilder.Entity<Invoice>(i =>
             {
                 i.HasIndex(n => n.InvoiceNumber).IsUnique();
+                i.Property(n => n.InvoiceNumber).UseIdentityColumn(1000, 1);
             });
         }
 

@@ -7,37 +7,37 @@ import { FormControl } from '@angular/forms';
   templateUrl: './autocompleter.component.html',
   styleUrls: ['./autocompleter.component.scss']
 })
-export class AutocompleterComponent   {
+export class AutocompleterComponent {
 
   @Input() entitytype: string;
   @Input() data: any[];
-	@Output() filterEntityList = new EventEmitter();
+  @Output() filterEntityList = new EventEmitter();
 
   faFilter = faFilter;
   faSearch = faSearch;
   results: any[];
-  dataToReturn: any[];
-	query = new FormControl();
+  // dataToReturn: any[];
+  query = new FormControl();
 
   constructor() { }
 
-  autocomplete(){
+  autocomplete() {
     this.results = [];
-    if(this.query.value == ""){
+    if (this.query.value == "") {
       this.filterEntityList.emit(this.data);
     }
-    else{
+    else {
       for (let item of this.data) {
         for (let prop in item) {
-          if(
+          if (
             item[prop] &&
             item[prop]
               .toString()
               .toLowerCase()
               .includes(this.query.value.toLowerCase())
           ) {
-              this.results.push(item);
-              this.filterEntityList.emit(this.results);
+            this.results.push(item);
+            this.filterEntityList.emit(this.results);
             break;
           }
         }
@@ -45,3 +45,4 @@ export class AutocompleterComponent   {
     }
   }
 }
+

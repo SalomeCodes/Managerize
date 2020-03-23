@@ -1,6 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using Managerize.InvoiceService.DAL;
+﻿using System.Collections.Generic;
+using Managerize.InvoiceService.BLL;
 using Managerize.InvoiceService.Models;
 using Microsoft.AspNetCore.Mvc;
 
@@ -10,9 +9,9 @@ namespace InvoiceService.Controllers
     [ApiController]
     public class InvoicesController : ControllerBase
     {
-        private readonly InvoicesService _managerizeInvoiceService;
+        private readonly IInvoiceLogic _managerizeInvoiceService;
 
-        public InvoicesController(InvoicesService service) => _managerizeInvoiceService = service;
+        public InvoicesController(IInvoiceLogic service) => _managerizeInvoiceService = service;
 
 
         [HttpGet]
@@ -22,9 +21,9 @@ namespace InvoiceService.Controllers
         }
 
         [HttpPost]
-        public void Post(Invoice invoice)
+        public int Post(Invoice invoice)
         {
-            _managerizeInvoiceService.AddInvoice(invoice);
+            return _managerizeInvoiceService.CreateInvoice(invoice);
         }
 
         [HttpGet]
@@ -33,6 +32,5 @@ namespace InvoiceService.Controllers
         {
             return _managerizeInvoiceService.ReadInvoicesOnPaymentStatus(isPayed);
         }
-
     }
 }

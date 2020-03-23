@@ -13,7 +13,7 @@
   <br>
   {{selectedCustomer.street}} {{selectedCustomer.houseNumber}}
   <br>
-  {{selectedCustomer.zipcode}} {{selectedCustomer.place}}
+  {{selectedCustomer.zipCode}} {{selectedCustomer.place}}
 </p>
 
 <mat-horizontal-stepper [linear]="isLinear" labelPosition="bottom" #stepper>
@@ -40,13 +40,13 @@
     <form [formGroup]="secondFormGroup">
       <ng-template matStepLabel>Factuur controleren</ng-template>
 
-      <app-invoice-checkup [invoiceLines]="invoiceLines" [selectedCustomer]="selectedCustomer"></app-invoice-checkup>
+      <app-invoice-checkup (invoiceCreated)="onCreated($event)" [invoiceLines]="invoiceLines" [selectedCustomer]="selectedCustomer"></app-invoice-checkup>
 
       <div class="button-container">
         <button mat-stroked-button color="primary" matStepperPrevious>Annuleren</button>
         <div>
-          <button mat-stroked-button color="primary" style="margin-right: 10px;" (click)="createInvoice()">Opslaan</button>
-          <button mat-stroked-button color="primary" (click)="createInvoice()">Opslaan en printen</button>
+          <button mat-raised-button color="primary" style="margin-right: 10px;" (click)="createInvoice()">Opslaan</button>
+          <app-pdfmaker (click)="createInvoice()" [invoice]="invoice" [buttonText]="'Opslaan en printen'"></app-pdfmaker>
         </div>
       </div>
     </form>

@@ -9,10 +9,11 @@
             </div>
         </div>
         <div class="overview-header-content" style="flex-wrap: nowrap;">
-            <!-- <div class="overview-searchbar">
-                <app-autocompleter entitytype="factuur" [data]="invoices" (filterEntityList)="search($event)">
-                </app-autocompleter>
-            </div> -->
+            <div class="overview-searchbar">
+                <app-search-invoice [data]="invoices" (filterEntityList)="search($event)"></app-search-invoice>
+                <!-- <app-autocompleter entitytype="factuur" [data]="invoices" (filterEntityList)="search($event)">
+                </app-autocompleter> -->
+            </div>
             <div class="overview-filter">
                 <mat-menu #appMenu="matMenu" xPosition="before">
                     <mat-radio-group (change)="changeStatus($event)">
@@ -101,14 +102,14 @@
                     <table mat-table [dataSource]="inv.invoiceLines">
                         <ng-container matColumnDef="description">
                             <th mat-header-cell *matHeaderCellDef> Titel </th>
-                            <td mat-cell *matCellDef="let invoiceLine"> {{invoiceLine.item.description}} </td>
+                            <td mat-cell *matCellDef="let invoiceLine"> {{invoiceLine.item.name}} </td>
                         </ng-container>
                         <ng-container matColumnDef="amount">
                             <th mat-header-cell *matHeaderCellDef> Aantal </th>
                             <td mat-cell *matCellDef="let invoiceLine"> {{invoiceLine.amount}} {{invoiceLine.unit}}</td>
                         </ng-container>
                         <ng-container matColumnDef="price">
-                            <th mat-header-cell *matHeaderCellDef> Prijs Excl. </th>
+                            <th mat-header-cell *matHeaderCellDef> Stukprijs Excl. </th>
                             <td mat-cell *matCellDef="let invoiceLine">{{invoiceLine.item.price | currency :'EUR'}}
                             </td>
                         </ng-container>
@@ -148,11 +149,7 @@
                         </div>
                     </div>
                     <div class="invoice-payment-button-container" *ngIf="!inv.datePayed">
-                        <!-- <button mat-raised-button color="primary" (click)="createPdf()">
-                            pdf 
-                            <fa-icon style="font-size: 13px; margin-left: 5px;" [icon]="faFilePdf"></fa-icon>
-                        </button> -->
-                        <app-pdfmaker [invoice]="inv"></app-pdfmaker>
+                        <app-pdfmaker [invoice]="inv" [buttonText]="'pdf'"></app-pdfmaker>
                         <button mat-raised-button color="primary" (click)="openDialog(inv)">Betaling toevoegen</button>
                     </div>
                 </div>
