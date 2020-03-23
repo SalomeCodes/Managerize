@@ -21,6 +21,10 @@ namespace InvoiceService
         {
             services.AddCors(o => o.AddPolicy("AllowAllPolicy", builder =>
             {
+                builder.WithOrigins(
+                    "http://173.212.252.62:4001",
+                    "http://173.212.252.62",
+                    "http://daphneprojects.nl");
                 builder.AllowAnyOrigin()
                        .AllowAnyMethod()
                        .AllowAnyHeader();
