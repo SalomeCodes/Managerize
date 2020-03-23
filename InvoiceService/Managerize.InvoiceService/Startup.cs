@@ -23,10 +23,10 @@ namespace InvoiceService
             {
                 builder.AllowAnyOrigin()
                        .AllowAnyMethod()
-                       .AllowAnyHeader()
-                       .AllowCredentials();
+                       .AllowAnyHeader();
             }));
 
+            services.AddCors();
             services.AddControllers();
             CompositionRoot.ConfigureServices(services);
         }
@@ -45,7 +45,7 @@ namespace InvoiceService
             app.UseAuthorization();
 
             app.UseCors("AllowAllPolicy");
-
+            app.UseCors(c => c.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
