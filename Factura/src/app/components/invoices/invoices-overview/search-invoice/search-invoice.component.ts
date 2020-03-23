@@ -24,10 +24,9 @@ export class SearchInvoiceComponent implements OnInit {
     this.results = [];
 
     if (this.query.value == "") {
-      this.filterEntityList.emit(this.data);
+      this.filterEntityList.emit(this.data.slice(0,100));
     }
     else{
-      console.log(this.query.value)
       this.data.filter(invoice => {
         if(
           invoice.invoiceNumber.toString().includes(this.query.value) 
