@@ -30,7 +30,7 @@ namespace InvoiceService
             //           .AllowAnyHeader();
             //}));
 
-            //services.AddCors();
+            services.AddCors();
             services.AddControllers();
             CompositionRoot.ConfigureServices(services);
         }
@@ -49,7 +49,7 @@ namespace InvoiceService
             app.UseAuthorization();
 
             //app.UseCors("AllowAllPolicy");
-            //app.UseCors(c => c.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
+            app.UseCors(c => c.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
