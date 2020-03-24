@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, DatePipe } from '@angular/common';
 
 import { InvoicesOverviewComponent } from './invoices-overview/invoices-overview.component';
 import { RouterModule } from '@angular/router';
@@ -22,6 +22,7 @@ import { MatRadioModule } from '@angular/material/radio';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatStepperModule } from '@angular/material/stepper';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { InvoiceItemsSelectorComponent } from './invoice-create/invoice-items-selector/invoice-items-selector.component';
@@ -30,6 +31,7 @@ import { InvoiceCheckupComponent } from './invoice-create/invoice-checkup/invoic
 import { InvoiceCreateService } from './invoice-create/invoice-create.service';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { SearchInvoiceComponent } from './invoices-overview/search-invoice/search-invoice.component';
+import { MatNativeDateModule } from '@angular/material/core';
 
 @NgModule({
   declarations: [
@@ -60,6 +62,8 @@ import { SearchInvoiceComponent } from './invoices-overview/search-invoice/searc
     MatDialogModule,
     MatGridListModule,
     MatPaginatorModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
     MatFormFieldModule,
     MatInputModule,
     MatCheckboxModule,

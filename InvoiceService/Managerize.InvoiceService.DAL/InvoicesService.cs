@@ -22,7 +22,7 @@ namespace Managerize.InvoiceService.DAL
 
         public List<Invoice> ReadInvoicesPerMonthSent(DateTime dateSent)
         {
-            return _invoiceContext.Invoices.Where(i => i.DateSent == dateSent)
+            return _invoiceContext.Invoices.Where(i => i.DateSent.Value.Month == dateSent.Month && i.DateSent.Value.Year == dateSent.Year)
                 .Include(invoice => invoice.Customer)
                 .Include("InvoiceLines.Item")
                 .ToList();

@@ -154,3 +154,13 @@ mat-paginator {
   flex-direction: column;
   align-items: flex-end;
 }
+div .mat-form-field-infix{
+  width: 60px !important;
+}
+span .mat-button-wrapper{
+  font-size: 30px !important;
+}
+
+.mat-datepicker-toggle-default-icon{
+  font-size: 20px;
+}

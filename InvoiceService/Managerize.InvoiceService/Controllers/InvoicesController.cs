@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Managerize.InvoiceService.BLL;
 using Managerize.InvoiceService.Models;
 using Microsoft.AspNetCore.Mvc;
@@ -24,6 +25,13 @@ namespace InvoiceService.Controllers
         public int Post(Invoice invoice)
         {
             return _managerizeInvoiceService.CreateInvoice(invoice);
+        }
+
+        [HttpGet]
+        [Route("date")]
+        public List<Invoice> GetInvoicesPerMonth(DateTime dateInput)
+        {
+            return _managerizeInvoiceService.ReadInvoicesPerMonth(dateInput);
         }
 
         [HttpGet]

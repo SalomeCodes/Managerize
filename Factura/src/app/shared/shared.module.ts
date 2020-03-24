@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CommonModule, CurrencyPipe } from '@angular/common';
+import { CommonModule, CurrencyPipe, DatePipe } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -36,7 +36,8 @@ import { PdfmakerComponent } from './pdfmaker/pdfmaker.component';
     PdfmakerComponent,
   ],
   providers: [
-    CurrencyPipe
+    CurrencyPipe,
+    DatePipe
   ],
   imports: [
     CommonModule,

@@ -5,6 +5,7 @@ import { faEuroSign, faTimes, faCheck, faFilter, faSearch, faFilePdf } from '@fo
 import { MatDialog } from '@angular/material/dialog';
 import { PaymentDialogComponent } from './payment-dialog/payment-dialog.component';
 import { InvoicesService } from 'src/app/services/invoices.service';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-invoices-overview',
@@ -27,12 +28,13 @@ export class InvoicesOverviewComponent implements OnInit {
   pageSizeOptions: number[] = [];
   amountOfInvoiceItemsThatFitScreen = 5;
   oldPageIndex: Number = 0;
-
+  existingInvoices: boolean = false;
   pageEvent: PageEvent;
 
   constructor(
     private invoicesService: InvoicesService,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    public datePipe: DatePipe
   ) { }
 
   openDialog(inv: Invoice): void {
@@ -47,20 +49,24 @@ export class InvoicesOverviewComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.amountOfInvoiceItemsThatFitScreen = Math.round((window.innerHeight - 225)/ 50) - 2;
+    this.amountOfInvoiceItemsThatFitScreen = Math.round((window.innerHeight - 225) / 50) - 2;
     this.pageEvent = {
       length: 0,
       pageIndex: 0,
       pageSize: this.amountOfInvoiceItemsThatFitScreen
     }
-    this.pageSizeOptions = [this.amountOfInvoiceItemsThatFitScreen, this.amountOfInvoiceItemsThatFitScreen *2, this.amountOfInvoiceItemsThatFitScreen*3]
+    this.pageSizeOptions = [this.amountOfInvoiceItemsThatFitScreen, this.amountOfInvoiceItemsThatFitScreen * 2, this.amountOfInvoiceItemsThatFitScreen * 3]
 
-    this.invoicesService.getInvoices().subscribe(invoices => {
+    this.invoicesService.getInvoices(new Date()).subscribe(invoices => {
       this.invoices = invoices;
 
       this.invoicesPerPage = invoices.slice(0, this.amountOfInvoiceItemsThatFitScreen);
 
       this.pageEvent.length = this.invoices.length;
+      if (this.invoices.length == 0)
+        this.existingInvoices = false;
+      else
+        this.existingInvoices = true;
     });
   }
 
@@ -80,6 +86,10 @@ export class InvoicesOverviewComponent implements OnInit {
 
   search(item) {
     this.invoicesPerPage = item;
+    if (this.invoicesPerPage.length == 0)
+      this.existingInvoices = false;
+    else
+      this.existingInvoices = true;
   }
 
   changeStatus(event) {
@@ -87,6 +97,31 @@ export class InvoicesOverviewComponent implements OnInit {
       this.invoices = i;
       this.pageEvent.length = i.length;
       this.invoicesPerPage = i.slice(0, this.pageEvent.pageSize)
+      if (this.invoices.length == 0)
+        this.existingInvoices = false;
+      else
+        this.existingInvoices = true;
+    });
+  }
+
+  showAll(date: any){
+    if(date == null){
+      date = new Date();
+      date.setMonth(date.getMonth() - 1); 
+    }
+    else
+      date = date.value
+    
+    this.invoicesService.getInvoices(date).subscribe(invoices => {
+      this.invoices = invoices;
+
+      this.invoicesPerPage = invoices.slice(0, this.amountOfInvoiceItemsThatFitScreen);
+
+      this.pageEvent.length = this.invoices.length;
+      if (this.invoices.length == 0)
+        this.existingInvoices = false;
+      else
+        this.existingInvoices = true;
     });
   }
 }

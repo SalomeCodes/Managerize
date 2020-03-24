@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { AppSettings } from '../app-settings';
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpParams, HttpRequest } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Invoice } from '../models/Invoice';
+import { DatePipe } from '@angular/common';
 
 const httpOptions = AppSettings.INVOICE_SERVICE_HEADER;
 
@@ -15,17 +16,22 @@ export class InvoicesService {
   private invoicesUrl: string = '/invoices';
   private standarUrl: string = this.baseUrl + this.invoicesUrl;
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(
+    private httpClient: HttpClient,
+    public datePipe: DatePipe
+    ) { }
 
-  getInvoices(): Observable<Invoice[]> {
-    return this.httpClient.get<Invoice[]>(this.standarUrl, httpOptions);
+  getInvoices(date: Date): Observable<Invoice[]> {
+    var datum = this.datePipe.transform(date, 'MM-dd-yyyy');
+    let params = new HttpParams().set('dateInput', `${datum}`);
+    return this.httpClient.get<Invoice[]>(`${this.standarUrl}/date`, { params: params });
   }
 
   addPayment(invoice: Invoice): Observable<boolean> {
     return this.httpClient.put<boolean>(`${this.standarUrl}/${invoice.id}`, invoice, httpOptions);
   }
 
-  saveInvoice(invoice: Invoice): Observable<number>{
+  saveInvoice(invoice: Invoice): Observable<number> {
     return this.httpClient.post<number>(this.standarUrl, invoice, httpOptions);
   }
   getInvoicesOnPayment(isPayed: boolean): Observable<Invoice[]> {
