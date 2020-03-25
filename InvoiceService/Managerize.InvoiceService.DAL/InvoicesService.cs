@@ -20,9 +20,9 @@ namespace Managerize.InvoiceService.DAL
                 .ToList();
         }
 
-        public List<Invoice> ReadInvoicesPerMonthSent(DateTime dateSent)
+        public List<Invoice> ReadInvoicesPerMonthSent(DateTime creationDate)
         {
-            return _invoiceContext.Invoices.Where(i => i.DateSent.Value.Month == dateSent.Month && i.DateSent.Value.Year == dateSent.Year)
+            return _invoiceContext.Invoices.Where(i => i.CreationDate.Month == creationDate.Month && i.CreationDate.Year == creationDate.Year)
                 .Include(invoice => invoice.Customer)
                 .Include("InvoiceLines.Item")
                 .ToList();
