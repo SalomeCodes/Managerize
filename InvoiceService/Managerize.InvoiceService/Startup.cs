@@ -22,16 +22,7 @@ namespace InvoiceService
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddCors();
-            services.AddCors(options =>
-            {
-                options.AddPolicy(MyAllowSpecificOrigins,
-                builder =>
-                {
-                    builder.WithOrigins("http://daphneprojects.nl");
-                    builder.AllowAnyMethod();
-                    builder.AllowAnyHeader();
-                });
-            });
+
             services.AddControllers();
             CompositionRoot.ConfigureServices(services);
         }
@@ -49,14 +40,7 @@ namespace InvoiceService
 
             app.UseAuthorization();
 
-            app.UseCors(MyAllowSpecificOrigins);
-
-            app.UseCors(c =>
-            {
-                c.AllowAnyOrigin();
-                c.AllowAnyHeader();
-                c.AllowAnyMethod();
-            });
+            app.UseCors(c => c.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
 
             app.UseEndpoints(endpoints =>
             {

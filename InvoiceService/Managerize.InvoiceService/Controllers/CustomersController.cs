@@ -23,23 +23,10 @@ namespace Managerize.InvoiceService.Controllers
             return _customersService.ReadCustomers();
         }
         
-        [EnableCors("_myAllowSpecificOrigins")]
         [HttpPost]
-        public void Post(Klant customer)
+        public void Post(Customer customer)
         {
-            //return customer;
-            //_customersService.AddCustomer(customer);
+            _customersService.AddCustomer(customer);
         }
-    }
-
-    public class Klant
-    {
-        public string Name { get; set; }
-        public string Prefix { get; set; }
-        public string Surname { get; set; }
-        public string Street { get; set; }
-        public string ZipCode { get; set; }
-        public string Place { get; set; }
-        public string HouseNumber { get; set; }
     }
 }

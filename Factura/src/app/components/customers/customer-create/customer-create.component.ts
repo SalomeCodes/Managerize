@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import { CustomerService } from 'src/app/services/customer.service';
+import { Customer } from 'src/app/models/Customer';
 
 @Component({
   selector: 'app-customer-create',
@@ -28,8 +29,19 @@ export class CustomerCreateComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.customerForm.value)
-    this.customerService.addCustomer(this.customerForm.value).subscribe(data => {
+    var customer = new Customer();
+    customer.customerNumber = null;
+    customer.name = this.customerForm.value.name;
+    customer.prefix = this.customerForm.value.prefix;
+    customer.surname = this.customerForm.value.surname;
+    customer.street = this.customerForm.value.street;
+    customer.houseNumber = this.customerForm.value.houseNumber;
+    customer.zipCode = this.customerForm.value.zipCode;
+    customer.place = this.customerForm.value.place;
+    customer.email = "";
+    customer.phoneNumber = "";
+
+    this.customerService.addCustomer(customer).subscribe(data => {
       this.router.navigateByUrl("/customers");
     });
   }
