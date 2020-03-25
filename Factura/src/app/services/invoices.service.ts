@@ -32,7 +32,7 @@ export class InvoicesService {
   }
 
   saveInvoice(invoice: Invoice) {
-    return this.httpClient.post<number>(this.standarUrl, invoice, httpOptions);
+    return this.httpClient.post<number>(`${this.baseUrl}/invoice`, invoice, httpOptions);
   }
 
   getInvoicesOnPayment(isPayed: boolean): Observable<Invoice[]> {
