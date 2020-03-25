@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Managerize.InvoiceService.DAL;
 using Managerize.InvoiceService.Models;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
