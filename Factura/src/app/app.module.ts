@@ -14,7 +14,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { HomeModule } from './components/home/home.module';
 import { CustomersModule } from './components/customers/customers.module';
 import { ItemsModule } from './components/items/items.module';
-import { registerLocaleData, CurrencyPipe } from '@angular/common';
+import { registerLocaleData } from '@angular/common';
 import localeNl from '@angular/common/locales/nl';
 import { NavbarComponent } from './layout/navbar/navbar.component';
 import { LayoutModule } from '@angular/cdk/layout';

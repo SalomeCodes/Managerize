@@ -1,11 +1,12 @@
 import { Component, Input } from '@angular/core';
 import pdfMake from 'pdfmake/build/pdfmake';
 import pdfFonts from 'pdfmake/build/vfs_fonts';
-import { faFilePdf } from '@fortawesome/free-solid-svg-icons';
 import { Invoice } from 'src/app/models/Invoice';
 import { Customer } from 'src/app/models/Customer';
 import { InvoiceLine } from 'src/app/models/InvoiceLine';
 import { CurrencyPipe } from '@angular/common';
+import { faFilePdf } from '@fortawesome/free-solid-svg-icons';
+
 pdfMake.vfs = pdfFonts.pdfMake.vfs;
 
 @Component({

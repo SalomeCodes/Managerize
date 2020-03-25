@@ -9,7 +9,6 @@ namespace InvoiceService.Controllers
 {
     [Route("[controller]")]
     [ApiController]
-    [EnableCors("*")]
     public class InvoicesController : ControllerBase
     {
         private readonly IInvoiceLogic _managerizeInvoiceService;
@@ -29,18 +28,18 @@ namespace InvoiceService.Controllers
             return _managerizeInvoiceService.CreateInvoice(invoice);
         }
 
-        [HttpGet]
-        [Route("date")]
-        public List<Invoice> GetInvoicesPerMonth(DateTime dateInput)
-        {
-            return _managerizeInvoiceService.ReadInvoicesPerMonth(dateInput);
-        }
+        //[HttpGet]
+        //[Route("date")]
+        //public List<Invoice> GetInvoicesPerMonth(DateTime dateInput)
+        //{
+        //    return _managerizeInvoiceService.ReadInvoicesPerMonth(dateInput);
+        //}
 
-        [HttpGet]
-        [Route("payment")]
-        public IEnumerable<Invoice> GetInvoicesOnPayment([FromQuery(Name = "isPayed")] bool isPayed)
-        {
-            return _managerizeInvoiceService.ReadInvoicesOnPaymentStatus(isPayed);
-        }
+        //[HttpGet]
+        //[Route("payment")]
+        //public IEnumerable<Invoice> GetInvoicesOnPayment([FromQuery(Name = "isPayed")] bool isPayed)
+        //{
+        //    return _managerizeInvoiceService.ReadInvoicesOnPaymentStatus(isPayed);
+        //}
     }
 }
