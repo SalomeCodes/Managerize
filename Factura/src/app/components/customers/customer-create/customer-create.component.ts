@@ -30,7 +30,8 @@ export class CustomerCreateComponent implements OnInit {
 
   onSubmit() {
     var customer = new Customer();
-    customer.customerNumber = null;
+    customer.id = "ba342a91-a5a3-4994-b442-8cb4dc6aeb1b"
+    customer.customerNumber = 100;
     customer.name = this.customerForm.value.name;
     customer.prefix = this.customerForm.value.prefix;
     customer.surname = this.customerForm.value.surname;
@@ -38,8 +39,8 @@ export class CustomerCreateComponent implements OnInit {
     customer.houseNumber = this.customerForm.value.houseNumber;
     customer.zipCode = this.customerForm.value.zipCode;
     customer.place = this.customerForm.value.place;
-    customer.email = "";
-    customer.phoneNumber = "";
+    customer.email = "notimplemented@email.nl";
+    customer.phoneNumber = "12354576";
 
     this.customerService.addCustomer(customer).subscribe(data => {
       this.router.navigateByUrl("/customers");
