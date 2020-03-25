@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Managerize.InvoiceService.BLL;
 using Managerize.InvoiceService.Models;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -17,6 +18,7 @@ namespace Managerize.InvoiceService.Controllers
 
         public InvoiceController(IInvoiceLogic service) => _managerizeInvoiceService = service;
 
+        [EnableCors("_myAllowSpecificOrigins")]
         [HttpPost]
         public void Post(Invoice invoice)
         {

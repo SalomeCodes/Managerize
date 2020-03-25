@@ -27,7 +27,7 @@ namespace InvoiceService
                 options.AddPolicy(MyAllowSpecificOrigins,
                 builder =>
                 {
-                    builder.AllowAnyOrigin();
+                    builder.WithOrigins("http://daphneprojects.nl");
                     builder.AllowAnyMethod();
                     builder.AllowAnyHeader();
                 });
