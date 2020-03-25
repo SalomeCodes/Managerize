@@ -17,6 +17,8 @@ namespace Managerize.InvoiceService.DAL
         }
         public void AddCustomer(Customer customer)
         {
+            customer.Id = new Guid();
+            customer.CustomerNumber = 0;
             _invoiceContext.Add(customer);
             _invoiceContext.SaveChanges();
         }
