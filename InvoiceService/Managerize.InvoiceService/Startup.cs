@@ -9,6 +9,8 @@ namespace InvoiceService
 {
     public class Startup
     {
+        readonly string MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
+
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -20,6 +22,16 @@ namespace InvoiceService
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddCors();
+            services.AddCors(options =>
+            {
+                options.AddPolicy(MyAllowSpecificOrigins,
+                builder =>
+                {
+                    builder.AllowAnyOrigin();
+                    builder.AllowAnyMethod();
+                    builder.AllowAnyHeader();
+                });
+            });
             services.AddControllers();
             CompositionRoot.ConfigureServices(services);
         }
@@ -37,9 +49,10 @@ namespace InvoiceService
 
             app.UseAuthorization();
 
+            app.UseCors(MyAllowSpecificOrigins);
+
             app.UseCors(c =>
             {
-                c.WithOrigins("http://localhost:4200", "http://daphneprojects.nl", "http://173.212.252.62");
                 c.AllowAnyOrigin();
                 c.AllowAnyHeader();
                 c.AllowAnyMethod();

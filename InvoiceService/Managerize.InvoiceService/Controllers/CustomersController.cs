@@ -23,6 +23,7 @@ namespace Managerize.InvoiceService.Controllers
             return _customersService.ReadCustomers();
         }
         
+        [EnableCors("_myAllowSpecificOrigins")]
         [HttpPost]
         public void Post(Customer customer)
         {

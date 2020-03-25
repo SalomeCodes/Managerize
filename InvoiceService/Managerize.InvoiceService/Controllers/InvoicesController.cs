@@ -22,24 +22,25 @@ namespace InvoiceService.Controllers
             return _managerizeInvoiceService.ReadInvoices();
         }
 
+        [EnableCors]
         [HttpPost]
         public int Post(Invoice invoice)
         {
             return _managerizeInvoiceService.CreateInvoice(invoice);
         }
 
-        //[HttpGet]
-        //[Route("date")]
-        //public List<Invoice> GetInvoicesPerMonth(DateTime dateInput)
-        //{
-        //    return _managerizeInvoiceService.ReadInvoicesPerMonth(dateInput);
-        //}
+        [HttpGet]
+        [Route("date")]
+        public List<Invoice> GetInvoicesPerMonth(DateTime dateInput)
+        {
+            return _managerizeInvoiceService.ReadInvoicesPerMonth(dateInput);
+        }
 
-        //[HttpGet]
-        //[Route("payment")]
-        //public IEnumerable<Invoice> GetInvoicesOnPayment([FromQuery(Name = "isPayed")] bool isPayed)
-        //{
-        //    return _managerizeInvoiceService.ReadInvoicesOnPaymentStatus(isPayed);
-        //}
+        [HttpGet]
+        [Route("payment")]
+        public IEnumerable<Invoice> GetInvoicesOnPayment([FromQuery(Name = "isPayed")] bool isPayed)
+        {
+            return _managerizeInvoiceService.ReadInvoicesOnPaymentStatus(isPayed);
+        }
     }
 }
