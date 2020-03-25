@@ -37,7 +37,13 @@ namespace InvoiceService
 
             app.UseAuthorization();
 
-            app.UseCors(c => c.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
+            app.UseCors(c =>
+            {
+                c.WithOrigins("http://localhost:4200", "http://daphneprojects.nl", "http://173.212.252.62");
+                c.AllowAnyOrigin();
+                c.AllowAnyHeader();
+                c.AllowAnyMethod();
+            });
 
             app.UseEndpoints(endpoints =>
             {
