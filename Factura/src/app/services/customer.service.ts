@@ -20,7 +20,7 @@ export class CustomerService {
   getCustomers():Observable<Customer[]>{
     return this.httpClient.get<Customer[]>(this.standarUrl, httpOptions);
   }
-  addCustomer(customer: Customer):Observable<Customer>{
+  addCustomer(customer: Customer){
     return this.httpClient.post<Customer>(this.standarUrl, customer, httpOptions);
   }
 }

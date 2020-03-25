@@ -31,10 +31,10 @@ export class InvoicesService {
     return this.httpClient.put<boolean>(`${this.standarUrl}/${invoice.id}`, invoice, httpOptions);
   }
 
-  saveInvoice(invoice: Invoice): Observable<number> {
+  saveInvoice(invoice: Invoice) {
     return this.httpClient.post<number>(this.standarUrl, invoice, httpOptions);
   }
-  
+
   getInvoicesOnPayment(isPayed: boolean): Observable<Invoice[]> {
     let params = new HttpParams().set('isPayed', isPayed.toString());
 
