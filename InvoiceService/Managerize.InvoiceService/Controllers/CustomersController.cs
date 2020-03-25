@@ -24,9 +24,17 @@ namespace Managerize.InvoiceService.Controllers
         }
         
         [HttpPost]
-        public void Post(Customer customer)
+        public IActionResult Post(Customer customer)
         {
-            _customersService.AddCustomer(customer);
+            try
+            {
+                _customersService.AddCustomer(customer);
+                return Ok();
+            }
+            catch(Exception ex)
+            {
+                return StatusCode(1, ex);
+            }
         }
     }
 }
