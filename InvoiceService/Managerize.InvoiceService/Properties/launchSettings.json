@@ -3,8 +3,8 @@
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
     "iisExpress": {
-      "applicationUrl": "http://localhost:57304",
-      "sslPort": 0
+      "applicationUrl": "https://localhost:44301",
+      "sslPort": 44301
     }
   },
   "$schema": "http://json.schemastore.org/launchsettings.json",
@@ -14,8 +14,8 @@
       "launchBrowser": true,
       "launchUrl": "invoices",
       "environmentVariables": {
-        "MANAGERIZE_INVOICE_SERVICE_DB": "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=InvoiceServiceDb;Integrated Security=True",
-        "ke": "Data Source=173.212.252.62;Initial Catalog=InvoiceServiceDb;User ID=sa;Password=Managerize94!"
+        "key": "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=InvoiceServiceDb;Integrated Security=True",
+        "MANAGERIZE_INVOICE_SERVICE_DB": "Data Source=173.212.252.62;Initial Catalog=InvoiceServiceDb;User ID=sa;Password=Managerize94!"
       }
     },
     "InvoiceService": {
