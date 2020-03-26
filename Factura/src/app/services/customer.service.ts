@@ -21,6 +21,7 @@ export class CustomerService {
     return this.httpClient.get<Customer[]>(this.standarUrl, httpOptions);
   }
   addCustomer(customer: Customer){
+    console.log(customer);
     return this.httpClient.post<Customer>(this.standarUrl, customer, httpOptions);
   }
 }

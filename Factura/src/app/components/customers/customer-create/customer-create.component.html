@@ -36,24 +36,37 @@
         </div>
         <div class="one">
             <mat-form-field style="width:100%;">
-                <input matInput placeholder="Huisnummer" value="" formControlName="housenumber">
+                <input matInput placeholder="Huisnummer" value="" formControlName="houseNumber">
             </mat-form-field>
         </div>
     </div>
     <div class="container">
-            <div class="one">
-                <mat-form-field style="width:100%;">
-                    <input matInput placeholder="Postcode" value="" formControlName="zipcode">
-                </mat-form-field>
-            </div>
-        
-            <div class="three">
-                <mat-form-field style="width:100%;">
-                    <input matInput placeholder="Plaats" value="" formControlName="place">
-                </mat-form-field>
-            </div>
+        <div class="one">
+            <mat-form-field style="width:100%;">
+                <input matInput placeholder="Postcode" value="" formControlName="zipCode">
+            </mat-form-field>
         </div>
+
+        <div class="three">
+            <mat-form-field style="width:100%;">
+                <input matInput placeholder="Plaats" value="" formControlName="place">
+            </mat-form-field>
+        </div>
+    </div>
+    <div class="container">
+        <div class="one">
+            <mat-form-field style="width:100%;">
+                <input matInput placeholder="Email" value="" formControlName="email">
+            </mat-form-field>
+        </div>
+
+        <div class="three">
+            <mat-form-field style="width:100%;">
+                <input matInput placeholder="Telefoonnummer" value="" formControlName="phone">
+            </mat-form-field>
+        </div>
+    </div>
     <div class="container end">
         <button mat-raised-button color="primary">Toevoegen</button>
-    </div> 
+    </div>
 </form>
