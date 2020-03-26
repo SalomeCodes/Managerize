@@ -14,8 +14,8 @@
       "launchBrowser": true,
       "launchUrl": "invoices",
       "environmentVariables": {
-        "key": "Data Source=173.212.252.62;Initial Catalog=InvoiceServiceDb;User ID=sa;Password=Managerize94!",
-        "MANAGERIZE_INVOICE_SERVICE_DB": "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=InvoiceServiceDb;Integrated Security=True"
+        "MANAGERIZE_INVOICE_SERVICE_DB": "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=InvoiceServiceDb;Integrated Security=True",
+        "ke": "Data Source=173.212.252.62;Initial Catalog=InvoiceServiceDb;User ID=sa;Password=Managerize94!"
       }
     },
     "InvoiceService": {

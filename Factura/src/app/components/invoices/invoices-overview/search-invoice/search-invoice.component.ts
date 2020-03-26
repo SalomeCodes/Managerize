@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { faFilter, faSearch } from '@fortawesome/free-solid-svg-icons';
+import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { FormControl } from '@angular/forms';
 
 @Component({
@@ -7,33 +7,30 @@ import { FormControl } from '@angular/forms';
   templateUrl: './search-invoice.component.html',
   styleUrls: ['./search-invoice.component.scss']
 })
-export class SearchInvoiceComponent implements OnInit {
+export class SearchInvoiceComponent {
 
   constructor() { }
-  
+
   @Input() data: any[];
   @Output() filterEntityList = new EventEmitter();
   faSearch = faSearch;
-  results: any[];
+  results: any[] = [];
   query = new FormControl();
 
-  ngOnInit() {
-  }
-
-  searchInvoice(){
+  searchInvoice() {
     this.results = [];
 
     if (this.query.value == "") {
-      this.filterEntityList.emit(this.data.slice(0,100));
+      this.filterEntityList.emit(this.data.slice(0, 100));
     }
-    else{
-      this.data.filter(invoice => {
-        if(
-          invoice.invoiceNumber.toString().includes(this.query.value) 
+    else {
+      this.data.filter(invoice => {        
+        if (
+          invoice.invoiceNumber.toString().includes(this.query.value)
           || invoice.customer.zipCode.toString().toLowerCase().includes(this.query.value.toLowerCase())
           || invoice.customer.name.toString().toLowerCase().includes(this.query.value.toLowerCase())
           || invoice.customer.surname.toString().toLowerCase().includes(this.query.value.toLowerCase())
-          ){
+        ) {
           this.results.push(invoice);
         }
       })
