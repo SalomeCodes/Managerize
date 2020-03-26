@@ -15,10 +15,10 @@ FROM nginx:alpine
 
 RUN apk add inotify-tools certbot openssl
 WORKDIR /opt
-COPY Factura/entrypoint.sh nginx-letsencrypt
-COPY certbot.sh certbot.sh
-COPY default.conf /etc/nginx/conf.d/default.conf
-COPY ssl-options/ /etc/ssl-options
+COPY Factura/nginx/entrypoint.sh nginx-letsencrypt
+COPY Factura/nginx/certbot.sh certbot.sh
+COPY Factura/nginx/nginx.conf /etc/nginx/nginx.conf
+COPY Factura/nginx/ssl-options/ /etc/ssl-options
 RUN chmod +x nginx-letsencrypt && \
     chmod +x certbot.sh 
 ENTRYPOINT ["./nginx-letsencrypt"]
