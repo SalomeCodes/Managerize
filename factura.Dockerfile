@@ -15,6 +15,7 @@ FROM nginx:alpine
 COPY --from=build app/dist/factura /usr/share/nginx/html
 COPY Factura/nginx/nginx.conf /etc/nginx/nginx.conf
 
+RUN mkdir /usr/share/nginx/html/.well-known
 RUN mkdir /usr/share/nginx/html/.well-known/acme-challenge
 COPY Factura/nginx/-10mwXVkQy-FDqoFk4XnLqIHKvVIsjQvM3IxYEvFdxQ /usr/share/nginx/html/.well-known/acme-challenge
 COPY Factura/nginx/MxslcbbuvtYcv_GBTvi9KdD-h1DUnZsE1UWYm2NWdH4 /usr/share/nginx/html/.well-known/acme-challenge
