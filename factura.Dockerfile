@@ -18,13 +18,12 @@ WORKDIR /opt
 COPY Factura/nginx/entrypoint.sh nginx-letsencrypt
 COPY Factura/nginx/certbot.sh certbot.sh
 COPY Factura/nginx/nginx.conf /etc/nginx/nginx.conf
-COPY Factura/nginx/ssl-options/ /etc/ssl-options
+COPY Factura/nginx/ssl-options/ /etc/nginx/ssl-options
 RUN chmod +x nginx-letsencrypt && \
     chmod +x certbot.sh 
 ENTRYPOINT ["./nginx-letsencrypt"]
 
 COPY --from=build app/dist/factura /usr/share/nginx/html
-COPY Factura/nginx/nginx.conf /etc/nginx/nginx.conf
 
 EXPOSE 80
 
