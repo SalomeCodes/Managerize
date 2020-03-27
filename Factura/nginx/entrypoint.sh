@@ -13,7 +13,7 @@ if [[ ! -f /usr/share/nginx/certificates/fullchain.pem ]]; then
     openssl genrsa -out /usr/share/nginx/certificates/privkey.pem 4096
     sl genrsa -out /usr/share/nginx/certificates/privkey.pem 4096
     openssl req -new -key /usr/share/nginx/certificates/privkey.pem -out /usr/share/nginx/certificates/cert.csr -nodes -subj \
-    "/C=PT/ST=World/L=World/O=${DOMAIN:daphneprojects.nl}/OU=daphneprojects lda/CN=${DOMAIN:daphneprojects.nl}/EMAIL=${EMAIL:info@daphneprojects.nl}"
+    "/C=NL/ST=World/L=World/O=${DOMAIN:daphneprojects.nl}/CN=${DOMAIN:daphneprojects.nl}"
     openssl x509 -req -days 365 -in /usr/share/nginx/certificates/cert.csr -signkey /usr/share/nginx/certificates/privkey.pem -out /usr/share/nginx/certificates/fullchain.pem
 fi
 
