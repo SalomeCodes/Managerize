@@ -36,7 +36,7 @@ pipeline {
         stage('Release'){
             steps{
                 
-                sh 'docker rm -f managerize-factura && docker run --env INVOICE_SERVICE_ENDPOINT="${INVOICE_SERVICE_ENDPOINT}" -p ${FACTURA_PORT}:80 -p 443:443 --name managerize-factura -d \$registry:\$BUILD_NUMBER || docker run --env INVOICE_SERVICE_ENDPOINT="${INVOICE_SERVICE_ENDPOINT}" -p ${FACTURA_PORT}:80 -p 443:443 --name managerize-factura -d \$registry:\$BUILD_NUMBER'
+                sh 'docker rm -f managerize-factura && docker run --env INVOICE_SERVICE_ENDPOINT="${INVOICE_SERVICE_ENDPOINT}" -p ${FACTURA_PORT}:80 -p 443:80 --name managerize-factura -d \$registry:\$BUILD_NUMBER || docker run --env INVOICE_SERVICE_ENDPOINT="${INVOICE_SERVICE_ENDPOINT}" -p ${FACTURA_PORT}:80 -p 443:80 --name managerize-factura -d \$registry:\$BUILD_NUMBER'
             }
         }
     }
