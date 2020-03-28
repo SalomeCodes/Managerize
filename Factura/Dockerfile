@@ -3,7 +3,7 @@
 #################
 FROM node:12-alpine as build
 WORKDIR /app
-COPY . ./
+COPY . .
 RUN npm install
 RUN $(npm bin)/ng build --prod --configuration production --output-path=/dist
 
