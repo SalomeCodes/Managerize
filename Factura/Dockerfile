@@ -3,7 +3,7 @@
 #################
 FROM node:12-alpine as build
 WORKDIR /app
-COPY . .
+COPY . ./
 RUN npm install
 RUN $(npm bin)/ng build --prod --configuration production --output-path=/dist
 
@@ -12,7 +12,7 @@ RUN $(npm bin)/ng build --prod --configuration production --output-path=/dist
 ################
 FROM nginx:alpine
 COPY --from=build /dist /usr/share/nginx/html
-COPY nginx/nginx.conf /etc/nginx/nginx.conf
+COPY nginx /etc/nginx
 
 EXPOSE 80
 EXPOSE 443
