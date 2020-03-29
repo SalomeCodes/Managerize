@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
-import { faEuroSign } from '@fortawesome/free-solid-svg-icons';
 import { ItemsService } from 'src/app/services/items.service';
 import { Router } from '@angular/router';
-import { Item } from 'src/app/models/Item';
 
 @Component({
   selector: 'app-item-create',
@@ -16,8 +14,6 @@ export class ItemCreateComponent implements OnInit {
     price: new FormControl(''),
     description: new FormControl('')
   });
-
-  faEuroSign = faEuroSign;
 
   constructor(
     public itemService: ItemsService,

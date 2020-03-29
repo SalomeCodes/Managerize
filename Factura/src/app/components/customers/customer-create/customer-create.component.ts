@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import { CustomerService } from 'src/app/services/customer.service';
-import { Customer } from 'src/app/models/Customer';
 
 @Component({
   selector: 'app-customer-create',
