@@ -7,10 +7,6 @@ export class AppSettings {
     public static INVOICE_SERVICE_HEADER = { headers: new HttpHeaders({
         'Content-Type': 'application/json',
         'Access-Control-Allow-Origin': '*'
-        // 'Access-Control-Allow-Origin': 'http://173.212.252.62:4001'
-
-        // 'Access-Control-Allow-Origin': '*',
-        // 'Access-Control-Allow-Headers': 'Content-Type',
       } 
     )};
 }

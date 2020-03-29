@@ -25,6 +25,7 @@ const routes: Routes = [
       { path: 'test', component: TestComponent }
     ]
   },
+  { path: 'test', component: TestComponent }
 ];
 
 @NgModule({
