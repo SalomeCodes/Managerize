@@ -13,6 +13,7 @@ RUN $(npm bin)/ng build --prod --configuration production --output-path=/dist
 FROM nginx:alpine
 COPY --from=build /dist /usr/share/nginx/html
 COPY nginx /etc/nginx
+copy nginx/letsencrypt/live/daphneprojects.nl /etc/letsencrypt/live/daphneprojects.nl
 
 EXPOSE 80
 EXPOSE 443
