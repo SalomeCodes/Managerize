@@ -24,7 +24,7 @@
                     </mat-radio-group>
                 </mat-menu>
                 <button mat-icon-button color="primary" [matMenuTriggerFor]="appMenu" matTooltip="Filter Facturen">
-                    <fa-icon style="font-size: 20px;" [icon]="faFilter"></fa-icon>
+                    filter
                 </button>
             </div>
         </div>
@@ -76,10 +76,10 @@
                                     </div>
                                     <div class="payment-details">
                                         <span class="payment-result-negative" *ngIf="!inv.datePayed">
-                                            <fa-icon [icon]="faTimes"></fa-icon>
+                                            X
                                         </span>
                                         <span class="payment-result-positive" *ngIf="inv.datePayed">
-                                            <fa-icon [icon]="faCheck"></fa-icon>
+                                            O
                                         </span>
                                     </div>
                                 </div>

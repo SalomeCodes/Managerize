@@ -30,7 +30,7 @@
         <tbody>
           <tr matStepperNext  *ngFor="let invoiceLine of invoiceLines">
             <td>
-              <fa-icon class="remove-item-icon" [icon]="faMinusSquare" (click)="removeItemFromInvoice(invoiceLine)"></fa-icon>
+              <span (click)="removeItemFromInvoice(invoiceLine)">-+</span>
             </td>
             <td class="size-5">
               {{invoiceLine.item.name}}

@@ -1,5 +1,4 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { FormControl } from '@angular/forms';
 
 @Component({
@@ -13,7 +12,7 @@ export class SearchInvoiceComponent {
 
   @Input() data: any[];
   @Output() filterEntityList = new EventEmitter();
-  faSearch = faSearch;
+
   results: any[] = [];
   query = new FormControl();
 

@@ -2,7 +2,6 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Item } from 'src/app/models/Item';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ItemAddedComponent } from './invoice-added-item-snackbar/invoice-added-item';
-import { faFilter, faPlusCircle } from '@fortawesome/free-solid-svg-icons';
 import { InvoiceLine } from 'src/app/models/InvoiceLine';
 import { InvoiceCreateService } from '../invoice-create.service';
 import { ItemsService } from 'src/app/services/items.service';
@@ -17,8 +16,6 @@ import { ItemsService } from 'src/app/services/items.service';
   ]
 })
 export class InvoiceItemsSelectorComponent implements OnInit {
-  faPlus = faPlusCircle;
-
   items: Item[];
   itemsPerPage: Item[];
   displayedColumns: string[] = ['naam', 'beschrijving', 'stuksprijs', 'aantal'];

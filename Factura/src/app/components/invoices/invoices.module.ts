@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CommonModule, DatePipe } from '@angular/common';
+import { CommonModule } from '@angular/common';
 
 import { InvoicesOverviewComponent } from './invoices-overview/invoices-overview.component';
 import { RouterModule } from '@angular/router';
@@ -23,7 +23,6 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatStepperModule } from '@angular/material/stepper';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatDatepickerModule } from '@angular/material/datepicker';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { InvoiceItemsSelectorComponent } from './invoice-create/invoice-items-selector/invoice-items-selector.component';
 import { ItemAddedComponent } from './invoice-create/invoice-items-selector/invoice-added-item-snackbar/invoice-added-item';
@@ -72,8 +71,7 @@ import { InvoicesService } from 'src/app/services/invoices.service';
     MatCheckboxModule,
     MatTooltipModule,
     MatStepperModule,
-    MatSnackBarModule,
-    FontAwesomeModule
+    MatSnackBarModule
   ],
   entryComponents: [
     PaymentDialogComponent, 

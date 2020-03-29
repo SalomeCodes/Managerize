@@ -1,8 +1,6 @@
 import { Component, Input, OnChanges, SimpleChanges, Output, EventEmitter } from '@angular/core';
 import { Customer } from 'src/app/models/Customer';
 import { InvoiceLine } from 'src/app/models/InvoiceLine';
-import { faEuroSign, faMinusSquare } from '@fortawesome/free-solid-svg-icons';
-import { Observable } from 'rxjs/internal/Observable';
 import { InvoiceCreateService } from '../invoice-create.service';
 import { Invoice } from 'src/app/models/Invoice';
 
@@ -40,9 +38,6 @@ export class InvoiceCheckupComponent implements OnChanges{
 
       return invoice;
   }
-
-  faEuroSign = faEuroSign;
-  faMinusSquare = faMinusSquare; 
 
   displayedColumns: string[] = ['description', 'amount', 'price', 'totalPrice'];
   @Input() selectedCustomer: Customer;

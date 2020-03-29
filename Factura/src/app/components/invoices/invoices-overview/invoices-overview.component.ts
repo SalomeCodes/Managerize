@@ -1,7 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Invoice } from 'src/app/models/Invoice';
 import { PageEvent } from '@angular/material/paginator';
-import { faEuroSign, faTimes, faCheck, faFilter, faSearch, faFilePdf } from '@fortawesome/free-solid-svg-icons';
 import { MatDialog } from '@angular/material/dialog';
 import { PaymentDialogComponent } from './payment-dialog/payment-dialog.component';
 import { InvoicesService } from 'src/app/services/invoices.service';
@@ -13,13 +12,6 @@ import { DatePipe } from '@angular/common';
   styleUrls: ['./invoices-overview.component.scss']
 })
 export class InvoicesOverviewComponent implements OnInit {
-  faEuroSign = faEuroSign;
-  faTimes = faTimes;
-  faCheck = faCheck;
-  faFilter = faFilter;
-  faSearch = faSearch;
-  faFilePdf = faFilePdf;
-
   invoices: Invoice[] = [];
   invoicesPerPage: Invoice[] = [];
 

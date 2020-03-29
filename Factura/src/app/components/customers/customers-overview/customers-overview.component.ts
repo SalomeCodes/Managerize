@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Customer } from 'src/app/models/Customer';
-import { faFilter, faSearch } from '@fortawesome/free-solid-svg-icons';
 import { CustomerService } from 'src/app/services/customer.service';
 
 @Component({
@@ -11,10 +10,7 @@ import { CustomerService } from 'src/app/services/customer.service';
     '../../../shared/table.component.scss']
 })
 export class CustomersOverviewComponent implements OnInit {
-
-  faFilter = faFilter;
-  faSearch = faSearch;
-
+  
   customers: Customer[] = [];
   customersPerPage: Customer[] = [];
   displayedColumns: string[] = ['naam', 'adres', 'contact'];
