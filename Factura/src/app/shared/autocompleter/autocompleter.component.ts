@@ -1,5 +1,4 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { faFilter, faSearch } from '@fortawesome/free-solid-svg-icons';
 import { FormControl } from '@angular/forms';
 
 @Component({
@@ -13,8 +12,6 @@ export class AutocompleterComponent {
   @Input() data: any[];
   @Output() filterEntityList = new EventEmitter();
 
-  faFilter = faFilter;
-  faSearch = faSearch;
   results: any[];
   // dataToReturn: any[];
   query = new FormControl();

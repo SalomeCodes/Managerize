@@ -18,7 +18,6 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatStepperModule } from '@angular/material/stepper';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { CustomerDetailsComponent } from './customer-details/customer-details.component';
@@ -55,8 +54,7 @@ import { TestComponent } from './test/test.component';
     MatCheckboxModule,
     MatTooltipModule,
     MatStepperModule,
-    MatSnackBarModule,
-    FontAwesomeModule
+    MatSnackBarModule
   ],
   exports: [
     

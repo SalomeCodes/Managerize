@@ -5,7 +5,6 @@ import { Invoice } from 'src/app/models/Invoice';
 import { Customer } from 'src/app/models/Customer';
 import { InvoiceLine } from 'src/app/models/InvoiceLine';
 import { CurrencyPipe } from '@angular/common';
-import { faFilePdf } from '@fortawesome/free-solid-svg-icons';
 
 pdfMake.vfs = pdfFonts.pdfMake.vfs;
 
@@ -15,8 +14,6 @@ pdfMake.vfs = pdfFonts.pdfMake.vfs;
   styleUrls: ['./pdfmaker.component.scss']
 })
 export class PdfmakerComponent {
-  faFilePdf = faFilePdf;
-
   @Input() invoice: Invoice;
   @Input() buttonText: string;
 

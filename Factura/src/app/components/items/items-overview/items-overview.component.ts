@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { faFilter, faSearch, faEuroSign } from '@fortawesome/free-solid-svg-icons';
 import { Item } from 'src/app/models/Item';
 import { ItemsService } from 'src/app/services/items.service';
 
@@ -12,9 +11,6 @@ import { ItemsService } from 'src/app/services/items.service';
   ]
 })
 export class ItemsOverviewComponent implements OnInit {
-  faEuroSign = faEuroSign;
-  faFilter = faFilter;
-  faSearch = faSearch;
 
   items: Item[] = [];
   itemsPerPage: Item[] = []; 

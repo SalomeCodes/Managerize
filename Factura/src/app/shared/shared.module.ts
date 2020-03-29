@@ -25,7 +25,6 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { PdfmakerComponent } from './pdfmaker/pdfmaker.component';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { CustomerService } from '../services/customer.service';
 import { InvoicesService } from '../services/invoices.service';
 import { ItemsService } from '../services/items.service';
@@ -62,8 +61,6 @@ import { ItemsService } from '../services/items.service';
     MatCheckboxModule,
     MatTooltipModule,
     MatStepperModule,
-
-    FontAwesomeModule,
 
     LayoutModule,
 
