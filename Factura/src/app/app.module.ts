@@ -34,6 +34,9 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatStepperModule } from '@angular/material/stepper';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { ContentLayoutComponent } from './layout/content-layout/content-layout.component';
+import { CustomerService } from './services/customer.service';
+import { InvoicesService } from './services/invoices.service';
+import { ItemsService } from './services/items.service';
 
 registerLocaleData(localeNl, 'nl');
 
@@ -78,7 +81,10 @@ registerLocaleData(localeNl, 'nl');
     MatStepperModule,
   ],
   providers: [
-    {provide: LOCALE_ID, useValue: 'nl-NL'}
+    {provide: LOCALE_ID, useValue: 'nl-NL'},
+    CustomerService,
+    InvoicesService,
+    ItemsService
   ],
   bootstrap: [AppComponent]
 })

@@ -26,6 +26,9 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { PdfmakerComponent } from './pdfmaker/pdfmaker.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { CustomerService } from '../services/customer.service';
+import { InvoicesService } from '../services/invoices.service';
+import { ItemsService } from '../services/items.service';
 
 
 @NgModule({
@@ -35,7 +38,10 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
   ],
   providers: [
     CurrencyPipe,
-    DatePipe
+    DatePipe,
+    CustomerService,
+    InvoicesService,
+    ItemsService
   ],
   imports: [
     CommonModule,

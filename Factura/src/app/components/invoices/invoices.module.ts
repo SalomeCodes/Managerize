@@ -32,6 +32,9 @@ import { InvoiceCreateService } from './invoice-create/invoice-create.service';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { SearchInvoiceComponent } from './invoices-overview/search-invoice/search-invoice.component';
 import { MatNativeDateModule } from '@angular/material/core';
+import { ItemsService } from 'src/app/services/items.service';
+import { CustomerService } from 'src/app/services/customer.service';
+import { InvoicesService } from 'src/app/services/invoices.service';
 
 @NgModule({
   declarations: [
@@ -77,7 +80,10 @@ import { MatNativeDateModule } from '@angular/material/core';
     ItemAddedComponent
   ],
   providers: [
-    InvoiceCreateService
+    InvoiceCreateService,
+    InvoicesService,
+    ItemsService,
+    CustomerService
   ]
 })
 export class InvoicesModule { }

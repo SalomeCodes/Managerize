@@ -20,6 +20,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { ItemsService } from 'src/app/services/items.service';
 
 @NgModule({
   declarations: [
@@ -48,6 +49,9 @@ import { RouterModule } from '@angular/router';
     MatStepperModule,
     MatSnackBarModule,
     FontAwesomeModule
+  ],
+  providers: [
+    ItemsService
   ]
 })
 export class ItemsModule { }
