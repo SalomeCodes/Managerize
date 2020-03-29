@@ -8,6 +8,7 @@ import { ItemCreateComponent } from './components/items/item-create/item-create.
 import { ItemsOverviewComponent } from './components/items/items-overview/items-overview.component';
 import { HomeComponent } from './components/home/home.component';
 import { ContentLayoutComponent } from './layout/content-layout/content-layout.component';
+import { TestComponent } from './components/customers/test/test.component';
 
 const routes: Routes = [
   { 
@@ -20,7 +21,8 @@ const routes: Routes = [
       { path: 'customers', component: CustomersOverviewComponent },
       { path: 'customers/create', component: CustomerCreateComponent },
       { path: 'items', component: ItemsOverviewComponent },
-      { path: 'items/create', component: ItemCreateComponent }
+      { path: 'items/create', component: ItemCreateComponent },
+      { path: 'test', component: TestComponent }
     ]
   },
 ];

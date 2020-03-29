@@ -23,12 +23,13 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { CustomerDetailsComponent } from './customer-details/customer-details.component';
 import { CustomerService } from 'src/app/services/customer.service';
+import { TestComponent } from './test/test.component';
 
 
 @NgModule({
   declarations: [
     CustomersOverviewComponent, 
-    CustomerCreateComponent, CustomerDetailsComponent
+    CustomerCreateComponent, CustomerDetailsComponent, TestComponent
   ],
   providers: [
     CustomerService
