@@ -23,7 +23,7 @@ namespace InvoiceService
 
             services.AddHttpsRedirection(option =>
             {
-                option.HttpsPort = 4001;
+                option.HttpsPort = 4002;
             });
 
             services.AddControllers();
