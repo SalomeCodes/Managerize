@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: factura-deployment
+  labels:
+    app: factura
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: factura
+  template:
+    metadata:
+      labels:
+        app: factura
+    spec:
+      containers:
+      - name: factura
+        image: salomedev/factura:116
+        ports:
+        - containerPort: 80
+        env:
+        - name: INVOICE_SERVICE_ENDPOINT
+          value: "http://173.212.252.61:4001"
