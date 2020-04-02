@@ -33,7 +33,7 @@ spec:
       containers:
       - name: factura
         image: salomedev/factura:115
-		ports:
+	ports:
         - containerPort: 80
         env:
         - name: INVOICE_SERVICE_ENDPOINT
