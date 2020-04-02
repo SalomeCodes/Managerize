@@ -19,9 +19,9 @@ metadata:
 spec:
   selector:
     matchLabels:
-      app: factura
-      tier: frontend
-      track: stable
+	app: factura
+	tier: frontend
+	track: stable
   replicas: 1
   template:
     metadata:
