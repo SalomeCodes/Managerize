@@ -1,23 +1,39 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: factura-service
+spec:
+  selector:
+    app: factura
+    tier: frontend
+  ports:
+  - protocol: "TCP"
+    port: 80
+    targetPort: 80
+  type: NodePort
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: factura-deployment
-  labels:
-    app: factura
 spec:
-  replicas: 1
   selector:
     matchLabels:
       app: factura
+      tier: frontend
+      track: stable
+  replicas: 1
   template:
     metadata:
       labels:
         app: factura
+        tier: frontend
+        track: stable
     spec:
       containers:
       - name: factura
-        image: salomedev/factura:116
-        ports:
+        image: salomedev/factura:115
+		ports:
         - containerPort: 80
         env:
         - name: INVOICE_SERVICE_ENDPOINT
