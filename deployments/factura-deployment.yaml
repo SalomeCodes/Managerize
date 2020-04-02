@@ -19,9 +19,9 @@ metadata:
 spec:
   selector:
     matchLabels:
-	app: factura
-	tier: frontend
-	track: stable
+      app: factura
+      tier: frontend
+      track: stable
   replicas: 1
   template:
     metadata:
@@ -33,7 +33,7 @@ spec:
       containers:
       - name: factura
         image: salomedev/factura:115
-	ports:
+        ports:
         - containerPort: 80
         env:
         - name: INVOICE_SERVICE_ENDPOINT
