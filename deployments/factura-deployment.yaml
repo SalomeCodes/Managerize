@@ -1,50 +1,47 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: factura
+  name: factura-deployment
 spec:
   selector:
     matchLabels:
-      app: factura
+      app: factura-app
   replicas: 1
   template:
     metadata:
       labels:
-        app: factura
+        app: factura-app
     spec:
       containers:
       - name: factura
         image: salomedev/factura:115
         ports:
         - containerPort: 80
-        env:
-        - name: INVOICE_SERVICE_ENDPOINT
-          value: "http://173.212.252.61:4001"
 ---
 apiVersion: v1
 kind: Service
 metadata:
   labels:
-    app: factura
-  name: factura
+    app: factura-app
+  name: factura-svc
   namespace: default
 spec:
   type: NodePort
   ports:
     - port: 80
   selector:
-    app: factura
+    app: factura-app
 
 ---
 apiVersion: networking.k8s.io/v1beta1
 kind: Ingress
 metadata:
-  name: managerize-ingress
+  name: facturasvc-ingress
 spec:
   rules:
-  - host: daphneprojects.online
+  - host: factura.daphneprojects.online
     http:
       paths:
       - backend:
-          serviceName: factura
+          serviceName: factura-svc
           servicePort: 80
