@@ -13,7 +13,9 @@ spec:
         app: factura-app
     spec:
       containers:
-      - name: factura
+      - args: 
+        - "--report-node-internal-ip-address=true"
+        name: factura
         image: salomedev/factura:115
         ports:
         - containerPort: 80
