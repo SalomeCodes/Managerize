@@ -3,8 +3,9 @@ kind: Service
 metadata:
   name: factura
 spec:
+  type: LoadBalancer
   ports:
-  - port: 80
+    - port: 80
   selector:
     app: factura
 ---
@@ -30,17 +31,3 @@ spec:
         env:
         - name: INVOICE_SERVICE_ENDPOINT
           value: "http://173.212.252.61:4001"
----
-apiVersion: networking.k8s.io/v1beta1
-kind: Ingress
-metadata:
-  name: managerize-ingress
-spec:
-  rules:
-    - host: daphneprojects.online
-      http:
-        paths:
-          - path: /(.*)
-            backend:
-              serviceName: factura
-              servicePort: 80
