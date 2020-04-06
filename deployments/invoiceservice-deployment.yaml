@@ -17,6 +17,9 @@ spec:
         image: salomedev/invoice-service:63
         ports:
         - containerPort: 80
+        env:
+          - name: MANAGERIZE_INVOICE_SERVICE_DB
+            value: "localhost"
 ---
 apiVersion: v1
 kind: Service
