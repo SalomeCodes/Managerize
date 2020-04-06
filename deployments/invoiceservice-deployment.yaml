@@ -24,6 +24,9 @@ metadata:
   labels:
     app: invoicesvc-app
   name: invoicesvc-svc
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    certmanager.k8s.io/cluster-issuer: letsencrypt-staging
   namespace: default
 spec:
   type: NodePort
@@ -38,6 +41,10 @@ kind: Ingress
 metadata:
   name: managerize-ingress
 spec:
+  tls:
+  - hosts:
+    - invoiceservice.daphneprojects.online
+    secretName: invoiceservice-crt
   rules:
   - host: invoiceservice.daphneprojects.online
     http:
