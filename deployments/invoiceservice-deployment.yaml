@@ -51,14 +51,14 @@ spec:
     - factura.daphneprojects.online
     secretName: managerize-crt
   rules:
-  - host: invoiceservice.daphneprojects.online
-    http:
+    - http:
+      host: invoiceservice.daphneprojects.online
       paths:
       - backend:
           serviceName: invoicesvc-svc
           servicePort: 80
-  - host: factura.daphneprojects.online
-    http:
+    - http:
+      host: factura.daphneprojects.online
       paths:
       - backend:
           serviceName: factura-svc
