@@ -54,6 +54,12 @@ spec:
   - host: invoiceservice.daphneprojects.online
     http:
       paths:
-      - backend:
+        backend:
           serviceName: invoicesvc-svc
+          servicePort: 80
+  - host: factura.daphneprojects.online
+    http:
+      paths:
+        backend:
+          serviceName: factura-svc
           servicePort: 80
