@@ -46,8 +46,10 @@ metadata:
 spec:
   tls:
   - hosts:
+    - daphneprojects.online
     - invoiceservice.daphneprojects.online
-    secretName: invoiceservice-crt
+    - factura.daphneprojects.online
+    secretName: managerize-crt
   rules:
   - host: invoiceservice.daphneprojects.online
     http:
