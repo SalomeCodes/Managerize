@@ -84,7 +84,7 @@
                                     </div>
                                 </div>
                                 <div *ngIf="!inv.datePayed" class="invoice-header-payment-details red">
-                                    Nog te betalen: {{inv.totalPrice - inv?.payedAmount | currency :'EUR'}}
+                                    Nog te betalen: {{(inv.totalPrice * 0.21) - inv?.payedAmount | currency :'EUR'}}
                                 </div>
                                 <div *ngIf="inv.datePayed" class="invoice-header-payment-details green">
                                     Betaald op: {{inv.datePayed | date :'dd-MM-yyyy'}}

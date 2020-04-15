@@ -66,6 +66,13 @@ export class InvoiceCreateComponent implements OnInit {
   createInvoice() {
     this.invoiceService.addIvoice(this.invoice).subscribe(resp => {
       this.invoice.invoiceNumber = resp;
+      this.router.navigateByUrl("/invoices");
+    });
+  }
+
+  createInvoiceAndPdf() {
+    this.invoiceService.addIvoice(this.invoice).subscribe(resp => {
+      this.invoice.invoiceNumber = resp;
       this.pdfMaker.generateInvoicePdf();
       this.router.navigateByUrl("/invoices");
     });

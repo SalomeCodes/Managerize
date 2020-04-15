@@ -46,7 +46,7 @@
         <button mat-stroked-button color="primary" matStepperPrevious>Annuleren</button>
         <div>
           <button mat-raised-button color="primary" style="margin-right: 10px;" (click)="createInvoice()">Opslaan</button>
-          <app-pdfmaker (click)="createInvoice()" [invoice]="invoice" [buttonText]="'Opslaan en printen'"></app-pdfmaker>
+          <app-pdfmaker (click)="createInvoiceAndPdf()" [invoice]="invoice" [buttonText]="'Opslaan en printen'"></app-pdfmaker>
         </div>
       </div>
     </form>
