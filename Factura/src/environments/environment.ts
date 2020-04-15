@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  INVOICE_SERVICE_ENDPOINT: window["env"]["INVOICE_SERVICE_ENDPOINT"] || "default",
+  INVOICE_SERVICE_ENDPOINT: "localhost:57304",
   debug: window["env"]["debug"] || false
 };
 

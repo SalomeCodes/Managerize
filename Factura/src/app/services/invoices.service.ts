@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AppSettings } from '../app-settings';
-import { HttpClient, HttpParams, HttpRequest } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Invoice } from '../models/Invoice';
 import { DatePipe } from '@angular/common';
@@ -11,7 +11,6 @@ const httpOptions = AppSettings.INVOICE_SERVICE_HEADER;
   providedIn: 'root'
 })
 export class InvoicesService {
-
   private baseUrl: string = AppSettings.INVOICE_SERVICE_ENDPOINT;
   private invoicesUrl: string = '/invoices';
   private standarUrl: string = this.baseUrl + this.invoicesUrl;

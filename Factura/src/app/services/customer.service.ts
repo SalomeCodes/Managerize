@@ -6,7 +6,6 @@ import { HttpClient } from '@angular/common/http';
 
 const httpOptions = AppSettings.INVOICE_SERVICE_HEADER;
 
-
 @Injectable({
   providedIn: 'root'
 })
