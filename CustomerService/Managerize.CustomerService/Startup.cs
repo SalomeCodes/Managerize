@@ -40,11 +40,11 @@ namespace Managerize.CustomerService
 
             app.UseCors(c => c.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
 
-            IEventProducer producer = new EventProducer();
-            producer.ProduceEvent();
+            //IEventProducer producer = new EventProducer();
+            //producer.ProduceEvent();
 
-            IEventConsumer consumer = new EventConsumer();
-            var msg = consumer.ConsumeEvent();
+            //IEventConsumer consumer = new EventConsumer();
+            //var msg = consumer.ConsumeEvent();
 
             app.UseEndpoints(endpoints =>
             {
@@ -52,7 +52,7 @@ namespace Managerize.CustomerService
 
                 endpoints.MapGet("/", async context =>
                 {
-                    await context.Response.WriteAsync("Managerize - Customer service" + "Consumed event message is: " + msg);
+                    await context.Response.WriteAsync("Managerize - Customer service" + "Consumed event message is: " );
                 });
             });
         }

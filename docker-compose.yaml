@@ -19,7 +19,7 @@ services:
       MANAGERIZE_INVOICE_SERVICE_DB: 'Server=invoiceservice-db;Initial Catalog=InvoiceServiceDb;User ID=sa;Password=Your(!)Strongpassword'
 
   customerservice:
-    image: salomedev/customer-service:1
+    image: salomedev/customer-service:2
     container_name: managerize-customerservice
     ports:
       - "57303:80"
@@ -30,6 +30,6 @@ services:
     image: salomedev/factura:116
     container_name: managerize-factura
     ports:
-      - "80:80"
+      - "801:80"
     environment:
       INVOICE_SERVICE_ENDPOINT: 'invoice-service'
