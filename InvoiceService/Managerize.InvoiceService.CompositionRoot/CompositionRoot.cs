@@ -12,7 +12,6 @@ namespace Managerize.InvoiceService.CompositionRoot
         {
             //services.AddControllers();
             services.AddTransient<InvoiceContext>()
-                .AddEntityFrameworkSqlServer()
                 .AddDbContext<InvoiceContext>(options => options.UseSqlServer(Environment.GetEnvironmentVariable("MANAGERIZE_INVOICE_SERVICE_DB")));
             
             services.AddTransient<InvoicesService>();

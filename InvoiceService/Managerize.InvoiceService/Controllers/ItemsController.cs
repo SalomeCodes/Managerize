@@ -28,5 +28,11 @@ namespace Managerize.InvoiceService.Controllers
         {
             _itemsService.AddItem(item);
         }
+
+        [HttpPut]
+        public void Put(Item item)
+        {
+            _itemsService.UpdateItem(item);
+        }
     }
 }

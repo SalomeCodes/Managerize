@@ -45,6 +45,14 @@ namespace Managerize.InvoiceService.DAL
                 .ToList();
         }
 
+        public void AddPayment(Invoice invoice)
+        {
+            var inv = _invoiceContext.Invoices.Find(invoice);
+            inv.PayedAmount = invoice.PayedAmount;
+            _invoiceContext.Update(inv);
+            _invoiceContext.SaveChanges();
+        }
+
         public int CreateInvoice(Invoice invoice)
         {
             _invoiceContext.Customers.Attach(invoice.Customer);

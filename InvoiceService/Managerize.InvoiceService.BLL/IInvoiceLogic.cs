@@ -10,5 +10,6 @@ namespace Managerize.InvoiceService.BLL
         public List<Invoice> ReadInvoices();
         public List<Invoice> ReadInvoicesPerMonth(DateTime dateTime);
         public List<Invoice> ReadInvoicesOnPaymentStatus(bool isPayed);
+        public void AddPayment(Invoice invoice);
     }
 }

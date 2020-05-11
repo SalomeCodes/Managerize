@@ -42,5 +42,12 @@ namespace InvoiceService.Controllers
         {
             return _managerizeInvoiceService.ReadInvoicesOnPaymentStatus(isPayed);
         }
+
+        [HttpPut]
+        [Route("payment")]
+        public void AddPaymentOnInvoice(Invoice invoice)
+        {
+            _managerizeInvoiceService.AddPayment(invoice);
+        }
     }
 }

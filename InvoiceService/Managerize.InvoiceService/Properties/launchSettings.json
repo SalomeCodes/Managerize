@@ -23,6 +23,7 @@
       "launchBrowser": true,
       "launchUrl": "weatherforecast",
       "environmentVariables": {
+        "MANAGERIZE_INVOICE_SERVICE_DB": "Server=173.212.252.62;Database=InvoiceServiceDb;User ID=sa;Password=Managerize94!",
         "ASPNETCORE_ENVIRONMENT": "Development"
       },
       "applicationUrl": "http://localhost:5000"
@@ -31,6 +32,9 @@
       "commandName": "Docker",
       "launchBrowser": true,
       "launchUrl": "{Scheme}://{ServiceHost}:{ServicePort}/invoices",
+      "environmentVariables": {
+        "MANAGERIZE_INVOICE_SERVICE_DB": "Server=173.212.252.62;Database=InvoiceServiceDb;User ID=sa;Password=Managerize94!"
+      },
       "publishAllPorts": true,
       "useSSL": true
     }

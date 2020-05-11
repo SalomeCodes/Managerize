@@ -25,6 +25,13 @@ namespace Managerize.InvoiceService.DAL
                 i.HasIndex(n => n.InvoiceNumber).IsUnique();
                 i.Property(n => n.InvoiceNumber).UseIdentityColumn(1000, 1);
             });
+            modelBuilder.Entity<Item>(i =>
+            {
+                i.HasIndex(n => n.Id).IsUnique();
+                i.Property(n => n.Description).IsConcurrencyToken();
+                i.Property(n => n.Price).IsConcurrencyToken();
+                i.Property(n => n.Name).IsConcurrencyToken();
+            });
         }
 
         public DbSet<Invoice> Invoices { get; set; }

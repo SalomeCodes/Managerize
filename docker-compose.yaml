@@ -18,9 +18,17 @@ services:
     environment: 
       MANAGERIZE_INVOICE_SERVICE_DB: 'Server=invoiceservice-db;Initial Catalog=InvoiceServiceDb;User ID=sa;Password=Your(!)Strongpassword'
 
+  customerservice:
+    image: salomedev/customer-service:1
+    container_name: managerize-customerservice
+    ports:
+      - "57303:80"
+    environment: 
+      MANAGERIZE_CUSTOMER_SERVICE_DB: 'Server=invoiceservice-db;Initial Catalog=CustomerServiceDb;User ID=sa;Password=Your(!)Strongpassword'
+
   factura:
+    image: salomedev/factura:116
     container_name: managerize-factura
-    build: . 
     ports:
       - "80:80"
     environment:

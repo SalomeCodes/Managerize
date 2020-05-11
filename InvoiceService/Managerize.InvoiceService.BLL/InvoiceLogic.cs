@@ -31,5 +31,10 @@ namespace Managerize.InvoiceService.BLL
         {
             return _invoicesService.ReadInvoicesOnPaymentStatus(isPayed);
         }
+
+        public void AddPayment(Invoice invoice)
+        {
+            _invoicesService.AddPayment(invoice);
+        }
     }
 }
