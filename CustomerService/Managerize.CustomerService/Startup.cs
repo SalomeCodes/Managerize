@@ -20,7 +20,6 @@ namespace Managerize.CustomerService
 
             services.AddCors();
 
-
             services.AddTransient<CustomersContext>()
                 .AddDbContext<CustomersContext>(options => options.UseSqlServer(Environment.GetEnvironmentVariable("MANAGERIZE_CUSTOMER_SERVICE_DB")));
             services.AddTransient<ICustomersService, CustomersService>();
