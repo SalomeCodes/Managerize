@@ -1,21 +1,19 @@
-version: "3"
-services:
-  your_app:
-    depends_on:
-      - your_app-letsencrypt
-  your_app-letsencrypt:
-    image: linuxserver/letsencrypt
-    container_name: your_app-letsencrypt
-    ports:
-      - 80:80
-      - 443:443
-    volumes:
-      - ./config/letsencrypt:/config
+version: '3'
+services: 
+  wegister-db:
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    container_name: wegister-db
+    restart: always
     environment:
-      - EMAIL=you+letsencrypt@yourapp.com
-      - URL=yourapp.com
-      - SUBDOMAINS=www,api
-      - VALIDATION=http
-      - TZ=Europe/Stockholm
-      - PUID=0
-      - PGID=0
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=Your(!)Strongpassword
+    ports:
+      - "1433:1433"
+
+  wegister:
+    image: salomedev/wegister:1
+    container_name: wegister
+    ports:
+      - "57304:80"
+    environment: 
+      WEGISTERDB_CONNECTIONSTRING: 'Server=wegister-db;Initial Catalog=InvoiceServiceDb;User ID=sa;Password=Your(!)Strongpassword'

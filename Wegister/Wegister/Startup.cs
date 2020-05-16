@@ -71,7 +71,6 @@ namespace Wegister
             }
 
             app.UseHttpsRedirection();
-
             app.UseRouting();
 
             app.UseAuthentication();

@@ -21,7 +21,7 @@
     "Wegister": {
       "commandName": "Project",
       "launchBrowser": true,
-      "launchUrl": "weatherforecast",
+      "launchUrl": "workedhours",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       },

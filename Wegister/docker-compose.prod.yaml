@@ -1,21 +1,10 @@
 version: "3"
 services:
-  your_app:
-    depends_on:
-      - your_app-letsencrypt
-  your_app-letsencrypt:
-    image: linuxserver/letsencrypt
-    container_name: your_app-letsencrypt
+
+  wegister:
+    image: salomedev/wegister:1
+    container_name: wegister
     ports:
-      - 80:80
-      - 443:443
-    volumes:
-      - ./config/letsencrypt:/config
-    environment:
-      - EMAIL=you+letsencrypt@yourapp.com
-      - URL=yourapp.com
-      - SUBDOMAINS=www,api
-      - VALIDATION=http
-      - TZ=Europe/Stockholm
-      - PUID=0
-      - PGID=0
+      - "57304:80"
+    environment: 
+      WEGISTERDB_CONNECTIONSTRING: 'Server=173.212.252.62;Initial Catalog=WegisterDb;User ID=sa;Password=Managerize94!'
